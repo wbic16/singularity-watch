@@ -8,19 +8,98 @@ body {
   color: white;
   font-family: arial, sans-serif;
 }
+.node,
+.editor {
+  width: 250px;
+  height: 70px;
+  border: 3px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.45s;
+  position: relative;
+  padding-top: 40px;
+}
+.editor {
+  padding-top: 15px;
+  padding-bottom: 25px;
+  scale: 1.2;
+}
+.node:hover,
+.editor:hover {
+  background-color: orangered;
+  color: black;
+}
+.node .year {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  font-size: 0.8em;
+  font-style: italic;
+}
 </style>
 </head>
 <body onLoad="onLoad();"">
 <h1>2024: The Year We Make Contact</h1>
 <div id="phext">
+
 </div>
 <script type="text/javascript">
 var phext = false;
+function createTechNode(id, name, year, parent) {
+  var node = {
+    "id": id,
+    "name": name,
+    "year": year,
+    "parent": parent
+  };
+  nodes[id] = node;
+  return node;
+}
+
+var nodes = Array();
+var root = createTechNode("1.1.1/1.1.1/1.1.1", "Fire", -10000, "root");
+
 function dgid(id) {
   return document.getElementById(id);
 }
+
 function onLoad() {
   phext = dgid("phext");
+
+  phext.innerHTML = renderNode(root);
+}
+
+function renderNode(node) {
+  if (!node.id) {
+    node = nodes[node];
+  }
+  return "<div id='" + node.id + "' class='node' onclick='dataEntry(this);'>" + node.name + "<div class='year'>" + node.year + "</div></div>\n";
+}
+
+function buildNode(id) {
+  var node = nodes[id];
+  var data_name = dgid('data_name');
+  var data_year = dgid('data_year');
+  node.name = data_name.value;
+  node.year = data_year.value;
+  nodes[node.id] = node;
+  if (node.id) {
+    phext.innerHTML = renderNode(node);
+  }
+}
+
+function dataEntry(element) {
+  var self = element.id;
+  var node = nodes[self];
+  phext.innerHTML = "<div id='" + self + "' class='editor'>" +
+    "<table><tr><th>Name:</th><td><input type='text' id='data_name' value='" + node.name + "' /></td></tr>" +
+    "<tr><th>Year:</th><td><input type='text' id='data_year' value='" + node.year + "' /></td></tr>" +
+    "<tr><td colspan='2'><input type='button' value='save' onclick='buildNode(\"" + self + "\");' /></td></tr></table>" +
+    "</div>";
 }
 </script>
 </body>
