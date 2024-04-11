@@ -10,7 +10,18 @@ body {
 }
 </style>
 </head>
-<body>
+<body onLoad="onLoad();"">
 <h1>2024: The Year We Make Contact</h1>
+<div id="phext">
+</div>
+<script type="text/javascript">
+var phext = false;
+function dgid(id) {
+  return document.getElementById(id);
+}
+function onLoad() {
+  phext = dgid("phext");
+}
+</script>
 </body>
 </html>
