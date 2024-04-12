@@ -22,6 +22,8 @@ body {
   transition: all 0.45s;
   position: relative;
   padding-top: 40px;
+  float: left;
+  margin-right: 20px;
 }
 .editor {
   padding-top: 15px;
@@ -61,7 +63,8 @@ function createTechNode(id, name, year, parent) {
 }
 
 var nodes = Array();
-var root = createTechNode("1.1.1/1.1.1/1.1.1", "Fire", -10000, "root");
+var fire = createTechNode("1.1.1/1.1.1/1.1.1", "Fire", -10000, "root");
+var wheel = createTechNode("1.1.1/1.1.1/1.1.2", "Wheel", -9900, "root");
 
 function dgid(id) {
   return document.getElementById(id);
@@ -70,7 +73,9 @@ function dgid(id) {
 function onLoad() {
   phext = dgid("phext");
 
-  phext.innerHTML = renderNode(root);
+  var output = renderNode(fire);
+  output += renderNode(wheel);
+  phext.innerHTML = output;
 }
 
 function renderNode(node) {
@@ -87,6 +92,12 @@ function buildNode(id) {
   node.name = data_name.value;
   node.year = data_year.value;
   nodes[node.id] = node;
+
+  restoreNode(id);
+}
+
+function restoreNode(id) {
+  var node = nodes[id];
   if (node.id) {
     phext.innerHTML = renderNode(node);
   }
@@ -98,7 +109,10 @@ function dataEntry(element) {
   phext.innerHTML = "<div id='" + self + "' class='editor'>" +
     "<table><tr><th>Name:</th><td><input type='text' id='data_name' value='" + node.name + "' /></td></tr>" +
     "<tr><th>Year:</th><td><input type='text' id='data_year' value='" + node.year + "' /></td></tr>" +
-    "<tr><td colspan='2'><input type='button' value='save' onclick='buildNode(\"" + self + "\");' /></td></tr></table>" +
+    "<tr><td colspan='2'>" +
+    "<input type='button' value='save' onclick='buildNode(\"" + self + "\");' />" +
+    "<input type='button' value='cancel' onclick='restoreNode(\"" + self + "\");' />" +
+    "</td></tr></table>" +
     "</div>";
 }
 </script>
