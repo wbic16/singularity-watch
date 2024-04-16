@@ -1,0 +1,226 @@
+<html>
+<head>
+<title>Bickford Time Processor</title>
+<style type="text/css">
+body {
+  padding: 40px;
+  background-color: black;
+  color: white;
+  font-family: arial, sans-serif;
+  font-size: 2em;
+}
+.node,
+.editor {
+  width: 250px;
+  height: 70px;
+  border: 3px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.45s;
+  position: relative;
+  padding-top: 40px;
+  float: left;
+  margin-right: 20px;
+}
+.node:hover {
+  background-color: orangered;
+  color: black;
+}
+h1 {
+  font-size: 1em;
+}
+th, td {
+  padding: 20px;
+  margin: 0;
+  vertical-align: top;
+}
+textarea {
+  overflow-y: scroll;
+}
+</style>
+</head>
+<body onLoad="onLoad();">
+<h1>BTP: Bickford Time Processor</h1>
+<div id="phext">
+  <table>
+    <tr>
+      <td>
+  <table>
+    <tr>
+      <th>Clock (ms):</th>
+      <td>
+        <input type="text" id="clock" name="clock" value="1000" size="4" />
+        <input type="button" id="pause" name="pause" value="Pause" onclick="togglePaused();" />
+      </td>
+    </tr>
+    <tr>
+      <th>Instruction</th>
+      <td>
+        <input type="text" id="instruction" value="hello, world" size="20" />
+      </td>
+    </tr>
+    <tr>
+      <th>Registers</th>
+      <td>
+        R0: <input type="text" id="r0" value="0" size="4" /><br />
+        R1: <input type="text" id="r1" value="0" size="4" /><br />
+        R2: <input type="text" id="r2" value="0" size="4" /><br />
+        R3: <input type="text" id="r3" value="0" size="4" /><br />
+        R4: <input type="text" id="r4" value="0" size="4" /><br />
+        R5: <input type="text" id="r5" value="0" size="4" /><br />
+        R6: <input type="text" id="r6" value="0" size="4" /><br />
+        R7: <input type="text" id="r7" value="0" size="4" />
+      </td>
+    </tr>
+    <tr>
+      <th>Input</th>
+      <td>
+        <input type="text" id="input" value="" size="20" />
+      </td>
+    </tr>
+    <tr>
+      <th>Output</th>
+      <td>
+        <textarea name="output" id="output" rows="20" cols="110"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <th>Cache</th>
+      <td><textarea name="cache" id="cache" rows="20" cols="110"></textarea></td>
+    </tr>
+  </table>
+</td>
+<td>
+  <table>
+    <tr>
+      <th>Subspace</th>
+      <td>
+        <textarea name="subspace" id="subspace" rows="100" cols="110"></textarea>
+      </td>
+    </tr>
+  </table>
+</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript">
+var phext = false;
+var pause = false;
+var paused = false;
+var instruction = false;
+var r0 = false;
+var r1 = false;
+var r2 = false;
+var r3 = false;
+var r4 = false;
+var r5 = false;
+var r6 = false;
+var r7 = false;
+var input = false;
+var output = false;
+var cache = false;
+var subspace = false;
+var clockCycle = 1000;
+var blocks = "";
+var instructions = "";
+var registers = "";
+
+const SCROLL_BREAK     = '\x17'; // 3rd
+const SECTION_BREAK    = '\x18'; // 4th
+const CHAPTER_BREAK    = '\x19'; // 5th
+const BOOK_BREAK       = '\x1A'; // 6th
+const VOLUME_BREAK     = '\x1C'; // 7th
+const COLLECTION_BREAK = '\x1D'; // 8th
+const SERIES_BREAK     = '\x1E'; // 9th
+const SHELF_BREAK      = '\x1F'; // 10th
+const LIBRARY_BREAK    = '\x01'; // 11th
+
+// --------------------------------------------------------------------
+// @fn dgid
+// --------------------------------------------------------------------
+function dgid(id) {
+  return document.getElementById(id);
+}
+
+// --------------------------------------------------------------------
+// @fn togglePaused
+// --------------------------------------------------------------------
+function togglePaused() {
+  paused = !paused;
+  if (paused == false) {
+    btpCycle();
+  }
+  pause.value = paused ? "Run" : "Pause";
+}
+
+// --------------------------------------------------------------------
+// @fn onLoad
+// --------------------------------------------------------------------
+function onLoad() {
+  phext = dgid("phext");
+  pause = dgid("pause");
+  clock = dgid("clock");
+  instruction = dgid("instruction");
+  r0 = dgid("r0");
+  r1 = dgid("r1");
+  r2 = dgid("r2");
+  r3 = dgid("r3");
+  r4 = dgid("r4");
+  r5 = dgid("r5");
+  r6 = dgid("r6");
+  r7 = dgid("r7");
+  input = dgid("input");
+  output = dgid("output");
+  cache = dgid("cache");
+  subspace = dgid("subspace");
+
+  btpCycle();
+}
+
+// --------------------------------------------------------------------
+// @fn btpCycle
+// --------------------------------------------------------------------
+function btpCycle() {
+  const timeout = clock.value;
+  blocks += instruction.value;
+  blocks += SCROLL_BREAK;
+  blocks += paused;
+  blocks += SCROLL_BREAK;
+  blocks += SECTION_BREAK;
+  blocks += r0.value;
+  blocks += SCROLL_BREAK;
+  blocks += r1.value;
+  blocks += SCROLL_BREAK;
+  blocks += r2.value
+  blocks += SCROLL_BREAK;
+  blocks += r3.value
+  blocks += SCROLL_BREAK;
+  blocks += r4.value
+  blocks += SCROLL_BREAK;
+  blocks += r5.value
+  blocks += SCROLL_BREAK;
+  blocks += r6.value
+  blocks += SCROLL_BREAK;
+  blocks += r7.value;
+  blocks += SECTION_BREAK;
+  blocks += input.value;
+  blocks += SCROLL_BREAK;
+  blocks += output.value;
+  blocks += SCROLL_BREAK;
+  blocks += cache.value;
+  blocks += "\n";
+  blocks += CHAPTER_BREAK;
+  subspace.innerHTML = blocks;
+
+  if (paused == false) {
+    setTimeout(btpCycle, timeout);
+  }
+}
+
+</script>
+</body>
+</html>

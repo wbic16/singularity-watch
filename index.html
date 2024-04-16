@@ -44,14 +44,15 @@ body {
 }
 </style>
 </head>
-<body onLoad="onLoad();"">
+<body onLoad="onLoad();">
 <h1>2024: The Year We Make Contact</h1>
 <div id="phext">
 
 </div>
 <script type="text/javascript">
 var phext = false;
-function createTechNode(id, name, year, parent) {
+// createTechNode
+function c14n(id, name, year, parent) {
   var node = {
     "id": id,
     "name": name,
@@ -63,9 +64,11 @@ function createTechNode(id, name, year, parent) {
 }
 
 var nodes = Array();
-createTechNode("1.1.1/1.1.1/1.1.1", "HandAxe", -2600000, "root");
-createTechNode("1.1.1/1.1.1/1.1.2", "Fire", -2000000, "root");
-createTechNode("1.1.1/1.1.1/1.1.3", "Wheel", -6000, "root");
+var subspace = "HandAxe:-2600000Fire:-2000000Boat:-8200Wheel:-6000"
+c14n("1.1.1/1.1.1/1.1.1", "HandAxe", -2600000, "root");
+c14n("1.1.1/1.1.1/1.1.2", "Fire", -2000000, "root");
+c14n("1.1.1/1.1.1/1.1.3", "Boat", -8200, "root");
+c14n("1.1.1/1.1.1/1.1.4", "Wheel", -6000, "root");
 
 function dgid(id) {
   return document.getElementById(id);

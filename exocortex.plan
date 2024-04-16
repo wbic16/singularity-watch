@@ -1,0 +1,20 @@
+The Phext Roadmap 
+-----------------
+- Bickford Time Processor
+  - Instruction Stream
+  - Register Stream
+  - Input Stream
+  - Output Stream
+  - Cache Stream
+- Phext-Based Tooling
+  - Terminal / Console
+  - Editor (Phext Notepad)
+  - Clipboard
+  - Repo
+  - Web
+  - Hierarchical Compiler
+  - Subspace Transfers (hello-phext rust api)
+  - DAG Explorer (Zoomable)
+  - Nova Fox (Game)
+  - Neuron Compute Nodes
+  
