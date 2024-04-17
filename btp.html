@@ -61,19 +61,47 @@ textarea {
       <th>Instruction</th>
       <td>
         <input type="text" id="instruction" value="hello, world" size="20" />
+        <input type="button" onclick="instruction.value='ask a question';" value="C1" />
+        <input type="button" onclick="instruction.value='think a moment';" value="C2" />
+        <input type="button" onclick="instruction.value='act and affirm';" value="C3" />
+        <input type="button" onclick="instruction.value='defend and honor';" value="C4" />
+        <input type="button" onclick="instruction.value='';" value="Clear" />
       </td>
     </tr>
     <tr>
       <th>Registers</th>
       <td>
-        R0: <input type="text" id="r0" value="0" size="4" /><br />
-        R1: <input type="text" id="r1" value="0" size="4" /><br />
-        R2: <input type="text" id="r2" value="0" size="4" /><br />
-        R3: <input type="text" id="r3" value="0" size="4" /><br />
-        R4: <input type="text" id="r4" value="0" size="4" /><br />
-        R5: <input type="text" id="r5" value="0" size="4" /><br />
-        R6: <input type="text" id="r6" value="0" size="4" /><br />
+        R0: <input type="text" id="r0" value="0" size="4" />
+            <input type="button" onclick="++r0.value;" value="+" />
+            <input type="button" onclick="--r0.value;" value="-" />
+        <br />
+        R1: <input type="text" id="r1" value="0" size="4" />
+            <input type="button" onclick="++r1.value;" value="+" />
+            <input type="button" onclick="--r1.value;" value="-" />
+        <br />
+        R2: <input type="text" id="r2" value="0" size="4" />
+            <input type="button" onclick="++r2.value;" value="+" />
+            <input type="button" onclick="--r2.value;" value="-" />
+        <br />
+        R3: <input type="text" id="r3" value="0" size="4" />
+            <input type="button" onclick="++r3.value;" value="+" />
+            <input type="button" onclick="--r3.value;" value="-" />
+        <br />
+        R4: <input type="text" id="r4" value="0" size="4" />
+            <input type="button" onclick="++r4.value;" value="+" />
+            <input type="button" onclick="--r4.value;" value="-" />
+        <br />
+        R5: <input type="text" id="r5" value="0" size="4" />
+            <input type="button" onclick="++r5.value;" value="+" />
+            <input type="button" onclick="--r5.value;" value="-" />
+        <br />
+        R6: <input type="text" id="r6" value="0" size="4" />
+            <input type="button" onclick="++r6.value;" value="+" />
+            <input type="button" onclick="--r6.value;" value="-" />
+        <br />
         R7: <input type="text" id="r7" value="0" size="4" />
+            <input type="button" onclick="++r7.value;" value="+" />
+            <input type="button" onclick="--r7.value;" value="-" />
       </td>
     </tr>
     <tr>
