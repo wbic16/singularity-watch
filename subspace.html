@@ -1,0 +1,188 @@
+<html>
+<head>
+<title>Subspace</title>
+<style type="text/css">
+body {
+  background-color: black;
+  font-family: arial, sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+}
+#board {
+  width: 1080px;
+  height: 1080px;
+  position: relative;
+}
+#board .inner {
+  position: absolute;
+  width: 320px;
+  height: 170px;
+  border: 4px solid white;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.4s;
+  color: white;
+  text-align: center;
+  margin: 40px;
+  padding-top: 150px;
+}
+#board .inner:hover {
+  background-color: green;
+}
+#inner7 { top: 40px; left: 40px; }
+#inner8 { top: 40px; left: 420px; }
+#inner9 { top: 40px; left: 800px; }
+#inner4 { top: 420px; left: 40px; }
+#inner5 { top: 420px; left: 420px; }
+#inner6 { top: 420px; left: 800px; }
+#inner1 { top: 800px; left: 40px; }
+#inner2 { top: 800px; left: 420px; }
+#inner3 { top: 800px; left: 800px; }
+</style>
+</head>
+<body onLoad="onLoad();">
+
+<div id="board">
+    <div class="inner" id="inner1" onclick="zoom(this, 'sw');"></div>
+    <div class="inner" id="inner2" onclick="zoom(this, 's');"></div>
+    <div class="inner" id="inner3" onclick="zoom(this, 'se');"></div>
+    <div class="inner" id="inner4" onclick="zoom(this, 'w');"></div>
+    <div class="inner" id="inner5" onclick="zoom(this, 'z');"></div>
+    <div class="inner" id="inner6" onclick="zoom(this, 'e');"></div>
+    <div class="inner" id="inner7" onclick="zoom(this, 'nw');"></div>
+    <div class="inner" id="inner8" onclick="zoom(this, 'n');"></div>
+    <div class="inner" id="inner9" onclick="zoom(this, 'ne');"></div>
+</div>
+<script type="text/javascript">
+var inner1 = false;
+var inner2 = false;
+var inner3 = false;
+var inner4 = false;
+var inner5 = false;
+var inner6 = false;
+var inner7 = false;
+var inner8 = false;
+var inner9 = false;
+function dgid(e) {
+  return document.getElementById(e);
+}
+function onLoad() {
+  inner1 = dgid("inner1");
+  inner2 = dgid("inner2");
+  inner3 = dgid("inner3");
+  inner4 = dgid("inner4");
+  inner5 = dgid("inner5");
+  inner6 = dgid("inner6");
+  inner7 = dgid("inner7");
+  inner8 = dgid("inner8");
+  inner9 = dgid("inner9");
+}
+
+var lb = 1;
+var sf = 1;
+var sr = 1;
+var cn = 1;
+var vm = 1;
+var bk = 1;
+var ch = 1;
+var sn = 1;
+var sc = 1;
+var depth = 1;
+function zoom(element, choice) {
+  element.style.scale = 4;
+  setTimeout(() => {
+    switch (choice) {
+        case 'z':
+            --depth;
+            if (depth < 1) { depth = 1; }
+            switch (depth)
+            {
+                case 9:
+                    lb = 1;
+                    break;
+                case 8:
+                    lb = 1; sf = 1;
+                    break;
+                case 7:
+                    lb = 1; sf = 1; sr = 1;
+                    break;
+                case 6:
+                    lb = 1; sf = 1; sr = 1; cn = 1;
+                    break;
+                case 5:
+                    lb = 1; sf = 1; sr = 1; cn = 1; vm = 1;
+                    break;
+                case 4:
+                    lb = 1; sf = 1; sr = 1; cn = 1; vm = 1; bk = 1;
+                    break;
+                case 3:
+                    lb = 1; sf = 1; sr = 1; cn = 1; vm = 1; bk = 1; ch = 1;
+                    break;
+                case 2:
+                    lb = 1; sf = 1; sr = 1; cn = 1; vm = 1; bk = 1; ch = 1; sn = 1;
+                    break;
+                case 1:
+                default:
+                    lb = 1; sf = 1; sr = 1; cn = 1; vm = 1; bk = 1; ch = 1; cn = 1; sc = 1;
+                    break;
+            }
+            break;
+        case 'nw': // library break
+            ++depth;
+            ++lb;
+            sr = 1; cn = 1; vm = 1; bk = 1; ch = 1; sn = 1; sc = 1;
+            break;
+        case 'n': // shelf break
+            ++depth;
+            ++sf;
+            sr = 1; cn = 1; vm = 1; bk = 1; ch = 1; sn = 1; sc = 1;
+            break;
+        case 'ne': // series break
+            ++depth;
+            ++sr;
+            cn = 1; vm = 1; bk = 1; ch = 1; sn = 1; sc = 1;
+            break;
+        case 'w': // collection break
+            ++depth;
+            ++cn;
+            vm = 1; bk = 1; ch = 1; sn = 1; sc = 1;
+            break;
+        case 'e': // volume break
+            ++depth;
+            ++vm;
+            bk = 1; ch = 1; sn = 1; sc = 1;
+            break;
+        case 'sw': // book break
+            ++depth;
+            ++bk;
+            ch = 1; sn = 1; sc = 1;
+            break;
+        case 's': // chapter break
+            ++depth;
+            ++ch;
+            sn = 1; sc = 1;
+            break;
+        case 'se': // section break
+            ++depth;
+            ++sn; sc = 1;
+            break;
+    }
+    element.style.scale = 1;
+    setCoordinates();
+  }, 500);
+}
+
+function setCoordinates() {
+  inner1.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".1";
+  inner2.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".2";
+  inner3.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".3";
+  inner4.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".4";
+  inner5.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".5";
+  inner6.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".6";
+  inner7.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".7";
+  inner8.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".8";
+  inner9.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".9";
+}
+</script>
+</body>
+</html>
