@@ -9,73 +9,102 @@ body {
   font-weight: bold;
 }
 #board {
-  width: 1080px;
-  height: 1080px;
+  width: 50%;
+  height: 60%;
   position: relative;
+  margin: 0 auto;
+}
+#board #adjuster {
+  position: absolute;
+  top: 20%;
+  left: -50%;
+  width: 20%;
+  height: 22%;
+  border: 4px solid white;
+  border-radius: 20px;
+  color: white;
+  padding: 20px;
+}
+#board #adjuster #delta {
+  font-size: 1.4em;
+}
+#board #adjuster #home {
+  font-size: 1.4em;
+  cursor: pointer;
 }
 #board .inner {
   position: absolute;
-  width: 320px;
-  height: 170px;
+  width: 38%;
+  height: 25%;
   border: 4px solid white;
   border-radius: 16px;
   cursor: pointer;
   transition: all 0.4s;
-  color: white;
+  color: black;
   text-align: center;
   margin: 40px;
-  padding-top: 150px;
+  padding-top: 8%;
+  user-select: none;
+  z-index: 0;
 }
 #board .inner:hover {
-  background-color: green;
+  background-color: white;
+  z-index: 1;
+  scale: 1.2;
 }
-#inner7 { top: 40px; left: 40px; }
-#inner8 { top: 40px; left: 420px; }
-#inner9 { top: 40px; left: 800px; }
-#inner4 { top: 420px; left: 40px; }
-#inner5 { top: 420px; left: 420px; }
-#inner6 { top: 420px; left: 800px; }
-#inner1 { top: 800px; left: 40px; }
-#inner2 { top: 800px; left: 420px; }
-#inner3 { top: 800px; left: 800px; }
+#board #library { background-color: red; top: 4%; left: -20%; }
+#board #shelf { background-color: orange; top: 4%; left: 20%; }
+#board #series { background-color: yellow; top: 4%; left: 60%; }
+#board #collection { background-color: green; top: 50%; left: -20%; }
+#board #volume { background-color: blue; color: white; top: 50%; left: 20%; }
+#board #book { background-color: indigo; color: white; top: 50%; left: 60%; }
+#board #chapter { background-color: violet; top: 96%; left: -20%; }
+#board #section { background-color: grey; top: 96%; left: 20%; }
+#board #scroll { background-color: silver; top: 96%; left: 60%; }
 </style>
 </head>
 <body onLoad="onLoad();">
 
 <div id="board">
-    <div class="inner" id="inner1" onclick="zoom(this, 'sw');"></div>
-    <div class="inner" id="inner2" onclick="zoom(this, 's');"></div>
-    <div class="inner" id="inner3" onclick="zoom(this, 'se');"></div>
-    <div class="inner" id="inner4" onclick="zoom(this, 'w');"></div>
-    <div class="inner" id="inner5" onclick="zoom(this, 'z');"></div>
-    <div class="inner" id="inner6" onclick="zoom(this, 'e');"></div>
-    <div class="inner" id="inner7" onclick="zoom(this, 'nw');"></div>
-    <div class="inner" id="inner8" onclick="zoom(this, 'n');"></div>
-    <div class="inner" id="inner9" onclick="zoom(this, 'ne');"></div>
+    <div id="adjuster">
+        Increment:<input type="text" id="delta" size="2" value="1" />
+        <input type="button" id="home" value="origin" onclick="origin();" />
+    </div>
+    <div class="inner" id="chapter" onclick="zoom(this, 'sw');"></div>
+    <div class="inner" id="section" onclick="zoom(this, 's');"></div>
+    <div class="inner" id="scroll" onclick="zoom(this, 'se');"></div>
+    <div class="inner" id="collection" onclick="zoom(this, 'w');"></div>
+    <div class="inner" id="volume" onclick="zoom(this, 'z');"></div>
+    <div class="inner" id="book" onclick="zoom(this, 'e');"></div>
+    <div class="inner" id="library" onclick="zoom(this, 'nw');"></div>
+    <div class="inner" id="shelf" onclick="zoom(this, 'n');"></div>
+    <div class="inner" id="series" onclick="zoom(this, 'ne');"></div>
 </div>
 <script type="text/javascript">
-var inner1 = false;
-var inner2 = false;
-var inner3 = false;
-var inner4 = false;
-var inner5 = false;
-var inner6 = false;
-var inner7 = false;
-var inner8 = false;
-var inner9 = false;
+var chapter = false;
+var section = false;
+var scroll = false;
+var collection = false;
+var volume = false;
+var book = false;
+var library = false;
+var shelf = false;
+var series = false;
+var delta = false;
 function dgid(e) {
   return document.getElementById(e);
 }
 function onLoad() {
-  inner1 = dgid("inner1");
-  inner2 = dgid("inner2");
-  inner3 = dgid("inner3");
-  inner4 = dgid("inner4");
-  inner5 = dgid("inner5");
-  inner6 = dgid("inner6");
-  inner7 = dgid("inner7");
-  inner8 = dgid("inner8");
-  inner9 = dgid("inner9");
+  chapter = dgid("chapter");
+  section = dgid("section");
+  scroll = dgid("scroll");
+  collection = dgid("collection");
+  volume = dgid("volume");
+  book = dgid("book");
+  library = dgid("library");
+  shelf = dgid("shelf");
+  series = dgid("series");
+  delta = dgid("delta");
 }
 
 var lb = 1;
@@ -89,82 +118,58 @@ var sn = 1;
 var sc = 1;
 var depth = 1;
 function zoom(element, choice) {
-  element.style.scale = 4;
+  element.style.scale = 2;
   setTimeout(() => {
+    var test = parseInt(delta.value);
+    if (isNaN(test)) {
+      delta.value = 1;
+    }
+    if (test < -100) { delta.value = -100; }
+    if (test > 100)  { delta.value = 100;  }
     switch (choice) {
-        case 'z':
-            --depth;
-            if (depth < 1) { depth = 1; }
-            switch (depth)
-            {
-                case 9:
-                    lb = 1;
-                    break;
-                case 8:
-                    lb = 1; sf = 1;
-                    break;
-                case 7:
-                    lb = 1; sf = 1; sr = 1;
-                    break;
-                case 6:
-                    lb = 1; sf = 1; sr = 1; cn = 1;
-                    break;
-                case 5:
-                    lb = 1; sf = 1; sr = 1; cn = 1; vm = 1;
-                    break;
-                case 4:
-                    lb = 1; sf = 1; sr = 1; cn = 1; vm = 1; bk = 1;
-                    break;
-                case 3:
-                    lb = 1; sf = 1; sr = 1; cn = 1; vm = 1; bk = 1; ch = 1;
-                    break;
-                case 2:
-                    lb = 1; sf = 1; sr = 1; cn = 1; vm = 1; bk = 1; ch = 1; sn = 1;
-                    break;
-                case 1:
-                default:
-                    lb = 1; sf = 1; sr = 1; cn = 1; vm = 1; bk = 1; ch = 1; cn = 1; sc = 1;
-                    break;
-            }
-            break;
         case 'nw': // library break
-            ++depth;
-            ++lb;
-            sr = 1; cn = 1; vm = 1; bk = 1; ch = 1; sn = 1; sc = 1;
+            depth = 9;
+            lb += parseInt(delta.value);
+            sf = 1; sr = 1; cn = 1; vm = 1; bk = 1; ch = 1; sn = 1; sc = 1;
             break;
         case 'n': // shelf break
-            ++depth;
-            ++sf;
+            depth = 8;
+            sf += parseInt(delta.value);
             sr = 1; cn = 1; vm = 1; bk = 1; ch = 1; sn = 1; sc = 1;
             break;
         case 'ne': // series break
-            ++depth;
-            ++sr;
+            depth = 7;
+            sr += parseInt(delta.value);
             cn = 1; vm = 1; bk = 1; ch = 1; sn = 1; sc = 1;
             break;
         case 'w': // collection break
-            ++depth;
-            ++cn;
+            depth = 6;
+            cn += parseInt(delta.value);
             vm = 1; bk = 1; ch = 1; sn = 1; sc = 1;
             break;
-        case 'e': // volume break
-            ++depth;
-            ++vm;
+        case 'z': // volume break
+            depth = 5;
+            vm += parseInt(delta.value);
             bk = 1; ch = 1; sn = 1; sc = 1;
             break;
-        case 'sw': // book break
-            ++depth;
-            ++bk;
+        case 'e': // book break
+            depth = 4;
+            bk += parseInt(delta.value);
             ch = 1; sn = 1; sc = 1;
             break;
-        case 's': // chapter break
-            ++depth;
-            ++ch;
+        case 'sw': // chapter break
+            depth = 3;
+            ch += parseInt(delta.value);
             sn = 1; sc = 1;
             break;
-        case 'se': // section break
-            ++depth;
-            ++sn; sc = 1;
+        case 's': // section break
+            depth = 2;
+            sn += parseInt(delta.value);
+            sc = 1;
+            break;
+        case 'se': // scroll break
+            depth = 1;
+            sc += parseInt(delta.value);
             break;
     }
     element.style.scale = 1;
@@ -172,16 +177,82 @@ function zoom(element, choice) {
   }, 500);
 }
 
+function origin() {
+  var done = false;
+  --sc;
+  if (sc <= 1) {
+    depth = 1;
+    sc = 1;
+    --sn;
+  }
+  if (sn <= 1) {
+    depth = 2;
+    sn = 1;
+    --ch;
+  }
+  if (ch <= 1) {
+    depth = 3;
+    ch = 1;
+    --bk;
+  }
+  if (bk <= 1) {
+    depth = 4;
+    bk = 1;
+    --vm;
+  }
+  if (vm <= 1) {
+    depth = 5;
+    vm = 1;
+    --cn;
+  }
+  if (cn <= 1) {
+    depth = 6;
+    cn = 1;
+    --sr;
+  }
+  if (sr <= 1) {
+    depth = 7;
+    sr = 1;
+    --sf;
+  }
+  if (sf <= 1) {
+    depth = 8;
+    sf = 1;
+    --lb;
+  }
+  if (lb <= 1) {
+    depth = 9;
+    lb = 1;
+  }
+  done = lb == 1 && sf == 1 && sr == 1 && cn == 1 && vm == 1 && bk == 1 && ch == 1 && sn == 1 && sc == 1;
+  if (done) {
+    depth = 1;
+  } else {
+    const delay = 2 * depth;
+    setTimeout(origin, delay);
+  }
+  setCoordinates();
+}
+
 function setCoordinates() {
-  inner1.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".1";
-  inner2.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".2";
-  inner3.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".3";
-  inner4.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".4";
-  inner5.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".5";
-  inner6.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".6";
-  inner7.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".7";
-  inner8.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".8";
-  inner9.innerHTML = lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".9";
+  if (lb < 1) { lb = 1; }
+  if (sf < 1) { sf = 1; }
+  if (sr < 1) { sr = 1; }
+  if (cn < 1) { cn = 1; }
+  if (vm < 1) { vm = 1; }
+  if (bk < 1) { bk = 1; }
+  if (ch < 1) { ch = 1; }
+  if (sn < 1) { sn = 1; }
+  if (sc < 1) { sc = 1; }
+  chapter.innerHTML = "Chapter<br />" + lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/<u>" + ch + "</u>." + sn + "." + sc;
+  section.innerHTML = "Section<br />" + lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + ".<u>" + sn + "</u>." + sc;
+  scroll.innerHTML = "Scroll<br />" + lb + "." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + ".<u>" + sc + "</u>";
+  collection.innerHTML = "Collection<br />" + lb + "." + sf + "." + sr + "/<u>" + cn + "</u>." + vm + "." + bk + "/" + ch + "." + sn + "." + sc;
+  volume.innerHTML = "Volume<br />" + lb + "." + sf + "." + sr + "/" + cn + ".<u>" + vm + "</u>." + bk + "/" + ch + "." + sn + "." + sc;
+  book.innerHTML = "Book<br />" + lb + "." + sf + "." + sr + "/" + cn + "." + vm + ".<u>" + bk + "</u>/" + ch + "." + sn + "." + sc;
+  library.innerHTML = "Library<br /><u>" + lb + "</u>." + sf + "." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + "." + sc;
+  shelf.innerHTML = "Shelf<br />" + lb + ".<u>" + sf + "</u>." + sr + "/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + "." + sc;
+  series.innerHTML = "Series<br />" + lb + "." + sf + ".<u>" + sr + "</u>/" + cn + "." + vm + "." + bk + "/" + ch + "." + sn + "." + sc;
 }
 </script>
 </body>
