@@ -1,5 +1,35 @@
 The Phext Roadmap 
 -----------------
+- Bickford Instruction Computer (512-bit CPU)
+  - Assumptions
+    - 1 GHz target clock
+    - Your underlying CPU has 256 bytes worth of registers
+    - L1 = 4 cycles (250m/sec => 62 GB/sec)
+    - L2 = 10 cycles (100m/sec => 25 GB/sec)
+    - L3 = 40 cycles (25m/sec => 6 GB/sec)
+    - RAM = 120 cycles (8m/sec => 2 GB/sec) - same as PCIe 4 SSDs!
+  - RAM vs Cache
+    - 64 GB RAM sliced into 1M regions that fit into L1 cache
+    - we always load 64 KB at a time (32 "registers")
+    - we don't have registers per se, we just have register memory...
+    - 45 bytes per line + 1440 lines per scroll = 64,800 bytes
+    - 54 bytes per line + 1200 lines per scroll = 64,800 bytes
+    - 72 bytes per line + 900 lines per scroll = 64,800 bytes
+    - 81 bytes per line + 800 lines per scroll = 64,800 bytes
+    - 108 bytes per line + 600 lines per scroll = 64,800 bytes
+    - 162 bytes per line + 400 lines per scroll = 64,800 bytes
+    - 250 bytes per paragraph x 250 paragraphs = 62,500 bytes + 3036 delimiters
+  - operations
+    - concatenate
+    - merge
+    - select
+    - apply
+    - expand
+    - contract
+    - append
+    - replace
+    - load
+    - store
 - Bickford Time Processor
   - Instruction Stream
   - Register Stream
