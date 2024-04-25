@@ -107,13 +107,16 @@ textarea {
     <tr>
       <th>Input</th>
       <td>
-        <input type="text" id="input" value="" size="20" />
+        A: <input type="text" id="inputA" value="" size="20" />
+        B: <input type="text" id="inputB" value="" size="20" />
+        <input type="button" value="combine" onclick="combine();" />
       </td>
     </tr>
     <tr>
       <th>Output</th>
       <td>
         <textarea name="output" id="output" rows="20" cols="110"></textarea>
+        <div id="output_render"></div>
       </td>
     </tr>
     <tr>
@@ -135,6 +138,7 @@ textarea {
 </tr>
 </table>
 </div>
+<script type="text/javascript" src="phext-cpu.js"></script>
 <script type="text/javascript">
 var phext = false;
 var pause = false;
@@ -148,24 +152,16 @@ var r4 = false;
 var r5 = false;
 var r6 = false;
 var r7 = false;
-var input = false;
+var inputA = false;
+var inputB = false;
 var output = false;
+var output_render = false;
 var cache = false;
 var subspace = false;
 var clockCycle = 1000;
 var blocks = "";
 var instructions = "";
 var registers = "";
-
-const SCROLL_BREAK     = '\x17'; // 3rd
-const SECTION_BREAK    = '\x18'; // 4th
-const CHAPTER_BREAK    = '\x19'; // 5th
-const BOOK_BREAK       = '\x1A'; // 6th
-const VOLUME_BREAK     = '\x1C'; // 7th
-const COLLECTION_BREAK = '\x1D'; // 8th
-const SERIES_BREAK     = '\x1E'; // 9th
-const SHELF_BREAK      = '\x1F'; // 10th
-const LIBRARY_BREAK    = '\x01'; // 11th
 
 // --------------------------------------------------------------------
 // @fn dgid
@@ -201,8 +197,10 @@ function onLoad() {
   r5 = dgid("r5");
   r6 = dgid("r6");
   r7 = dgid("r7");
-  input = dgid("input");
+  inputA = dgid("inputA");
+  inputB = dgid("inputB");
   output = dgid("output");
+  output_render = dgid("output_render");
   cache = dgid("cache");
   subspace = dgid("subspace");
 
@@ -235,7 +233,9 @@ function btpCycle() {
   blocks += SCROLL_BREAK;
   blocks += r7.value;
   blocks += SECTION_BREAK;
-  blocks += input.value;
+  blocks += inputA.value;
+  blocks += SCROLL_BREAK;
+  blocks += inputB.value;
   blocks += SCROLL_BREAK;
   blocks += output.value;
   blocks += SCROLL_BREAK;
@@ -249,6 +249,32 @@ function btpCycle() {
   }
 }
 
+function unescape_phext(buffer) {
+  return buffer.replace("\\x17", SCROLL_BREAK)
+            .replace("\\x18", SECTION_BREAK)
+            .replace("\\x19", CHAPTER_BREAK)
+            .replace("\\x1A", BOOK_BREAK)
+            .replace("\\x1C", VOLUME_BREAK)
+            .replace("\\x1D", COLLECTION_BREAK)
+            .replace("\\x1E", SERIES_BREAK)
+            .replace("\\x1F", SHELF_BREAK)
+            .replace("\\x01", LIBRARY_BREAK);
+}
+
+function explode_phext_tree(buffer) {
+  var render = "";
+  // stub: pull rendering logic from https://www.phext.io/editors.html
+
+  return render;
+}
+
+function combine() {
+  const a = unescape_phext(inputA.value);            
+  const b = unescape_phext(inputB.value);
+  output.value = merge(a, b);
+  const rendered = explode_phext_tree(output.value);
+  output_render.innerHTML = rendered;
+}
 </script>
 </body>
 </html>
