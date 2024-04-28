@@ -203,10 +203,31 @@ function replace(address, text, buffer) {
   // TODO: overwrite the contents of `buffer` at the given address with `text`
 }
 
-function load(slice) {
-  // TODO: return the 1MB slice from RAM
+var ramBuffer = Array();
+const SLICE_LIMIT = 64000000; // 64 M x 1 MB = 64 TB
+function load(arr, slice) {
+  if (slice > SLICE_LIMIT) {
+    return "";
+  }
+  if (!arr[slice]) {
+    arr[slice] = "";
+  }
+  return arr[slice];
 }
 
-function store(slice, buffer) {
-  // TODO: store the 1MB slice into RAM
+function store(arr, slice, buffer) {
+  arr[slice] = buffer;
 }
+
+var phext = Array();
+function loadLibrary(library) {
+  if (!phext[library]) {
+    phext[library] = Array();
+  }
+  return phext[library];
+}
+function storeLibrary(library, buffer) {
+  phext[library] = buffer;
+}
+
+// TODO: define shelf, series, collection, volume, book, chapter, section, and scroll load/store methods
