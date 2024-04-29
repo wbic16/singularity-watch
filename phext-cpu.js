@@ -220,14 +220,37 @@ function store(arr, slice, buffer) {
 }
 
 var phext = Array();
-function loadLibrary(library) {
+var loaded = defaultCoordinate();
+function loadLibrary() {
+  return loadLibrary(loaded.lb, false);
+}
+function loadLibrary(library, update = true) {
   if (!phext[library]) {
     phext[library] = Array();
+  }
+  if (update) {
+    loaded.lb = library;
   }
   return phext[library];
 }
 function storeLibrary(library, buffer) {
   phext[library] = buffer;
+  loaded.lb = library;
 }
 
+function loadShelf(shelf, update = true) {
+  var library = loadLibrary();
+  if (!library[shelf]) {
+    library[shelf] = Array();
+  }
+  if (update) {
+    loaded.sf = shelf;
+  }
+  return library[shelf];
+}
+function storeShelf(shelf, buffer) {
+  var library = loadLibrary();
+  library[shelf] = buffer;
+  loaded.sf = shelf;
+}
 // TODO: define shelf, series, collection, volume, book, chapter, section, and scroll load/store methods
