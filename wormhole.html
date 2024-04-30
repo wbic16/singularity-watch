@@ -1,0 +1,236 @@
+<html>
+<head>
+<title>Singularity Watch - Bookmark Web</title>
+<style type="text/css">
+body {
+  padding: 40px;
+  background-color: black;
+  color: white;
+  font-family: arial, sans-serif;
+}
+.node, .library, .series, .shelf, .collection, .volume, .book, .chapter, .section, .scroll,
+.editor {
+  min-width: 250px;
+  max-width: 600px;
+  min-height: 70px;
+  border: 3px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 20px;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.45s;
+  position: relative;
+}
+.library {
+  background-color: red;
+  float: left;
+}
+.series {
+  background-color: orange;
+}
+.shelf {
+  background-color: yellow;
+}
+.collection {
+  background-color: green;
+}
+.volume {
+  background-color: blue;
+}
+.book {
+  background-color: indigo;
+}
+.chapter {
+  background-color: violet;
+}
+.section {
+  background-color: grey;
+}
+.scroll {
+  background-color: silver;
+}
+.node:hover,
+.library:hover,
+.series:hover,
+.shelf:hover,
+.collection:hover,
+.volume:hover,
+.book:hover,
+.chapter:hover,
+.section:hover,
+.scroll:hover,
+.editor:hover {
+  background-color: wheat;
+  color: black;
+}
+input {
+  padding: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  transition: 0.35s all;
+}
+input:hover {
+  cursor: pointer;
+  background-color: orange;
+}
+</style>
+</head>
+<body onLoad="onLoad();">
+<h1>Manipulating Subspace Shape</h1>
+<div id="phext">
+<h1>Paste your links here:</h1>
+<p>
+<input type="button" onclick="expand();" value="expand" />
+<input type="button" onclick="contract();" value="contract" />
+<input type="button" onclick="test1();" value="test 1" />
+<input type="button" onclick="test2();" value="test 2" />
+<input type="button" onclick="test3();" value="test 3" />
+</p>
+<textarea rows="20" cols="100" id="links" onchange="render();">
+https://phext.io/
+https://singularitywatch.org/
+</textarea>
+</div>
+
+<div id="viewer"></div>
+<script type="text/javascript">
+var links = false;
+var viewer = false;
+
+const LINE_BREAK       = '\n';   // 2nd (Newline)
+const SCROLL_BREAK     = '\x17'; // 3rd
+const SECTION_BREAK    = '\x18'; // 4th
+const CHAPTER_BREAK    = '\x19'; // 5th
+const BOOK_BREAK       = '\x1A'; // 6th
+const VOLUME_BREAK     = '\x1C'; // 7th
+const COLLECTION_BREAK = '\x1D'; // 8th
+const SERIES_BREAK     = '\x1E'; // 9th
+const SHELF_BREAK      = '\x1F'; // 10th
+const LIBRARY_BREAK    = '\x01'; // 11th
+
+function dgid(id) {
+  return document.getElementById(id);
+}
+
+function onLoad() {
+  links = dgid("links");
+  viewer = dgid("viewer");
+  render();
+}
+
+function expand() {
+  var text = links.value;
+  text = text.replaceAll(SHELF_BREAK, LIBRARY_BREAK);
+  text = text.replaceAll(SERIES_BREAK, SHELF_BREAK);
+  text = text.replaceAll(COLLECTION_BREAK, SERIES_BREAK);
+  text = text.replaceAll(VOLUME_BREAK, COLLECTION_BREAK);
+  text = text.replaceAll(BOOK_BREAK, VOLUME_BREAK);
+  text = text.replaceAll(CHAPTER_BREAK, BOOK_BREAK);
+  text = text.replaceAll(SECTION_BREAK, CHAPTER_BREAK);
+  text = text.replaceAll(SCROLL_BREAK, SECTION_BREAK);
+  text = text.replaceAll(LINE_BREAK, SCROLL_BREAK);
+  text = text.replaceAll(' ', LINE_BREAK);
+
+  links.value = text;
+  render();
+}
+
+function contract() {
+  var text = links.value;
+  text = text.replaceAll(LINE_BREAK, ' ');
+  text = text.replaceAll(SCROLL_BREAK, LINE_BREAK);
+  text = text.replaceAll(SECTION_BREAK, SCROLL_BREAK);
+  text = text.replaceAll(CHAPTER_BREAK, SECTION_BREAK);
+  text = text.replaceAll(BOOK_BREAK, CHAPTER_BREAK);
+  text = text.replaceAll(VOLUME_BREAK, BOOK_BREAK);
+  text = text.replaceAll(COLLECTION_BREAK, VOLUME_BREAK);
+  text = text.replaceAll(SERIES_BREAK, COLLECTION_BREAK);
+  text = text.replaceAll(SHELF_BREAK, SERIES_BREAK);
+  text = text.replaceAll(LIBRARY_BREAK, SHELF_BREAK);
+  
+  links.value = text;
+  render();
+}
+
+function test1() {
+  links.value = "First Scroll" + SCROLL_BREAK + "Second Scroll" + SCROLL_BREAK + "Third Scroll";
+  render();
+}
+
+function test2() {
+  links.value = "First Scroll" + SECTION_BREAK + "Second Section" + CHAPTER_BREAK + "Second Chapter";
+  render();
+}
+
+function test3() {
+  links.value = LIBRARY_BREAK + "Second Library" + SHELF_BREAK + "Second Shelf";
+  render();
+}
+
+function render() {
+  var phext = links.value;
+  var parts = phext.split(LIBRARY_BREAK);
+  var output = "";
+
+  for (var i1 = 0; i1 < parts.length; ++i1) {
+    var shelves = parts[i1].split(SHELF_BREAK);
+    var libraryID = i1+1;
+    output += "<div class='library' id='library_" + libraryID + "'>\n";
+    for (var j1 = 0; j1 < shelves.length; ++j1) {
+      var series = shelves[j1].split(SERIES_BREAK);
+      var shelfID = libraryID + "_" + (j1+1);
+      output += "<div class='shelf' id='shelf_" + shelfID + "'>\n";
+      for (var k1 = 0; k1 < series.length; ++k1) {
+        var collections = series[k1].split(COLLECTION_BREAK);
+        var seriesID = shelfID + "_" + (k1+1);
+        output += "<div class='series' id='series_" + seriesID + "'>\n";
+        for (var i2 = 0; i2 < collections.length; ++i2) {
+          var volumes = collections[i2].split(VOLUME_BREAK);
+          var collectionID = seriesID + "__" + (i2+1);
+          output += "<div class='collection' id='collection_" + collectionID + "'>\n";
+          for (var j2 = 0; j2 < volumes.length; ++j2) {
+            var books = volumes[j2].split(BOOK_BREAK);
+            var volumeID = collectionID + "_" + (j2+1);
+            output += "<div class='volume' id='volume_" + volumeID + "'>\n";
+            for (var k2 = 0; k2 < books.length; ++k2) {
+              var chapters = books[k2].split(CHAPTER_BREAK);
+              var bookID = volumeID + "_" + (k2+1);
+              output += "<div class='book' id='book_" + bookID + "'>\n";
+              for (var i3 = 0; i3 < chapters.length; ++i3) {
+                var sections = chapters[i3].split(SECTION_BREAK);
+                var chapterID = bookID + "__" + (i3+1);
+                output += "<div class='chapter' id='chapter_" + chapterID + "'>\n";
+                for (var j3 = 0; j3 < sections.length; ++j3) {
+                  var scrolls = sections[j3].split(SCROLL_BREAK);
+                  var sectionID = chapterID + "_" + (j3+1);
+                  output += "<div class='section' id='section_" + sectionID + "'>\n";
+                  for (var k3 = 0; k3 < scrolls.length; ++k3) {                    
+                    var scrollID = sectionID + "_" + (k3+1);
+                    var scroll = scrolls[k3];
+                    output += "<div class='scroll' id='scroll_" + scrollID + "'>" + scroll + "</div>";
+                  }
+                  output += "</div>"; // section
+                }
+                output += "</div>"; // chapter
+              }
+              output += "</div>"; // book
+            }
+            output += "</div>"; // volume
+          }
+          output += "</div>"; // collection
+        }
+        output += "</div>"; // series
+      }
+      output += "</div>"; // shelf
+    }
+    output += "</div>"; // library
+  }
+
+  viewer.innerHTML = output;
+}
+</script>
+</body>
+</html>
