@@ -9,7 +9,7 @@ body {
   font-family: arial, sans-serif;
 }
 .node, .library, .series, .shelf, .collection, .volume, .book, .chapter, .section, .scroll,
-.editor {
+#links {
   min-width: 250px;
   max-width: 600px;
   min-height: 70px;
@@ -23,6 +23,12 @@ body {
   cursor: pointer;
   transition: all 0.45s;
   position: relative;
+}
+#links {
+  cursor: text;
+  text-align: left;
+  font-size: 1.1em;
+  float: left;
 }
 .library {
   background-color: red;
@@ -85,9 +91,10 @@ input:hover {
 <p>
 <input type="button" onclick="expand();" value="expand" />
 <input type="button" onclick="contract();" value="contract" />
-<input type="button" onclick="test1();" value="test 1" />
-<input type="button" onclick="test2();" value="test 2" />
-<input type="button" onclick="test3();" value="test 3" />
+<input type="button" onclick="test1();" value="pattern 1" />
+<input type="button" onclick="test2();" value="pattern 2" />
+<input type="button" onclick="randomTest();" value="random" />
+Scale: <input type="text" id="scale" value="1.0" onchange="updateScale();" />
 </p>
 <textarea rows="20" cols="100" id="links" onchange="render();">
 https://phext.io/
@@ -99,6 +106,7 @@ https://singularitywatch.org/
 <script type="text/javascript">
 var links = false;
 var viewer = false;
+var scale = false;
 
 const LINE_BREAK       = '\n';   // 2nd (Newline)
 const SCROLL_BREAK     = '\x17'; // 3rd
@@ -118,11 +126,25 @@ function dgid(id) {
 function onLoad() {
   links = dgid("links");
   viewer = dgid("viewer");
+  scale = dgid("scale");
   render();
+}
+
+var uiScale = 1.0;
+function updateScale() {
+  uiScale = scale.value;
+}
+function setScale(value) {
+  if (value < 0.1) { value = 0.1; }
+  if (value > 4) { value = 4; }
+  uiScale = value;
+  scale.value = value;
+  viewer.style.scale = uiScale;
 }
 
 function expand() {
   var text = links.value;
+  setScale(scale * 1.25);
   text = text.replaceAll(SHELF_BREAK, LIBRARY_BREAK);
   text = text.replaceAll(SERIES_BREAK, SHELF_BREAK);
   text = text.replaceAll(COLLECTION_BREAK, SERIES_BREAK);
@@ -140,6 +162,7 @@ function expand() {
 
 function contract() {
   var text = links.value;
+  setScale(scale * 0.8);
   text = text.replaceAll(LINE_BREAK, ' ');
   text = text.replaceAll(SCROLL_BREAK, LINE_BREAK);
   text = text.replaceAll(SECTION_BREAK, SCROLL_BREAK);
@@ -165,8 +188,14 @@ function test2() {
   render();
 }
 
-function test3() {
-  links.value = LIBRARY_BREAK + "Second Library" + SHELF_BREAK + "Second Shelf";
+function randomTest() {
+  var output = "";
+  var possibles = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.- \x17\x18\x19\x1A\x1C\x1D\x1E\x1F\x01";
+  for (var i = 0; i < 1000; ++i) {
+    const idx = parseInt(Math.random()*possibles.length);
+    output += possibles[idx];
+  }
+  links.value = output;
   render();
 }
 
