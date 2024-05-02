@@ -5,6 +5,9 @@ let's chart the path to the third singularity of humanity.
 - index.html: timeline: three million years ago to present day
 - btp.html: Bickford Time Processor
 - subspace.html: A visualizer for phext coordinates
+- wormhole.html: Visualizing 11-dimensional phext spaces
+- phext-cpu.js: an idealized phext processor for javascript
+- exocortex.plan: steps to build the exocortex of 2130
 
 ## Kardashev 1.0
 
