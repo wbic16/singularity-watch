@@ -238,6 +238,9 @@ function storeLibrary(library, buffer) {
   loaded.lb = library;
 }
 
+function loadShelf() {
+  return loadShelf(loaded.sf, false);
+}
 function loadShelf(shelf, update = true) {
   var library = loadLibrary();
   if (!library[shelf]) {
@@ -253,4 +256,23 @@ function storeShelf(shelf, buffer) {
   library[shelf] = buffer;
   loaded.sf = shelf;
 }
-// TODO: define shelf, series, collection, volume, book, chapter, section, and scroll load/store methods
+
+function loadSeries() {
+  return loadSeries(loaded.sr, false);
+}
+function loadSeries(series, update = true) {
+  var shelf = loadShelf();
+  if (!shelf[series]) {
+    shelf[series] = Array();
+  }
+  if (update) {
+    loaded.sr = series;
+  }
+  return shelf[series];
+}
+function storeSeries(series, buffer) {
+  var shelf = loadShelf();
+  shelf[series] = buffer;
+  loaded.sr = series;
+}
+// TODO: define collection, volume, book, chapter, section, and scroll load/store methods

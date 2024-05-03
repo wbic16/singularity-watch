@@ -25,3 +25,11 @@
   * Assembly
   * Scala
   * Dart
+  * COBOL
+  * R
+  * Swift
+  * Matlab
+  * Swift
+  * Groovy
+  * Objective-C
+  * SAS
