@@ -1,0 +1,168 @@
+<html>
+<head>
+<title>Singularity Watch - Bookmark Web</title>
+<style type="text/css">
+body {
+  padding: 40px;
+  background-color: black;
+  color: white;
+  font-family: arial, sans-serif;
+}
+.node, .library, .series, .shelf, .collection, .volume, .book, .chapter, .section, .scroll,
+#links {
+  min-width: 250px;
+  max-width: 600px;
+  min-height: 70px;
+  border: 3px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 20px;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.45s;
+  position: relative;
+}
+#links {
+  cursor: text;
+  text-align: left;
+  font-size: 1.1em;
+  float: left;
+}
+input {
+  padding: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  transition: 0.35s all;
+}
+input:hover {
+  cursor: pointer;
+  background-color: orange;
+}
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #e0e030;
+  cursor: pointer;
+  transition: all 1s;
+  min-height: 1.2em;
+  padding: 30px;  
+}
+.title:hover {
+  color: white;
+  text-decoration: underline;
+}
+.scroll {
+  border: 4px solid orange;
+  border-radius: 4px;
+  min-height: 540px;
+  min-width: 700px;
+  text-align: left;
+  padding-left: 30px;
+}
+.scroll:hover {
+  background-color: #424242;
+}
+.scroll input {
+  cursor: default;
+  margin-left: 18px;
+}
+</style>
+</head>
+<body onLoad="onLoad();">
+<h1>Exocortical Webs</h1>
+
+<div id="phext">
+  <div class="scroll" id="scroll1" onmouseover="show(dgid('links1'));">
+  <div class="title">Scroll 1.1.1/1.1.1/1.1.1</div>
+  <input type="text" id="scrolllink-1_1_1-1_1_1-1_1_1" value="1.1.1/1.1.1/1.1.2" />
+  <input type="button" onclick="jump(dgid('links1'), '1_1_1-1_1_1-1_1_1');" value="slide" />
+  <textarea rows="20" cols="100" id="links1" onchange="render();" style="visibility:hidden">
+https://phext.io/
+https://singularitywatch.org/
+  </textarea>
+  </div>
+
+  <div class="scroll" id="scroll2" onmouseover="show(dgid('links2'));">
+    <div class="title">Scroll 1.1.1/1.1.1/1.1.2</div>
+    <input type="text" id="scrolllink-1_1_1-1_1_1-1_1_2" value="1.1.1/1.1.1/1.1.1" />
+    <input type="button" onclick="jump(dgid('links2'), '1_1_1-1_1_1-1_1_2');" value="slide" />
+    <textarea rows="20" cols="100" id="links2" onchange="render();" style="visibility:hidden">
+  https://phext.io/
+  https://singularitywatch.org/
+    </textarea>
+    </div>
+</div>
+
+<div id="viewer"></div>
+<script type="text/javascript">
+var links1 = false;
+var links2 = false;
+var viewer = false;
+var scale = false;
+
+const LINE_BREAK       = '\n';   // 2nd (Newline)
+const SCROLL_BREAK     = '\x17'; // 3rd
+const SECTION_BREAK    = '\x18'; // 4th
+const CHAPTER_BREAK    = '\x19'; // 5th
+const BOOK_BREAK       = '\x1A'; // 6th
+const VOLUME_BREAK     = '\x1C'; // 7th
+const COLLECTION_BREAK = '\x1D'; // 8th
+const SERIES_BREAK     = '\x1E'; // 9th
+const SHELF_BREAK      = '\x1F'; // 10th
+const LIBRARY_BREAK    = '\x01'; // 11th
+
+var data = `https://phext.io/
+https://singularitywatch.org/\x17Hello World`;
+
+function dgid(id) {
+  return document.getElementById(id);
+}
+
+function onLoad() {
+  links1 = dgid("links1");
+  links2 = dgid("links2");
+  viewer = dgid("viewer");
+  scale = dgid("scale");
+  render();
+}
+
+function jump(links, local) {
+  var coordinate = dgid("scrolllink-" + local).value;  
+  var lcc = coordinate.replaceAll('-','/').split('/');
+  var ssc = lcc[2].replaceAll('_','.').split('.');
+  
+  var scrolls = data.split(SCROLL_BREAK);
+  var index = ssc[2] - 1;
+  if (scrolls[index]) {
+    links.value = scrolls[index];
+  } else {
+    links.value = "";
+  }
+}
+
+var uiScale = 1.0;
+function updateScale() {
+  uiScale = scale.value;
+}
+function setScale(value) {
+  if (value < 0.1) { value = 0.1; }
+  if (value > 4) { value = 4; }
+  uiScale = value;
+  scale.value = value;
+  viewer.style.scale = uiScale;
+}
+
+function show(element) {
+  element.style.visibility = 'visible';
+  element.style.borderRadius = '4px';
+  element.style.width = '640px';
+}
+
+function render() {
+}
+</script>
+</body>
+</html>
