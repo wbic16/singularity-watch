@@ -57,13 +57,16 @@ input:hover {
 .scroll {
   border: 4px solid orange;
   border-radius: 4px;
-  min-height: 540px;
+  height: 100px;
   min-width: 700px;
   text-align: left;
   padding-left: 30px;
+  float: left;
+  overflow: hidden;
 }
 .scroll:hover {
   background-color: #424242;
+  min-height: 200px;
 }
 .scroll input {
   cursor: default;
@@ -75,33 +78,8 @@ input:hover {
 <h1>Exocortical Webs</h1>
 
 <div id="phext">
-  <div class="scroll" id="scroll1" onmouseover="show(dgid('links1'));">
-  <div class="title">Scroll 1.1.1/1.1.1/1.1.1</div>
-  <input type="text" id="scrolllink-1_1_1-1_1_1-1_1_1" value="1.1.1/1.1.1/1.1.2" />
-  <input type="button" onclick="jump(dgid('links1'), '1_1_1-1_1_1-1_1_1');" value="slide" />
-  <textarea rows="20" cols="100" id="links1" onchange="render();" style="visibility:hidden">
-https://phext.io/
-https://singularitywatch.org/
-  </textarea>
-  </div>
 
-  <div class="scroll" id="scroll2" onmouseover="show(dgid('links2'));">
-    <div class="title">Scroll 1.1.1/1.1.1/1.1.2</div>
-    <input type="text" id="scrolllink-1_1_1-1_1_1-1_1_2" value="1.1.1/1.1.1/1.1.1" />
-    <input type="button" onclick="jump(dgid('links2'), '1_1_1-1_1_1-1_1_2');" value="slide" />
-    <textarea rows="20" cols="100" id="links2" onchange="render();" style="visibility:hidden">
-  https://phext.io/
-  https://singularitywatch.org/
-    </textarea>
-    </div>
-</div>
-
-<div id="viewer"></div>
 <script type="text/javascript">
-var links1 = false;
-var links2 = false;
-var viewer = false;
-var scale = false;
 
 const LINE_BREAK       = '\n';   // 2nd (Newline)
 const SCROLL_BREAK     = '\x17'; // 3rd
@@ -114,8 +92,39 @@ const SERIES_BREAK     = '\x1E'; // 9th
 const SHELF_BREAK      = '\x1F'; // 10th
 const LIBRARY_BREAK    = '\x01'; // 11th
 
-var data = `https://phext.io/
+var phext_data = `https://phext.io/
 https://singularitywatch.org/\x17Hello World`;
+var scrolls = phext_data.split(SCROLL_BREAK);
+
+function createScroll(sectionID, scrollID) {
+  var address = "1.1.1/1.1.1/1." + sectionID + "." + scrollID;
+  var idaddress = address.replaceAll('/','-').replaceAll('.', '_');
+  var id = sectionID + "_" + scrollID;
+  var output = `<div class="scroll" id="scroll` + id + `" onclick="collapse('` + id + `');" onmouseover="show('` + id + `');">
+  <div class="title">Scroll ` + address + `</div>
+  <input type="text" id="scrolllink-` + idaddress + `" value="` + address + `" />
+  <input type="button" onclick="jump(dgid('links` + id + `'), '` + idaddress + `');" value="slide" />
+  <textarea rows="20" cols="100" id="links` + id + `" onchange="render();" style="visibility:hidden">` +
+    (scrolls[id - 1] ? scrolls[id - 1] : "") + `</textarea>
+  </div>`;
+  document.write(output);
+}
+
+for (var j = 1; j < 10; ++j) {
+  for (var i = 1; i < 10; ++i) {
+    createScroll(j, i);
+  }
+}
+</script>
+
+</div> <!-- phext -->
+
+<div id="viewer"></div>
+<script type="text/javascript">
+var links1 = false;
+var links2 = false;
+var viewer = false;
+var scale = false;
 
 function dgid(id) {
   return document.getElementById(id);
@@ -134,7 +143,7 @@ function jump(links, local) {
   var lcc = coordinate.replaceAll('-','/').split('/');
   var ssc = lcc[2].replaceAll('_','.').split('.');
   
-  var scrolls = data.split(SCROLL_BREAK);
+  var scrolls = phext_data.split(SCROLL_BREAK);
   var index = ssc[2] - 1;
   if (scrolls[index]) {
     links.value = scrolls[index];
@@ -144,9 +153,11 @@ function jump(links, local) {
 }
 
 var uiScale = 1.0;
+
 function updateScale() {
   uiScale = scale.value;
 }
+
 function setScale(value) {
   if (value < 0.1) { value = 0.1; }
   if (value > 4) { value = 4; }
@@ -155,10 +166,23 @@ function setScale(value) {
   viewer.style.scale = uiScale;
 }
 
-function show(element) {
-  element.style.visibility = 'visible';
-  element.style.borderRadius = '4px';
-  element.style.width = '640px';
+var disabled = Array();
+function show(id) {
+  if (disabled[id]) {
+    return;
+  }
+  var box = dgid('links' + id);
+  box.style.visibility = 'visible';
+  box.style.borderRadius = '4px';
+  var scroll = dgid('scroll' + id);
+  scroll.style.width = '640px';
+  scroll.style.height = '640px';
+}
+
+function collapse(id) {
+  var scroll = dgid('scroll' + id);
+  scroll.style.height = '';
+  disabled[id] = disabled[id] ? false : true;
 }
 
 function render() {
