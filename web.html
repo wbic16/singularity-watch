@@ -64,9 +64,17 @@ input:hover {
   float: left;
   overflow: hidden;
 }
+.book {
+  display: block;
+  border: 4px solid blue;
+  border-radius: 4px;
+  min-width: 7000px;
+  text-align: left;
+  padding-left: 30px;
+  overflow: scroll;
+}
 .scroll:hover {
   background-color: #424242;
-  min-height: 200px;
 }
 .scroll input {
   cursor: default;
@@ -96,25 +104,38 @@ var phext_data = `https://phext.io/
 https://singularitywatch.org/\x17Hello World\x18Section 2\x19Chapter 2`;
 var scrolls = phext_data.split(SCROLL_BREAK);
 
-function createScroll(sectionID, scrollID) {
-  var address = "1.1.1/1.1.1/1." + sectionID + "." + scrollID;
+function createScroll(libraryID, shelfID, seriesID, collectionID, volumeID, bookID, chapterID, sectionID, scrollID) {
+  var address = libraryID + "." + shelfID + "." + seriesID + "/" + collectionID + "." + volumeID + "." + bookID + "/" + chapterID + "." + sectionID + "." + scrollID;
   var idaddress = address.replaceAll('/','-').replaceAll('.', '_');
-  var id = sectionID + "_" + scrollID;
-  var output = `<div class="scroll" id="scroll` + id + `" onclick="collapse('` + id + `');" onmouseover="show('` + id + `');">
+  var id = libraryID + "_" + shelfID + "_" + seriesID + "_" + collectionID + "_" + volumeID + "_" + bookID + "_" + chapterID + "_" + sectionID + "_" + scrollID;
+  var output = `<div class="scroll" id="scroll` + id + `" onclick="collapse('scroll', '` + id + `');" onmouseover="show('scroll', '` + id + `');">
   <div class="title">Scroll ` + address + `</div>
   <input type="text" id="scrolllink-` + idaddress + `" value="` + address + `" />
-  <input type="button" onclick="jump(dgid('links` + id + `'), '` + idaddress + `');" value="slide" />
-  <textarea rows="20" cols="100" id="links` + id + `" onchange="render();" style="visibility:hidden">` +
+  <input type="button" onclick="jump(dgid('linksscroll` + id + `'), '` + idaddress + `');" value="slide" />
+  <textarea rows="20" cols="100" id="linksscroll` + id + `" onchange="render();" style="visibility:hidden">` +
     (scrolls[id - 1] ? scrolls[id - 1] : "") + `</textarea>
   </div>`;
   document.write(output);
 }
 
-for (var j = 1; j < 10; ++j) {
-  for (var i = 1; i < 10; ++i) {
-    createScroll(j, i);
+var libraryID = 1;
+var shelfID = 1;
+var seriesID = 1;
+var collectionID = 1;
+var volumeID = 1;
+var bookID = 1;
+document.write(`<div class="book" id="book` + bookID + `" onclick="collapse('book', '` + bookID + `');" onmouseover="show('book', '` + bookID + `')">`);
+for (var k = 1; k < 10; ++k) {
+  for (var j = 1; j < 10; ++j) {
+    for (var i = 1; i < 10; ++i) {
+      var scrollID = i;
+      var sectionID = j;
+      var chapterID = k;
+      createScroll(libraryID, shelfID, seriesID, collectionID, volumeID, bookID, chapterID, sectionID, scrollID);
+    }
   }
 }
+document.write("</div>");
 </script>
 
 </div> <!-- phext -->
@@ -167,22 +188,30 @@ function setScale(value) {
 }
 
 var disabled = Array();
-function show(id) {
-  if (disabled[id]) {
+function show(type, id) {
+  if (disabled[type + id]) {
     return;
   }
-  var box = dgid('links' + id);
-  box.style.visibility = 'visible';
-  box.style.borderRadius = '4px';
-  var scroll = dgid('scroll' + id);
-  scroll.style.width = '640px';
-  scroll.style.height = '640px';
+  var box = dgid('links' + type + id);
+  if (box) {
+    box.style.visibility = 'visible';
+    box.style.borderRadius = '4px';
+  }
+  if (type == 'scroll') {
+    var container = dgid(type + id);
+    if (container) {
+      container.style.width = '640px';
+      container.style.height = '640px';
+    }
+  }
 }
 
-function collapse(id) {
-  var scroll = dgid('scroll' + id);
-  scroll.style.height = '';
-  disabled[id] = disabled[id] ? false : true;
+function collapse(type, id) {
+  var scroll = dgid(type + id);
+  if (scroll) {
+    scroll.style.height = '';
+    disabled[type + id] = disabled[type + id] ? false : true;
+  }
 }
 
 function render() {
