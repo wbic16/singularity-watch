@@ -8,6 +8,8 @@ let's chart the path to the third singularity of humanity.
 - wormhole.html: Visualizing 11-dimensional phext spaces
 - phext-cpu.js: an idealized phext processor for javascript
 - exocortex.plan: steps to build the exocortex of 2130
+- TODO.md: how to contribute to the phext ecosystem
+- web.html: visualizing scroll tiles
 
 ## Kardashev 1.0
 
