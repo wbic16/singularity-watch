@@ -1,0 +1,248 @@
+<html>
+<head>
+<title>Singularity Watch - Web Tiles</title>
+<style type="text/css">
+body {
+  padding: 40px;
+  background-color: black;
+  color: white;
+  font-family: arial, sans-serif;
+}
+.node, .library, .series, .shelf, .collection, .volume, .book, .chapter, .section, .scroll,
+#links {
+  min-width: 256px;
+  max-width: 256px;
+  min-height: 256px;
+  border: 3px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 20px;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.45s;
+  position: relative;
+  vertical-align: center;
+}
+#links {
+  cursor: text;
+  text-align: left;
+  font-size: 1.1em;
+  float: left;
+}
+input {
+  padding: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  transition: 0.35s all;
+}
+input:hover {
+  cursor: pointer;
+  background-color: orange;
+}
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #e0e030;
+  cursor: pointer;
+  transition: all 1s;
+  min-height: 1.2em;
+  padding: 30px;  
+}
+.title:hover {
+  color: white;
+  text-decoration: underline;
+}
+.scroll {
+  border: 4px solid orange;
+  border-radius: 4px;
+  height: 100px;
+  min-width: 700px;
+  text-align: left;
+  padding-left: 30px;
+  float: left;
+  overflow: hidden;
+}
+.book {
+  display: block;
+  border: 4px solid blue;
+  border-radius: 4px;
+  min-width: 7000px;
+  text-align: left;
+  padding-left: 30px;
+  overflow: scroll;
+}
+.scroll:hover {
+  background-color: #424242;
+}
+.scroll input {
+  cursor: default;
+  margin-left: 18px;
+}
+ul {
+  margin: 0; padding: 0;
+}
+ul.techtree {
+  position: relative;
+}
+li.node {
+  list-style-type: none;
+  text-indent: 0;
+  margin: 8;
+  padding: 0;
+  background-color: red;
+  float: left;
+  min-height: 120px;
+  vertical-align: center;
+  padding: 12px;
+  padding-top: 60px;
+  text-overflow:clip;
+}
+li.node:hover {
+  background-color: grey;
+}
+li.met {
+  background-color: green;
+}
+h2 {
+  clear: both;
+}
+</style>
+</head>
+<body onLoad="onLoad();">
+<h1>Kardashev Scale</h1>
+
+
+<h2>Future Tech (Near-Term)</h2>
+<ul>
+  <li class="node open">Quantum Internet</li>
+  <li class="node open">Brain-Machine Interfaces</li>
+  <li class="node open">AI-Driven Science</li>
+  <li class="node open">Room-Temperature Superconductors</li>
+  <li class="node open">Genetic Longevity Enhancements</li>
+  <li class="node open">Programmable Matter</li>
+  <li class="node open">Universal Vaccines</li>
+  <li class="node open">Regenerative Medicine</li>
+  <li class="node open">Autonomous Construction</li>
+  <li class="node open">Predictive Healthcare</li>
+  <li class="node open">Digital Life</li>
+</ul>
+
+<h2>Future Tech (Far-Future)</h2>
+<ul>
+  <li class="node open">Synthetic Consciousness</li>
+  <li class="node open">Exocortex</li>
+  <li class="node open">Terraforming</li>
+  <li class="node open">Interstellar Propulsion</li>
+  <li class="node open">Space Elevators</li>
+  <li class="node open">Dyson Swarms</li>
+  <li class="node open">Mind Uploading</li>
+  <li class="node open">Faster-Than-Light Communication</li>
+  <li class="node open">Universal AI Assistants</li>
+  <li class="node open">Time Travel</li>
+  <li class="node open">Self-Sustaining Colonies</li>
+</ul>
+
+<h2>Fundamentals</h2>
+<ul>
+  <li class="node met">Fire (-2000K)</li>
+</ul>
+
+<h2>Transportation & Tools</h2>
+<ul>
+  <li class="node met">Gathering (-500K)</li>
+  <li class="node met">Hunting (-400K)</li>
+  <li class="node met">Fishing (-40K)</li>
+  <li class="node met">Boat (-8000)</li>
+  <li class="node met">The Wheel (-4000)</li>
+  <li class="node met">Ancient Rockets (-1200)</li>
+  <li class="node met">Compass (-1000)</li>
+  <li class="node met">Bicycles (1817)</li>
+  <li class="node met">Railroads (1825)</li>
+  <li class="node met">Automobiles (1886)</li>
+  <li class="node met">Airplanes (1903)</li>
+  <li class="node met">Modern Rockets (1926)</li>
+</ul>
+
+<h2>Energy & Power</h2>
+<ul>
+  <li class="node met">Bronze Working (-3300)</li>
+  <li class="node met">Iron Working (-1200)</li>
+  <li class="node met">Windmills (500)</li>
+  <li class="node met">Steam Engine (1698)</li>
+  <li class="node met">Electricity (1800)</li>
+  <li class="node met">Nuclear Power (1942)</li>
+  <li class="node met">Solar Panels (1954)</li>
+  <li class="node open">Carbon-Neutral Economies (TBD)</li>
+</ul>
+
+<h2>Communication & Media</h2>
+<ul>
+  <li class="node met">Language (-100K)</li>
+  <li class="node met">Writing (-3400)</li>
+  <li class="node met">Printing Press (1440)</li>
+  <li class="node met">Telegraph (1837)</li>
+  <li class="node met">Telephone (1876)</li>
+  <li class="node met">Radio (1895)</li>
+  <li class="node met">Television (1927)</li>
+  <li class="node met">Internet (1983)</li>
+  <li class="node met">Smartphones (2007)</li>
+</ul>
+
+<h2>Computing & Information Technology</h2>
+<ul>
+  <li class="node met">Reasoning (-70K)</li>
+  <li class="node met">Mathematics (-3000)</li>
+  <li class="node met">Zero (-500)</li>
+  <li class="node met">Abacus (-2000)</li>
+  <li class="node met">First Computers (1940)</li>
+  <li class="node met">Transistor (1947)</li>
+  <li class="node met">Integrated Circuit (1958)</li>
+  <li class="node met">ASCII Text (1963)</li>
+  <li class="node met">Mouse (1964)</li>
+  <li class="node met">HTML (1993)</li>
+  <li class="node met">Transformer (2017)</li>
+  <li class="node met">LLM (2018)</li>
+  <li class="node met">Phext (2022)</li>
+</ul>
+
+<h2>Energy & Nuclear</h2>
+<ul>
+  <li class="node met">Fission Reactor (1942)</li>
+  <li class="node open">Fusion Reactor (TBD)</li>
+</ul>
+
+<h2>Scientific Disciplines</h2>
+<ul>
+  <li class="node met">Physics (-500K)</li>
+  <li class="node met">Chemistry (-3000)</li>
+  <li class="node met">Biology (-2000)</li>
+  <li class="node met">Psychology (-400)</li>
+  <li class="node met">Quantum Mechanics (1900)</li>
+  <li class="node met">Relativity (1905)</li>
+  <li class="node met">String Theory (1968)</li>
+</ul>
+
+<h2>Biological Evolution</h2>
+<ul>
+  <li class="node met">Food (-4B)</li>
+  <li class="node met">Cellular Life (-4B)</li>
+  <li class="node met">DNA (-4B)</li>
+  <li class="node met">Touch (-3B)</li>
+  <li class="node met">Smell (-1B)</li>
+  <li class="node met">Taste (-1B)</li>
+  <li class="node met">Eyesight (-600M)</li>
+  <li class="node met">Hearing (-400M)</li>
+  <li class="node met">Neocortex (-200M)</li>
+</ul>
+
+<h2>Abstract Concepts</h2>
+<ul>
+  <li class="node met">Time (-2M)</li>
+</ul>
+
+
+</body>
+</html>

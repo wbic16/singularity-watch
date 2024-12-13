@@ -65,13 +65,16 @@ table th {
   text-decoration: underline;
   color: white;
 }
+.nerd a,
+.nerd a:visited {
+  color: white;
+  font-size: 1.2em;
+}
 </style>
 </head>
 <body onLoad="onLoad();">
-<h1>2024: The Year We Make Contact</h1>
-<div id="phext">
-
-</div>
+<h1>2025: Nerd Sniping</h1>
+<p class="nerd"><a href="kardashev.html">Climb the Kardashev Ladder</a></p>
 <script type="text/javascript">
 var phext = false;
 // createTechNode
@@ -88,10 +91,10 @@ function c14n(id, name, year, parent) {
 
 var nodes = Array();
 var subspace = "HandAxe:-2600000Fire:-2000000Boat:-8200Wheel:-6000"
-c14n("1.1.1/1.1.1/1.1.1", "HandAxe", -2600000, "root");
-c14n("1.1.1/1.1.1/1.1.2", "Fire", -2000000, "root");
-c14n("1.1.1/1.1.1/1.1.3", "Boat", -8200, "root");
-c14n("1.1.1/1.1.1/1.1.4", "Wheel", -6000, "root");
+//c14n("1.1.1/1.1.1/1.1.1", "HandAxe", -2600000, "root");
+//c14n("1.1.1/1.1.1/1.1.2", "Fire", -2000000, "root");
+//c14n("1.1.1/1.1.1/1.1.3", "Boat", -8200, "root");
+//c14n("1.1.1/1.1.1/1.1.4", "Wheel", -6000, "root");
 
 function dgid(id) {
   return document.getElementById(id);
