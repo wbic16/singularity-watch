@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phext Subspace</title>
+
+  <style>
+    html, body {
+  background-color: black;
+  color: white;
+  font-family: sans-serif;
+}
+  </style>
+
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js",
+      "three/examples/jsm/controls/OrbitControls": "https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/controls/OrbitControls.js"
+    }
+  }
+  </script>
+  
+</head>
+<body>
+  <html>
+<head>
+<title>Phext Subspace</title>
+</head>  
+<body>
+
+<h1>Phext Subspace Explorer</h1>
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/controls/OrbitControls.js';
+
+// Create scene
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 1000);
+const cubes = [];
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+camera.position.z = 10;
+camera.position.y = 5;
+camera.position.x = 5;
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+
+class phextCoordinate {
+constructor() {
+this.library = 1;
+this.shelf = 1;
+this.series = 1;
+this.collection = 1;
+this.volume = 1;
+this.book = 1;
+this.chapter = 1;
+this.section = 1;
+this.scroll = 1;
+this.index = 1;
+}
+
+libraryBreak() { this.library += 1; this.shelf = 1; this.series = 1; this.collection = 1; this.volume = 1; this.book = 1; this.chapter = 1; this.section = 1; this.scroll = 1; this.index = 1; }
+shelfBreak() { this.shelf += 1; this.series = 1; this.collection = 1; this.volume = 1; this.book = 1; this.chapter = 1; this.section = 1; this.scroll = 1; this.index = 1; }
+seriesBreak() { this.series += 1; this.collection = 1; this.volume = 1; this.book = 1; this.chapter = 1; this.section = 1; this.scroll = 1; this.index = 1; }
+collectionBreak() { this.collection += 1; this.volume = 1; this.book = 1; this.chapter = 1; this.section = 1; this.scroll = 1; this.index = 1; }
+volumeBreak() { this.volume += 1; this.book = 1; this.chapter = 1; this.section = 1; this.scroll = 1; this.index = 1; }
+bookBreak() { this.book += 1; this.chapter = 1; this.section = 1; this.scroll = 1; this.index = 1; }
+chapterBreak() { this.chapter += 1; this.section = 1; this.scroll = 1; this.index = 1; }
+sectionBreak() { this.section += 1; this.scroll = 1; this.index = 1; }
+scrollBreak() { this.scroll += 1; this.index = 1; }
+}
+
+// Function to create cubes based on a text string
+function visualizeSubspace(text) {
+    var cz = 0.0;
+    var cy = 0.0;
+    var cx = 0.0;
+    var index = 1;
+    var c = new phextCoordinate();
+    text.split('').forEach((char, ignored) => {
+        const geometry = new THREE.BoxGeometry();
+        
+        var color = 0x413287;
+        var rift = false;
+        if (char == 'x') { color = 0x848484; }
+        if (char == 'y') { color = 0x9f9f9f; }
+        if (char == 'z') { color = 0xabefab; }
+        if (char == '\x17') { color = 0x0000ff; c.scrollBreak(); rift = true; }
+        if (char == '\x18') { color = 0x0000cc; c.sectionBreak(); rift = true; }
+        if (char == '\x19') { color = 0x0000aa; c.chapterBreak(); rift = true; }
+        if (char == '\x1a') { color = 0x00ff00; c.bookBreak(); rift = true; }
+        if (char == '\x1c') { color = 0x00cc00; c.volumeBreak(); rift = true; }
+        if (char == '\x1d') { color = 0x00aa00; c.collectionBreak(); rift = true; }
+        if (char == '\x1e') { color = 0xff0000; c.seriesBreak(); rift = true; }
+        if (char == '\x1f') { color = 0xcc0000; c.shelfBreak(); rift = true; }
+        if (char == '\x01') { color = 0xaa0000; c.libraryBreak(); rift = true; }
+        const material = new THREE.MeshBasicMaterial({ color: color });
+        const cube = new THREE.Mesh(geometry, material);
+        
+        // map our position in 11D space based upon compressing our coordinates
+        if (rift) { c.index = 1; }
+        else { ++c.index; }
+        cx = Math.sqrt(c.library*c.library + c.shelf*c.shelf + c.series*c.series);
+        cy = Math.sqrt(c.collection*c.collection + c.volume*c.volume + c.book*c.book);
+        cz = Math.sqrt(c.chapter*c.chapter + c.section*c.section + c.scroll*c.scroll);
+        cube.position.set(cx, cy, cz);
+        cube.rotation.x = c.library/10;
+        cube.rotation.y = c.shelf/10;
+        cube.rotation.z = c.series/10;
+        cube.scale.x = Math.sqrt(c.collection*c.collection/100);
+        cube.scale.y = Math.sqrt(c.volume*c.volume/100);
+        cube.scale.x = Math.sqrt(c.book*c.book/100);
+        // console.log(`Adding cube at (${cx}, ${cy}, ${cz}) -> ${c.library}.${c.shelf}.${c.series}/${c.collection}.${c.volume}.${c.book}/${c.chapter}.${c.section}.${c.scroll}:${c.index}`);
+        scene.add(cube);
+        cubes.push(cube);
+    });
+}
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+const subspace = params.subspace || `\x01\x01\x01\x01\x01\x01\x01\x01\x01x\x1f\x1f\x1f\x1f\x1f\x1f\x1f\x1f\x1fx\x1e\x1e\x1e\x1e\x1e\x1e\x1e\x1e\x1ex\x1d\x1d\x1d\x1d\x1d\x1d\x1d\x1d\x1dx\x1c\x1c\x1c\x1c\x1c\x1c\x1c\x1c\x1cx\x1a\x1a\x1a\x1a\x1a\x1a\x1a\x1a\x1ax\x19\x19\x19\x19\x19\x19\x19\x19\x19x\x17\x17\x17\x17\x17\x17\x17\x17\x17x\x18\x18\x17\x17\x17\x19\x19\x19\x19\x1a\x1a\x1a\x1a\x1a\x1c\x1c\x1c\x1c\x1c\x1c\x1d\x1d\x1d\x1d\x1e\x1e\x1e\x1f\x1f\x1f\x01\x01\x01Content\x18\x18\x18\x18Content\x18\x18\x18\x18x\x17\x17\x17\x17\x17\x17\x17\x17\x17\x19\x19\x19\x19\x19\x19\x19\x19\x19\x1a\x1a\x1a\x1a\x1a\x1a\x1a\x1a\x1a\x1c\x1c\x1c\x1c\x1c\x1c\x1c\x1c\x1c\x1d\x1d\x1d\x1d\x1d\x1d\x1d\x1d\x1d\x1e\x1e\x1e\x1e\x1e\x1e\x1e\x1e\x1e\x1f\x1f\x1f\x1f\x1f\x1f\x1f\x1f\x1f\x01\x01\x01\x01\x01\x01\x01\x01\x01x`;
+visualizeSubspace(subspace);
+
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+}
+animate();
+
+</script>
+</body>
+</html>
