@@ -33,6 +33,9 @@
         const detailSlider = dgid("detail");
         const slopSlider = dgid("slop");
 
+        let offsetX = 0, offsetY = 0;
+        let dragging = false, lastX, lastY;
+
         function mandelbrot(cx, cy, max_iter) {
             let x = 0, y = 0, iter = 0;
             while (x*x + y*y <= 10 && iter < max_iter) {
@@ -56,8 +59,8 @@
 
             for (let py = 0; py < canvas.height; py++) {
                 for (let px = 0; px < canvas.width; px++) {
-                    let x = (px - canvas.width/2) * zoom;
-                    let y = (py - canvas.height/2) * zoom;
+                    let x = (px - canvas.width/2 + offsetX) * zoom;
+                    let y = (py - canvas.height/2 - offsetY) * zoom;
 
                     let xr = x * cosAngle - y * sinAngle - 0.7436;
                     let yr = x * sinAngle + y * cosAngle + 0.1318;
@@ -81,6 +84,37 @@
         rotateSlider.oninput = drawFractal;
         detailSlider.oninput = drawFractal;
         slopSlider.oninput = drawFractal;
+
+        canvas.onmousedown = (e) => {
+            dragging = true;
+            lastX = e.clientX;
+            lastY = e.clientY;
+            canvas.style.cursor = 'grabbing';
+        };
+
+        canvas.onmouseup = canvas.onmouseleave = () => {
+            dragging = false;
+            canvas.style.cursor = 'grab';
+        };
+
+        canvas.onmousemove = (e) => {
+            if (dragging) {
+                offsetX += e.clientX - lastX;
+                offsetY += e.clientY - lastY;
+                lastX = e.clientX;
+                lastY = e.clientY;
+                drawFractal();
+            }
+        };
+
+        canvas.onwheel = (e) => {
+            e.preventDefault();
+            let zoomVal = parseFloat(zoomSlider.value);
+            zoomVal += e.deltaY * -0.00001;
+            zoomVal = Math.min(Math.max(zoomVal, zoomSlider.min), zoomSlider.max);
+            zoomSlider.value = zoomVal;
+            drawFractal();
+        };
 
         drawFractal();
     </script>
