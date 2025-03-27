@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractal Subspace Explorer</title>
+    <style>
+        body, html { height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: #121212; }
+        canvas { border: 1px solid #444; }
+        .controls { position: absolute; top: 20px; left: 20px; background: rgba(0,0,0,0.6); padding: 10px; border-radius: 8px; color: #fff; }
+        input[type=range] { width: 150px; }
+        .controls ul { list-style: none; margin: 0; padding: 0; }
+        .controls ul li { margin: 0; padding: 0; }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <ul>
+            <li>Zoom: <input type="range" id="zoom" min="-0.01" max="0.01" step="0.000001" value="-0.005"></li>
+            <li>Rotate: <input type="range" id="rotate" min="-180" max="180" step="1" value="0"></li>
+            <li>Detail: <input type="range" id="detail" min="10" max="80" step="10" value="30"></li>
+            <li>Slop: <input type="range" id="slop" min="0.1" max="8" step="0.01" value="3.14"></li>
+        </ul>
+    </div>
+    <canvas id="fractalCanvas" width="1200" height="600"></canvas>
+
+    <script>
+        function dgid(id) { return document.getElementById(id); }
+        const canvas = dgid("fractalCanvas");
+        const ctx = canvas.getContext("2d");
+        const zoomSlider = dgid("zoom");
+        const rotateSlider = dgid("rotate");
+        const detailSlider = dgid("detail");
+        const slopSlider = dgid("slop");
+
+        function mandelbrot(cx, cy, max_iter) {
+            let x = 0, y = 0, iter = 0;
+            while (x*x + y*y <= 10 && iter < max_iter) {
+                let x_new = x*x - y*y + cx;
+                y = slopSlider.value*x*y + cy;
+                x = x_new;
+                iter++;
+            }
+            return iter;
+        }
+
+        function drawFractal() {
+            const zoom = parseFloat(zoomSlider.value);
+            const angle = parseFloat(rotateSlider.value) * Math.PI / 180;
+            const detail = parseInt(detailSlider.value);
+            const cosAngle = Math.cos(angle);
+            const sinAngle = Math.sin(angle);
+
+            const imgData = ctx.createImageData(canvas.width, canvas.height);
+            const data = imgData.data;
+
+            for (let py = 0; py < canvas.height; py++) {
+                for (let px = 0; px < canvas.width; px++) {
+                    let x = (px - canvas.width/2) * zoom;
+                    let y = (py - canvas.height/2) * zoom;
+
+                    let xr = x * cosAngle - y * sinAngle - 0.7436;
+                    let yr = x * sinAngle + y * cosAngle + 0.1318;
+
+                    const iter = mandelbrot(xr, yr, detail);
+                    const idx = (px + py * canvas.width) << 2;
+                    const color = iter === detail ? 0 : (iter * 255 / detail);
+
+                    // RGBA
+                    data[idx]   = color/1.618;
+                    data[idx+1] = color/1.618;
+                    data[idx+2] = color/0.732;
+                    data[idx+3] = 255;
+                }
+            }
+
+            ctx.putImageData(imgData, 0, 0);
+        }
+
+        zoomSlider.oninput = drawFractal;
+        rotateSlider.oninput = drawFractal;
+        detailSlider.oninput = drawFractal;
+        slopSlider.oninput = drawFractal;
+
+        drawFractal();
+    </script>
+</body>
+</html>
