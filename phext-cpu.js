@@ -179,6 +179,9 @@ function merge(left, right) {
   return output;
 }
 
+// todo: merge libphext-node and replace most of this code
+// see: https://github.com/wbic16/libphext-node
+
 function select(address, buffer) {
   // TODO: inspect `buffer` to locate the scroll at `address`
 }
@@ -275,4 +278,117 @@ function storeSeries(series, buffer) {
   shelf[series] = buffer;
   loaded.sr = series;
 }
-// TODO: define collection, volume, book, chapter, section, and scroll load/store methods
+
+function loadCollection() {
+  return loadCollection(loaded.cn, false);
+}
+function loadCollection(collection, update = true) {
+  var series = loadSeries();
+  if (!series[collection]) {
+    series[collection] = Array();
+  }
+  if (update) {
+    loaded.cn = collection;
+  }
+  return series[collection];
+}
+function storeCollection(collection, buffer) {
+  var series = loadSeries();
+  series[collection] = buffer;
+  loaded.cn = collection;
+}
+
+function loadVolume() {
+  return loadVolume(loaded.vm, false);
+}
+function loadVolume(volume, update = true) {
+  var collection = loadCollection();
+  if (!collection[volume]) {
+    collection[volume] = Array();
+  }
+  if (update) {
+    loaded.vm = volume;
+  }
+  return collection[volume];
+}
+function storeVolume(volume, buffer) {
+  var collection = loadCollection();
+  collection[volume] = buffer;
+  loaded.vm = volume;
+}
+
+function loadBook() {
+  return loadBook(loaded.bk, false);
+}
+function loadBook(book, update = true) {
+  var volume = loadVolume();
+  if (!volume[book]) {
+    volume[book] = Array();
+  }
+  if (update) {
+    loaded.bk = book;
+  }
+  return volume[book];
+}
+function storeBook(book, buffer) {
+  var volume = loadVolume();
+  volume[book] = buffer;
+  loaded.bk = book;
+}
+
+function loadChapter() {
+  return loadChapter(loaded.ch, false);
+}
+function loadChapter(chapter, update = true) {
+  var book = loadBook();
+  if (!book[chapter]) {
+    book[chapter] = Array();
+  }
+  if (update) {
+    loaded.ch = chapter;
+  }
+  return book[chapter];
+}
+function storeBook(chapter, buffer) {
+  var book = loadBook();
+  book[chapter] = buffer;
+  loaded.ch = chapter;
+}
+
+function loadSection() {
+  return loadSection(loaded.sn, false);
+}
+function loadSection(section, update = true) {
+  var chapter = loadChapter();
+  if (!chapter[section]) {
+    chapter[section] = Array();
+  }
+  if (update) {
+    loaded.sn = section;
+  }
+  return chapter[section];
+}
+function storeSection(section, buffer) {
+  var chapter = loadChapter();
+  chapter[section] = buffer;
+  loaded.sn = section;
+}
+
+function loadScroll() {
+  return loadScroll(loaded.sc, false);
+}
+function loadScroll(scroll, update = true) {
+  var section = loadSection();
+  if (!section[scroll]) {
+    section[scroll] = Array();
+  }
+  if (update) {
+    loaded.sc = scroll;
+  }
+  return section[scroll];
+}
+function storeScroll(scroll, buffer) {
+  var section = loadSection();
+  section[scroll] = buffer;
+  loaded.sc = scroll;
+}
