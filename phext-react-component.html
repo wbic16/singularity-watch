@@ -82,6 +82,10 @@
       a.click();
     };
 
+    const jumpToRoot = () => {
+      setAddress(Array(9).fill(1));
+    };
+
     const getScroll = (buf, addr) => buf[addr.join(',')] || '';
     const setScroll = (buf, addr, val) => ({ ...buf, [addr.join(',')]: val });
 
@@ -143,7 +147,8 @@
         if (e.key === 'F4') { updateScroll(''); }  // F4: Reset current scroll
         if (e.key === 'F5') { duplicateScroll(); } // F5: Duplicate/Copy scroll
         if (e.key === 'F6') { saveToFile(); }      // F6: Save
-        
+        if (e.key === 'F7') { jumpToRoot(); }      // F7: Jump to Home
+
       }, [mode, coordIndex, stride]);
 
       useEffect(() => {
