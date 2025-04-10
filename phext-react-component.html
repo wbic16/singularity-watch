@@ -74,6 +74,14 @@
       onUpdate(target, quoted);
     };
 
+    const saveToFile = () => {
+      const blob = new Blob([stringifyPhextBuffer(buffer)], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'scrolls.phext';
+      a.click();
+    };
+
     const getScroll = (buf, addr) => buf[addr.join(',')] || '';
     const setScroll = (buf, addr, val) => ({ ...buf, [addr.join(',')]: val });
 
@@ -130,9 +138,12 @@
         }
         if (e.key === 'Tab') { e.preventDefault(); setMode(m => m === 'CMM' ? 'RST' : 'CMM'); }
 
-        // F4: Reset current scroll
-        if (e.key === 'F4') { updateScroll(''); }
-        if (e.key === 'F5') { duplicateScroll(); }
+        if (e.key.startsWith('F')) { e.preventDefault(); } // Stop browser default F-key actions
+        
+        if (e.key === 'F4') { updateScroll(''); }  // F4: Reset current scroll
+        if (e.key === 'F5') { duplicateScroll(); } // F5: Duplicate/Copy scroll
+        if (e.key === 'F6') { saveToFile(); }      // F6: Save
+        
       }, [mode, coordIndex, stride]);
 
       useEffect(() => {
