@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Phext Buffer Editor</title>
+  <title>Phext Editor (F4–F8 Active)</title>
   <style>
     :root {
       --bg: #ffffff;
@@ -16,6 +16,7 @@
     }
     body {
       margin: 0;
+      padding: 2rem;
       font-family: monospace;
       background: var(--bg);
       color: var(--fg);
@@ -41,27 +42,30 @@
       transition: all 0.3s ease-in-out;
       color: #000;
     }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.4); opacity: 1; }
+    }
   </style>
 </head>
 <body>
   <div id="root"></div>
-
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
   <script type="module">
     import { getScroll } from './libphext.js';
   </script>
 
   <script>
+
     const { useState, useEffect, useCallback, useRef } = React;
 
     const parsePhextBuffer = (text) => {
-      const out = {};
-      text.split('---').forEach((block, i) => {
-        out[(i + 1) + ',1,1,1,1,1,1,1,1'] = block.trim();
+      const map = {};
+      text.split('---').forEach((chunk, i) => {
+        map[`${i + 1},1,1,1,1,1,1,1,1`] = chunk.trim();
       });
-      return out;
+      return map;
     };
 
     const duplicateScroll = () => {
@@ -78,6 +82,11 @@
       onUpdate(target, quoted);
     };
 
+    const stringifyPhextBuffer = (map) =>
+      Object.entries(map)
+        .map(([addr, scroll]) => `---\n@${addr}\n${scroll}`)
+        .join('\n');
+
     const saveToFile = () => {
       const blob = new Blob([stringifyPhextBuffer(buffer)], { type: 'text/plain' });
       const a = document.createElement('a');
@@ -90,8 +99,8 @@
       setAddress(Array(9).fill(1));
     };
 
-    const getScroll = (buf, addr) => buf[addr.join(',')] || '';
-    const setScroll = (buf, addr, val) => ({ ...buf, [addr.join(',')]: val });
+    const getScroll = (map, addr) => map[addr.join(',')] || '';
+    const setScroll = (map, addr, value) => ({ ...map, [addr.join(',')]: value });
 
     function App() {
       const [mode, setMode] = useState('CMM');
@@ -101,8 +110,7 @@
       const [stride, setStride] = useState(1);
       const [coordIndex, setCoordIndex] = useState(0);
       const [currentScroll, setCurrentScroll] = useState('');
-      const [previewScrolls, setPreviewScrolls] = useState([]);
-      const scrollContainerRef = useRef(null);
+      const [overlayVisible, setOverlayVisible] = useState(false);
       const coordColors = ['#f88', '#f44', '#c00', '#88f', '#44f', '#00c', '#8f8', '#4c4', '#0c0'];
 
       useEffect(() => {
@@ -130,70 +138,70 @@
       const formatAddr = (addr) => {
         const p = [...addr, ...Array(9 - addr.length).fill(1)].slice(0, 9);
         return `${p[0]}.${p[1]}.${p[2]}/${p[3]}.${p[4]}.${p[5]}/${p[6]}.${p[7]}.${p[8]}`;
-      };
+      }
 
-      const handleKeyDown = useCallback((e) => {
-        if (mode === 'CMM') {
-          if (e.key === 'ArrowLeft') setCoordIndex(i => Math.max(i - 1, 0));
-          if (e.key === 'ArrowRight') setCoordIndex(i => Math.min(i + 1, 8));
-          if (e.key === 'ArrowUp') setAddress(addr => { const a = [...addr]; a[coordIndex] = Math.min(a[coordIndex] + 1, 999); return a; });
-          if (e.key === 'ArrowDown') setAddress(addr => { const a = [...addr]; a[coordIndex] = Math.max(a[coordIndex] - 1, 1); return a; });
-        } else {
-          if (e.key === 'ArrowLeft') setOffset(o => Math.max(o - stride, 0));
-          if (e.key === 'ArrowRight') setOffset(o => o + stride);
-          if (e.key === 'ArrowUp') setStride(s => s + 1);
-          if (e.key === 'ArrowDown') setStride(s => Math.max(s - 1, 1));
-        }
-        if (e.key === 'Tab') { e.preventDefault(); setMode(m => m === 'CMM' ? 'RST' : 'CMM'); }
-
-        if (e.key.startsWith('F')) { e.preventDefault(); } // Stop browser default F-key actions
-        
-        if (e.key === 'F4') { updateScroll(''); }  // F4: Reset current scroll
-        if (e.key === 'F5') { duplicateScroll(); } // F5: Duplicate/Copy scroll
-        if (e.key === 'F6') { saveToFile(); }      // F6: Save
-        if (e.key === 'F7') { jumpToRoot(); }      // F7: Jump to Home
-
-      }, [mode, coordIndex, stride]);
+      const jumpToRoot = () => setAddress(Array(9).fill(1));
+      const toggleOverlay = () => setOverlayVisible(v => !v);
 
       useEffect(() => {
+        setCurrentScroll(getScroll(buffer, address));
+      }, [buffer, address]);
+
+      useEffect(() => {
+        const handleKeyDown = (e) => {
+          if (e.key.startsWith('F')) e.preventDefault(); // Stop browser default F-key actions
+          if (e.key === 'F4') updateScroll('');
+          if (e.key === 'F5') duplicateScroll();
+          if (e.key === 'F6') saveToFile();
+          if (e.key === 'F7') jumpToRoot();
+          if (e.key === 'F8') toggleOverlay();
+        };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-      }, [handleKeyDown]);
+      }, [currentScroll]);
 
-      return React.createElement('div', { className: 'phext-editor', onDrop: e => e.preventDefault(), onDragOver: e => e.preventDefault() }, [
-        React.createElement('div', { key: 'info' },
-          `Mode: ${mode} | Address: ${formatAddr(address)} | Offset: ${offset} | Stride: ${stride}`
-        ),
-        React.createElement('div', { key: 'coords', style: { marginTop: '0.5rem' } },
-          address.map((val, i) => React.createElement('span', {
-            key: i,
+      return React.createElement('div', {}, [
+        overlayVisible &&
+          React.createElement('div', {
             style: {
-              padding: '0.2rem 0.4rem',
-              marginRight: '0.25rem',
-              borderRadius: '4px',
-              background: coordColors[i],
-              opacity: i === coordIndex ? 1 : 0.5,
-              color: '#000',
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              backdropFilter: 'blur(8px)',
+              background: 'rgba(0, 0, 0, 0.75)',
+              zIndex: 9999,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontFamily: 'monospace',
+              color: '#0f0',
             }
-          }, val))
-        ),
-        React.createElement('div', { className: 'preview-scrolls', ref: scrollContainerRef },
-          previewScrolls.map(({ addr, content, hue }, idx) =>
-            React.createElement('div', {
-              className: 'preview-scroll',
-              key: idx,
-              style: { background: hue + '22', border: `1px solid ${hue}` }
-            }, [
-              React.createElement('div', { style: { fontSize: '0.75rem', opacity: 0.6 } }, formatAddr(addr)),
-              React.createElement('div', {}, content)
-            ])
-          )
-        ),
+          }, [
+            React.createElement('div', { style: { fontSize: '2rem', marginBottom: '1rem' } }, 'Coordinate Overlay Active (F8 to hide)'),
+            React.createElement('div', { style: { display: 'flex', gap: '1rem' } },
+              coordColors.map((color, i) =>
+                React.createElement('div', {
+                  key: i,
+                  style: {
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '50%',
+                    background: color,
+                    animation: 'pulse 1.5s infinite ease-in-out',
+                    animationDelay: `${i * 0.1}s`,
+                  }
+                })
+              )
+            )
+          ]),
         React.createElement('textarea', {
-          value: currentScroll,
-          onChange: e => updateScroll(e.target.value),
           rows: 20,
           cols: 80,
+          value: currentScroll,
+          onChange: (e) => updateScroll(e.target.value),
           style: { marginTop: '1rem' }
         })
       ]);
