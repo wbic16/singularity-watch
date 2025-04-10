@@ -60,6 +60,20 @@
       return out;
     };
 
+    const duplicateScroll = () => {
+      const quoted = currentScroll
+        .split('\n')
+        .map(line => '> ' + line)
+        .join('\n');
+
+      const target = [...address];
+      target[coordIndex] = Math.min(999, target[coordIndex] + 1);
+
+      const updated = setScroll(buffer, target, quoted);
+      setBuffer(updated);
+      onUpdate(target, quoted);
+    };
+
     const getScroll = (buf, addr) => buf[addr.join(',')] || '';
     const setScroll = (buf, addr, val) => ({ ...buf, [addr.join(',')]: val });
 
@@ -117,7 +131,8 @@
         if (e.key === 'Tab') { e.preventDefault(); setMode(m => m === 'CMM' ? 'RST' : 'CMM'); }
 
         // F4: Reset current scroll
-        if (e.key === 'F4') updateScroll('');
+        if (e.key === 'F4') { updateScroll(''); }
+        if (e.key === 'F5') { duplicateScroll(); }
       }, [mode, coordIndex, stride]);
 
       useEffect(() => {
