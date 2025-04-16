@@ -61,11 +61,7 @@
     };
 
     const duplicateScroll = () => {
-      const quoted = currentScroll
-        .split('\n')
-        .map(line => '> ' + line)
-        .join('\n');
-
+      const quoted = currentScroll.split('\n').map(line => '> ' + line).join('\n');
       const target = [...address];
       target[coordIndex] = Math.min(999, target[coordIndex] + 1);
 
@@ -104,7 +100,13 @@
       useEffect(() => {
         const scroll = getScroll(buffer, address);
         setCurrentScroll(scroll);
-        const previews = [-2, -1, 0, 1, 2].map(offset => {
+
+        const previews = [-2, -1, 0, 1, 2].filter(function (preoffset){
+          const nearby = [...address];
+          const test = Math.min(999, nearby[coordIndex] + preoffset);
+          if (test < 1) { return false; }
+          return true;
+        }).map(offset => {
           const nearby = [...address];
           nearby[coordIndex] = Math.max(1, Math.min(999, nearby[coordIndex] + offset));
           return {
@@ -112,6 +114,7 @@
             content: getScroll(buffer, nearby).slice(0, 128),
             hue: coordColors[coordIndex] || '#ccc'
           };
+
         });
         setPreviewScrolls(previews);
         scrollContainerRef.current?.scrollTo({ left: scrollContainerRef.current.scrollWidth / 2 - 120, behavior: 'smooth' });
@@ -166,6 +169,7 @@
             style: {
               padding: '0.2rem 0.4rem',
               marginRight: '0.25rem',
+              border: '1px solid #fefefd',
               borderRadius: '4px',
               background: coordColors[i],
               opacity: i === coordIndex ? 1 : 0.5,
