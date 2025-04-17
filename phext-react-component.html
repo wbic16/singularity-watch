@@ -109,10 +109,13 @@
         }).map(offset => {
           const nearby = [...address];
           nearby[coordIndex] = Math.max(1, Math.min(999, nearby[coordIndex] + offset));
+          const hue = coordColors[coordIndex] || '#ccc';
+          const active = (offset == 0) ? '#fff' : hue;
           return {
             addr: [...nearby],
             content: getScroll(buffer, nearby).slice(0, 128),
-            hue: coordColors[coordIndex] || '#ccc'
+            hue: hue,
+            border: active
           };
 
         });
@@ -178,11 +181,11 @@
           }, val))
         ),
         React.createElement('div', { className: 'preview-scrolls', ref: scrollContainerRef },
-          previewScrolls.map(({ addr, content, hue }, idx) =>
+          previewScrolls.map(({ addr, content, hue, border }, idx) =>            
             React.createElement('div', {
               className: 'preview-scroll',
               key: idx,
-              style: { background: hue + '22', border: `1px solid ${hue}` }
+              style: { background: hue + '22', border: `1px solid ${border}` }
             }, [
               React.createElement('div', { style: { fontSize: '0.75rem', opacity: 0.6 } }, formatAddr(addr)),
               React.createElement('div', {}, content)
