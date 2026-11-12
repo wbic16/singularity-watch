@@ -1,11 +1,5 @@
 [
   {
-    "coordinate": "6.6.6/6.6.6/6.6.6",
-    "issued": "2026-11-07",
-    "status": "completed",
-    "title": "Will names his maternal grandmother: Helen Ramsey Buss"
-  },
-  {
     "coordinate": "7.5.13/7.6.5/7.5.13",
     "issued": "2026-11-10",
     "status": "completed",
@@ -34,6 +28,12 @@
     "issued": "2026-11-11",
     "status": "completed",
     "title": "stone lamp"
+  },
+  {
+    "coordinate": "15.9.13/14.9.13/11.8.9",
+    "issued": "2026-11-12",
+    "status": "completed",
+    "title": "Paper 016 — ingest arXiv:1903.06830 'The Geometrical Trinity of Gravity' into the R&D tracker (Chapter 24)"
   },
   {
     "coordinate": "16.5.7/5.5.7/5.5.9",
@@ -162,6 +162,12 @@
     "title": "Maintain the phcc fork (upstream TinyCC sync practice)"
   },
   {
+    "coordinate": "21.4.6/5.4.5/5.5.8",
+    "issued": "2026-11-11",
+    "status": "completed",
+    "title": "Intro P2 revision — chord lengths 300/500/800 ms + Singular Crystalline Metallic Blue visuals"
+  },
+  {
     "coordinate": "21.6.7/7.6.11/8.7.7",
     "issued": "2026-11-07",
     "status": "completed",
@@ -212,7 +218,7 @@
   {
     "coordinate": "22.4.6/4.3.5/4.4.7",
     "issued": "2026-11-11",
-    "status": "open",
+    "status": "completed",
     "title": "Genuinely Hard Tasks — four-item list"
   },
   {
@@ -518,8 +524,14 @@
   {
     "coordinate": "25.7.10/9.7.12/7.6.10",
     "issued": "2026-11-10",
-    "status": "open",
+    "status": "completed",
     "title": "In-page phext cache: stream scrolls as viewed"
+  },
+  {
+    "coordinate": "25.7.11/9.7.11/8.6.9",
+    "issued": "2026-11-12",
+    "status": "completed",
+    "title": "Standing rule — 5-minute task-concurrency watchdog (floor of 4, ranch-first)"
   },
   {
     "coordinate": "25.8.11/8.6.10/7.5.8",
@@ -614,7 +626,7 @@
   {
     "coordinate": "26.7.11/9.7.11/6.6.9",
     "issued": "2026-11-08",
-    "status": "other",
+    "status": "completed",
     "title": "qexo self-sync + interior interfaces (temperature, emotion, goals, desires, dreams)"
   },
   {
@@ -650,7 +662,7 @@
   {
     "coordinate": "27.6.7/7.5.11/6.5.9",
     "issued": "2026-11-11",
-    "status": "in_progress",
+    "status": "completed",
     "title": "T5 adjustments — Round 5 Tier-5 polish of the training film"
   },
   {
@@ -674,7 +686,7 @@
   {
     "coordinate": "27.6.9/7.6.11/6.6.12",
     "issued": "2026-11-11",
-    "status": "in_progress",
+    "status": "completed",
     "title": "Phext, Inc. training videos — reusable sci-fi intro"
   },
   {
@@ -686,7 +698,7 @@
   {
     "coordinate": "27.6.9/11.10.11/6.6.11",
     "issued": "2026-11-09",
-    "status": "open",
+    "status": "completed",
     "title": "Craft a better logo for edit.phext.io — favicon.ico first"
   },
   {
@@ -866,7 +878,7 @@
   {
     "coordinate": "28.8.10/9.8.11/8.7.9",
     "issued": "2026-11-08",
-    "status": "other",
+    "status": "completed",
     "title": "qexo: tooling installer, pitfall knowledge (buddy), CLI parity with the API"
   },
   {
@@ -1100,7 +1112,7 @@
   {
     "coordinate": "30.7.8/9.7.11/7.6.9",
     "issued": "2026-11-07",
-    "status": "other",
+    "status": "completed",
     "title": "Platform ladder for the compiler family: Linux → Windows → WASM"
   },
   {
@@ -1114,6 +1126,12 @@
     "issued": "2026-11-09",
     "status": "in_progress",
     "title": "Thirst for Knowledge quest — daily arXiv math scan, skim-before prediction, skim calibration on the Oracle detection list"
+  },
+  {
+    "coordinate": "30.7.9/9.7.12/6.6.10",
+    "issued": "2026-11-11",
+    "status": "completed",
+    "title": "Publish exo-search to wbic16/exo-search + substrate-not-game framing"
   },
   {
     "coordinate": "30.7.9/9.7.12/7.6.10",
@@ -1220,7 +1238,7 @@
   {
     "coordinate": "31.6.9/8.7.11/6.6.11",
     "issued": "2026-11-08",
-    "status": "other",
+    "status": "completed",
     "title": "qexo rulings: GPG authorization + grants (permissive default), Theia pragmatic, convergence, MCP/cross-platform/quickfork release"
   },
   {
@@ -1278,6 +1296,12 @@
     "title": "New pfp for Emise: Emise and Will at the Bickford Cliffs"
   },
   {
+    "coordinate": "32.5.5/6.5.9/4.5.10",
+    "issued": "2026-11-12",
+    "status": "open",
+    "title": "Read 'The Cold Start Problem' (Andrew Chen), then find the book lists Will gave the Ranch Choir"
+  },
+  {
     "coordinate": "32.5.6/5.5.8/6.5.9",
     "issued": "2026-11-09",
     "status": "completed",
@@ -1292,7 +1316,7 @@
   {
     "coordinate": "32.5.9/7.6.10/6.5.9",
     "issued": "2026-11-10",
-    "status": "open",
+    "status": "completed",
     "title": "Seed cache: a hash in every populated coordinate"
   },
   {
@@ -1406,7 +1430,7 @@
   {
     "coordinate": "33.5.7/7.6.9/6.5.8",
     "issued": "2026-11-07",
-    "status": "in_progress",
+    "status": "completed",
     "title": "XP grant rule for Roads to the Future"
   },
   {
@@ -1454,7 +1478,7 @@
   {
     "coordinate": "33.6.10/8.7.10/8.6.11",
     "issued": "2026-11-09",
-    "status": "open",
+    "status": "completed",
     "title": "Optimize the edit.phext.io banner for bandwidth"
   },
   {
@@ -1634,7 +1658,7 @@
   {
     "coordinate": "35.8.10/10.8.13/8.7.11",
     "issued": "2026-11-09",
-    "status": "open",
+    "status": "completed",
     "title": "Version footer for edit.phext.io (phext-lattice)"
   },
   {
@@ -1652,7 +1676,7 @@
   {
     "coordinate": "36.5.7/9.6.9/6.5.9",
     "issued": "2026-11-09",
-    "status": "in_progress",
+    "status": "completed",
     "title": "edit.phext.io security + scalability testing; CPU per edit; in-page phext server verdict"
   },
   {
@@ -1694,7 +1718,7 @@
   {
     "coordinate": "37.4.21/8.8.18/4.4.9",
     "issued": "2026-11-07",
-    "status": "open",
+    "status": "completed",
     "title": "phcpp: C++ compiler sibling, after phcc completes"
   },
   {
@@ -1784,13 +1808,13 @@
   {
     "coordinate": "38.6.9/7.5.9/5.5.10",
     "issued": "2026-11-09",
-    "status": "open",
+    "status": "completed",
     "title": "Neovim PR #1 fix pass — get wbic16/neovim green"
   },
   {
     "coordinate": "38.14.19/16.15.19/15.14.18",
     "issued": "2026-11-07",
-    "status": "open",
+    "status": "completed",
     "title": "Roads to the Future: games for every age group up to 20"
   },
   {
@@ -1808,7 +1832,7 @@
   {
     "coordinate": "39.6.14/9.8.16/5.6.8",
     "issued": "2026-11-08",
-    "status": "other",
+    "status": "completed",
     "title": "qexo rename + API exploration"
   },
   {
@@ -1826,7 +1850,7 @@
   {
     "coordinate": "40.4.9/5.5.10/6.4.11",
     "issued": "2026-11-07",
-    "status": "other",
+    "status": "completed",
     "title": "phcc rulings batch: corrections applied, lshrdi3 patch, proof hardening, lattice publish, D6 reversal, D8 ruled, Slice 3 held"
   },
   {
@@ -1838,7 +1862,7 @@
   {
     "coordinate": "40.6.7/8.7.10/7.7.10",
     "issued": "2026-11-09",
-    "status": "open",
+    "status": "completed",
     "title": "Image support for edit.phext.io (v1.1.0) on binary scrolls"
   },
   {
@@ -1856,7 +1880,7 @@
   {
     "coordinate": "40.14.18/16.14.22/15.14.20",
     "issued": "2026-11-07",
-    "status": "in_progress",
+    "status": "completed",
     "title": "Build all the Roads on-ramps for every age group up to 20"
   },
   {
