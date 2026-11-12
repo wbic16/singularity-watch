@@ -324,6 +324,12 @@
     "title": "Phextura standoff compatibility profile — mutable the first editor"
   },
   {
+    "coordinate": "23.8.10/9.7.12/7.6.8",
+    "issued": "2026-11-11",
+    "status": "completed",
+    "title": "Phext Intro P2 — three strings, three rounds, three chords"
+  },
+  {
     "coordinate": "23.8.11/10.8.13/7.7.10",
     "issued": "2026-11-08",
     "status": "completed",
@@ -468,10 +474,22 @@
     "title": "Write a tweet-worthy definition of qexo"
   },
   {
+    "coordinate": "25.5.12/6.5.9/5.5.8",
+    "issued": "2026-11-11",
+    "status": "other",
+    "title": "Training film T8 — Will's T7 feedback round (3:37, CYOA demo, no bells)"
+  },
+  {
     "coordinate": "25.6.7/7.6.11/6.6.8",
     "issued": "2026-11-09",
     "status": "completed",
     "title": "F51: rename the tcc command surface to phcc"
+  },
+  {
+    "coordinate": "25.6.8/7.7.11/7.6.9",
+    "issued": "2026-11-11",
+    "status": "completed",
+    "title": "Indexed search of Twitter messages and followers/followees"
   },
   {
     "coordinate": "25.6.8/8.6.10/6.6.11",
