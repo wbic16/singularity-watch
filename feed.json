@@ -996,6 +996,12 @@
     "title": "TOAPDD PR #6 legibility & sensibleness audit"
   },
   {
+    "coordinate": "30.6.8/7.6.9/6.5.9",
+    "issued": "2026-11-11",
+    "status": "in_progress",
+    "title": "Implement full ranch qexo (Rust) — dev home moves to the qexo side chat"
+  },
+  {
     "coordinate": "30.6.8/7.6.10/6.5.10",
     "issued": "2026-11-08",
     "status": "completed",
