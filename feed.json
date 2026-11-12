@@ -102,6 +102,12 @@
     "title": "phcc deficiency programme — methodical work-through plan"
   },
   {
+    "coordinate": "19.6.8/8.6.10/7.6.8",
+    "issued": "2026-11-11",
+    "status": "completed",
+    "title": "Make Knuth Giddy — competitive phextura syntax-design game"
+  },
+  {
     "coordinate": "19.6.8/9.6.15/6.5.9",
     "issued": "2026-11-07",
     "status": "completed",
@@ -124,6 +130,12 @@
     "issued": "2026-11-09",
     "status": "completed",
     "title": "Paper 011: Synthesizing symbolic models of human and machine reasoning at scale (arXiv:2611.07088)"
+  },
+  {
+    "coordinate": "20.6.7/7.6.11/6.6.8",
+    "issued": "2026-11-11",
+    "status": "completed",
+    "title": "Study S007 — Cook, categorical models of logics (R&D tracker)"
   },
   {
     "coordinate": "20.7.9/7.6.10/6.6.8",
@@ -388,6 +400,12 @@
     "issued": "2026-11-08",
     "status": "completed",
     "title": "Bump up the priority for phext ircd support"
+  },
+  {
+    "coordinate": "24.6.10/8.8.13/7.7.10",
+    "issued": "2026-11-11",
+    "status": "completed",
+    "title": "amber velvet"
   },
   {
     "coordinate": "24.6.12/9.8.16/6.6.7",
@@ -752,7 +770,7 @@
   {
     "coordinate": "28.6.11/7.6.10/6.5.8",
     "issued": "2026-11-11",
-    "status": "in_progress",
+    "status": "completed",
     "title": "Training film T7 — full exemplar build, extended length"
   },
   {
@@ -870,6 +888,12 @@
     "title": "mutable_os claim hunt"
   },
   {
+    "coordinate": "29.5.9/7.7.12/6.5.9",
+    "issued": "2026-11-11",
+    "status": "in_progress",
+    "title": "Operation Salvage — mutuals kickstart via X posts"
+  },
+  {
     "coordinate": "29.5.10/7.6.12/4.4.7",
     "issued": "2026-11-08",
     "status": "other",
@@ -904,6 +928,12 @@
     "issued": "2026-11-07",
     "status": "completed",
     "title": "Observed GitHub LOC rate since the new setup (active hours)"
+  },
+  {
+    "coordinate": "29.6.9/8.7.13/6.6.9",
+    "issued": "2026-11-11",
+    "status": "completed",
+    "title": "UPGRADE.md — phextura focus document (LaTeX joined the 21st century, as .txt -> .phext)"
   },
   {
     "coordinate": "29.6.11/8.7.11/7.6.10",
@@ -984,6 +1014,12 @@
     "title": "Training film round 4 — human intervals (150 wpm slotting, 0.4 s transitions, momentum, easter eggs) + trainer.phext update"
   },
   {
+    "coordinate": "30.5.9/8.6.10/5.5.9",
+    "issued": "2026-11-11",
+    "status": "completed",
+    "title": "Import the CTAN document classes into a template phextura"
+  },
+  {
     "coordinate": "30.5.14/9.9.20/6.5.8",
     "issued": "2026-11-09",
     "status": "completed",
@@ -998,7 +1034,7 @@
   {
     "coordinate": "30.6.8/7.6.9/6.5.9",
     "issued": "2026-11-11",
-    "status": "in_progress",
+    "status": "completed",
     "title": "Implement full ranch qexo (Rust) — dev home moves to the qexo side chat"
   },
   {
