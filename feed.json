@@ -30,6 +30,12 @@
     "title": "Sentron panel overflows phone widths — real-device report from Will"
   },
   {
+    "coordinate": "15.8.9/9.7.10/6.7.9",
+    "issued": "2026-11-11",
+    "status": "completed",
+    "title": "stone lamp"
+  },
+  {
     "coordinate": "16.5.7/5.5.7/5.5.9",
     "issued": "2026-11-07",
     "status": "completed",
@@ -608,7 +614,7 @@
   {
     "coordinate": "27.6.9/7.6.11/6.6.12",
     "issued": "2026-11-11",
-    "status": "in_progress",
+    "status": "completed",
     "title": "Phext, Inc. training videos — reusable sci-fi intro"
   },
   {
@@ -1082,7 +1088,7 @@
   {
     "coordinate": "31.5.6/6.5.8/5.5.10",
     "issued": "2026-11-11",
-    "status": "other",
+    "status": "in_progress",
     "title": "Unlock singularitywatch.org"
   },
   {
