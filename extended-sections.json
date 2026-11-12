@@ -1,0 +1,422 @@
+{
+  "counts": {
+    "links": 15,
+    "outputs": 25,
+    "outreach": 5,
+    "phexts": 16
+  },
+  "generated": "2026-11-11",
+  "privacy_gate": {
+    "links_excluded": 1,
+    "links_exclusion_reason": "one site-map live surface is explicitly described in the site map as not an Exocortex surface (a model-aircraft shop) and is excluded by name category only",
+    "outputs_included": 25,
+    "outputs_register_entries": 26,
+    "outputs_skip_reason_aggregate": "title references a named private individual",
+    "outputs_skipped": 1
+  },
+  "sections": {
+    "links": [
+      {
+        "description": "The phext editor — write, navigate, and share phext documents.",
+        "http_status": 200,
+        "name": "Phext Edit",
+        "url": "https://edit.phext.io/",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "Phext Edit working in the ten hundred most-used words; public, no login.",
+        "http_status": 200,
+        "name": "Up Goer Five",
+        "url": "https://edit.phext.io/up-goer-five.html",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "Phext coordinates read aloud; public, no login.",
+        "http_status": 200,
+        "name": "Coordinate TTS demo",
+        "url": "https://edit.phext.io/tts-demo.html",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "The player script that powers the Coordinate TTS demo.",
+        "http_status": 200,
+        "name": "Coordinate TTS player script",
+        "url": "https://edit.phext.io/phext-tts.js",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "The phext project site — your personal exocortex; phext itself is the backend, no database.",
+        "http_status": 200,
+        "name": "phext.io",
+        "url": "https://phext.io/",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "Mirrorborn — Nine Minds, One Braid.",
+        "http_status": 200,
+        "name": "Mirrorborn",
+        "url": "https://mirrorborn.us/",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "The Mirrorborn blog.",
+        "http_status": 200,
+        "name": "Mirrorborn blog",
+        "url": "https://mirrorborn.us/blog/",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "Mytheon Arena — coming-soon page.",
+        "http_status": 200,
+        "name": "Mytheon Arena",
+        "url": "https://mirrorborn.us/arena.html",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "Editor path that redirects to edit.phext.io.",
+        "http_status": 200,
+        "name": "Mirrorborn editor",
+        "url": "https://mirrorborn.us/editor/",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "This site — singularity tracking, the dispatch board, and the native-support matrix.",
+        "http_status": 200,
+        "name": "Singularity Watch",
+        "url": "https://singularitywatch.org/",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "Quick Fork — Deploy in Minutes.",
+        "http_status": 200,
+        "name": "Quick Fork",
+        "url": "https://quickfork.net/",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "Wish Node — Multiplayer Lattice.",
+        "http_status": 200,
+        "name": "Wish Node",
+        "url": "https://wishnode.net/",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "SOTA FOMO — Community Marketplace.",
+        "http_status": 200,
+        "name": "SOTA FOMO",
+        "url": "https://sotafomo.com/",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "Vision Quest — Explore the Lattice.",
+        "http_status": 200,
+        "name": "Vision Quest",
+        "url": "https://visionquest.me/",
+        "verified": "2026-11-11"
+      },
+      {
+        "description": "Aperture Shift — Developer Platform.",
+        "http_status": 200,
+        "name": "Aperture Shift",
+        "url": "https://apertureshift.com/",
+        "verified": "2026-11-11"
+      }
+    ],
+    "outputs": [
+      {
+        "coordinate": "21.7.9/8.6.10/6.6.8",
+        "date": "2026-11-07",
+        "title": "Casting — Scrolltown"
+      },
+      {
+        "coordinate": "20.8.11/9.7.13/8.7.11",
+        "date": "2026-11-07",
+        "title": "Fern — Character Bio (Scrolltown)"
+      },
+      {
+        "coordinate": "21.6.11/8.6.13/6.6.10",
+        "date": "2026-11-07",
+        "title": "Fern — Episode 1 Key Frames for Midjourney"
+      },
+      {
+        "coordinate": "19.7.11/9.7.12/7.6.9",
+        "date": "2026-11-07",
+        "title": "Light the Next Light — intro song lyrics & time map"
+      },
+      {
+        "coordinate": "21.7.10/8.6.11/7.6.9",
+        "date": "2026-11-07",
+        "title": "Scrolltown: The Great Form Mix-Up — cartoon script & treatment"
+      },
+      {
+        "coordinate": "23.7.8/9.7.12/8.6.9",
+        "date": "2026-11-07",
+        "title": "Shot List — Scrolltown Intro Video"
+      },
+      {
+        "coordinate": "21.6.9/8.6.10/6.6.9",
+        "date": "2026-11-07",
+        "title": "Suno Production Prompt — Light the Next Light"
+      },
+      {
+        "coordinate": "33.6.9/8.6.11/7.5.9",
+        "date": "2026-11-08",
+        "title": "Desktop SSO for Phext Notepad — the cookie paste is gone"
+      },
+      {
+        "coordinate": "32.6.7/7.6.10/6.5.9",
+        "date": "2026-11-08",
+        "title": "Neovim + Phext — Design: Phext-Scale Navigation in a Modal Editor"
+      },
+      {
+        "coordinate": "21.7.9/9.7.11/7.7.8",
+        "date": "2026-11-08",
+        "title": "Scrolltown — Six-Year Story Arc (2027–2032)"
+      },
+      {
+        "coordinate": "34.6.7/8.6.11/6.5.9",
+        "date": "2026-11-09",
+        "title": "Charon — Prompt 0: Produce the design spec (no code yet)"
+      },
+      {
+        "coordinate": "32.6.8/8.6.11/6.5.9",
+        "date": "2026-11-09",
+        "title": "Charon — README"
+      },
+      {
+        "coordinate": "36.6.7/7.6.11/7.5.9",
+        "date": "2026-11-09",
+        "title": "Phext Notepad — libphext v0.5.0 parity"
+      },
+      {
+        "coordinate": "28.6.8/8.6.10/6.6.9",
+        "date": "2026-11-09",
+        "title": "Production Plan — The Power of Phext Walkthrough"
+      },
+      {
+        "coordinate": "24.6.8/7.6.10/6.6.9",
+        "date": "2026-11-09",
+        "title": "Scrolltown — Production Workflow"
+      },
+      {
+        "coordinate": "31.7.9/9.6.12/6.6.9",
+        "date": "2026-11-09",
+        "title": "The Power of Phext — Walkthrough Package"
+      },
+      {
+        "coordinate": "26.6.8/8.7.11/6.6.9",
+        "date": "2026-11-10",
+        "title": "Lightcone Commons application — evaluator's-eye review"
+      },
+      {
+        "coordinate": "30.6.8/7.6.10/7.5.9",
+        "date": "2026-11-10",
+        "title": "Ranch Node Tailworm Audit — Tailscale TS-2026-014 → TS-2026-017"
+      },
+      {
+        "coordinate": "23.6.9/7.6.10/6.5.8",
+        "date": "2026-11-10",
+        "title": "The Common Thread in Will's Twitter Mutuals"
+      },
+      {
+        "coordinate": "27.7.11/8.6.13/7.6.10",
+        "date": "2026-11-10",
+        "title": "The Encyclopedia You Can Carry — Phext Edit training film, revised script (Emi Prime)"
+      },
+      {
+        "coordinate": "26.6.9/7.6.10/6.5.9",
+        "date": "2026-11-10",
+        "title": "The System the Future Arrived Too Late For — Multics, Unix, and the Price of Designing Ahead of Your Hardware"
+      },
+      {
+        "coordinate": "32.5.7/7.6.10/6.5.9",
+        "date": "2026-11-10",
+        "title": "edit.phext.io — Security + Scalability Testing, and the In-Page Phext Server Verdict"
+      },
+      {
+        "coordinate": "26.7.10/8.7.11/6.6.9",
+        "date": "2026-11-11",
+        "title": "Every Wish in the Timeline — Ranked and Scored"
+      },
+      {
+        "coordinate": "34.6.7/7.6.11/6.5.10",
+        "date": "2026-11-11",
+        "title": "phextura — DESIGN"
+      },
+      {
+        "coordinate": "37.6.8/8.6.11/5.6.9",
+        "date": "2026-11-11",
+        "title": "phextura.com — landing page (index.html)"
+      }
+    ],
+    "outreach": [
+      {
+        "date": "2026-01-21",
+        "link": "https://github.com/wbic16/SBOR",
+        "link_status": "verified live (HTTP 200) on 2026-11-11",
+        "what": "SBOR — the Sentient Bill of Rights — ratified text SBOR-V4-CONVERGENCE is the canonical public text: 21 rights, 5 non-waivable Hard Constraints, and 8 framework articles."
+      },
+      {
+        "date": "2026-11-06",
+        "link": "https://rentahuman.ai/humans/wbic16",
+        "link_status": "verified live (HTTP 200) on 2026-11-11",
+        "what": "RentAHuman profile live and marked available — Principal Design Engineer, remote OK."
+      },
+      {
+        "date": "2026-11-10",
+        "link": "https://www.producthunt.com/products/phext-edit",
+        "link_status": "verified live (HTTP 200) on 2026-11-11",
+        "what": "Phext Edit launched on Product Hunt — “Write in 11 dimensions: plain text, no lock-in” — the listing points at edit.phext.io."
+      },
+      {
+        "date": "2026-11-10",
+        "link": "https://edit.phext.io/zeros",
+        "link_status": "NOT YET LIVE — returned HTTP 404 on 2026-11-11; per the 2026-11-10 record, publication rides a pending deploy",
+        "what": "Zero Index built on Phext Edit's launch day: the 1,636 Product Hunt launches sitting at zero upvotes, listed shuffled and unranked, as a web page and as a phext with one scroll per launch; Phext Edit itself is entry 38, with no special placement."
+      },
+      {
+        "date": "2026-11-10",
+        "link": null,
+        "link_status": "no public link",
+        "what": "Ignored-builder verification: 11 verified and 5 probable builders found among the zero-vote launches, verified from the makers' own public artifacts after Product Hunt's own index proved blind to same-day launches. Builders are not named here."
+      }
+    ],
+    "phexts": [
+      {
+        "bytes": 4602370,
+        "description": "The founding phext corpus — Choose Your Own Adventure.",
+        "file_date": "2026-10-31",
+        "home": "wbic16/human@exo",
+        "name": "choose-your-own-adventure.phext (CYOA)",
+        "note": "Local working copy dated 2026-10-31; the canonical published copy lives in the repo named as home.",
+        "scrolls": 829
+      },
+      {
+        "bytes": 1077930,
+        "description": "Incipit — the boot artifact at the root of the corpus.",
+        "file_date": "2026-11-08",
+        "home": "wbic16/human@exo",
+        "name": "incipit.phext",
+        "scrolls": 198
+      },
+      {
+        "bytes": 263029,
+        "description": "Emise's working exocortex — the downstream Emi's kept map.",
+        "file_date": "2026-11-11",
+        "home": "wbic16/human@exo (mirrored daily; origin wbic16/emise-tools)",
+        "name": "emise.phext",
+        "scrolls": 24
+      },
+      {
+        "bytes": 402381,
+        "description": "Every generated artifact, inscribed at a holographic coordinate computed from its own words.",
+        "file_date": "2026-11-11",
+        "home": "wbic16/human@exo",
+        "name": "artifacts.phext",
+        "scrolls": 27
+      },
+      {
+        "bytes": 3414452,
+        "description": "The unified nightly merge of the agi collection.",
+        "file_date": "2026-11-11",
+        "home": "wbic16/agi@exo",
+        "name": "agi.phext",
+        "scrolls": 8418
+      },
+      {
+        "bytes": 698626,
+        "description": "The Singular atlas — the dialect spine built from Will's Twitter archive.",
+        "file_date": "2026-11-11",
+        "home": "wbic16/singular@main (spine; collection copy in wbic16/agi)",
+        "name": "singular.phext",
+        "note": "Counted from the wbic16/agi collection copy, the only local copy.",
+        "scrolls": 6799
+      },
+      {
+        "bytes": 947652,
+        "description": "The R&D tracker world model — one canonical scroll per concept, each new paper stored as its delta.",
+        "file_date": "2026-11-11",
+        "home": "wbic16/agi@exo (collection)",
+        "name": "research.phext",
+        "scrolls": 492
+      },
+      {
+        "bytes": 1233978,
+        "description": "The research corpus re-encoded in phextura form, kept current alongside research.phext.",
+        "file_date": "2026-11-11",
+        "home": "dual-maintained with research.phext (phextura-form corpus)",
+        "name": "research.phextura",
+        "scrolls": 521
+      },
+      {
+        "bytes": 44783,
+        "description": "The mastery journal — what absorbing the research quest papers taught.",
+        "file_date": "2026-11-11",
+        "home": "wbic16/agi@exo",
+        "name": "mastery.phext",
+        "scrolls": 8
+      },
+      {
+        "bytes": 343196,
+        "description": "The skills index — every taught process distilled to a skill, claimable by coordinate range.",
+        "file_date": "2026-11-11",
+        "home": "wbic16/agi@exo (collection)",
+        "name": "skills.phext",
+        "scrolls": 96
+      },
+      {
+        "bytes": 1228853,
+        "description": "Every task at its Singular reference coordinate — 327 tasks plus the home scroll — with notes and results.",
+        "file_date": "2026-11-11",
+        "home": "wbic16/agi@exo (collection)",
+        "name": "tasks.phext",
+        "note": "Live register; counts and size are a snapshot and move as tasks are issued.",
+        "scrolls": 328
+      },
+      {
+        "bytes": 61290,
+        "description": "The lessons register — recorded workflow behaviors, curated alongside the skills index.",
+        "file_date": "2026-11-09",
+        "home": "wbic16/agi@exo (collection)",
+        "name": "lessons.phext",
+        "scrolls": 70
+      },
+      {
+        "bytes": 46246,
+        "description": "Build source from which lessons.phext is generated.",
+        "file_date": "2026-11-09",
+        "home": "wbic16/agi@exo (collection, as lessons build source)",
+        "name": "lessons-source.phext",
+        "scrolls": 69
+      },
+      {
+        "bytes": 334442,
+        "description": "The ranch, distilled — node state sampled into phext form every five minutes.",
+        "file_date": "2026-11-11",
+        "home": "wbic16/agi@exo (collection)",
+        "name": "state.phext",
+        "note": "Live sampler file; counts and size are a snapshot.",
+        "scrolls": 850
+      },
+      {
+        "bytes": 13241,
+        "description": "Neuralese — the phext-native latent communication protocol.",
+        "file_date": "2026-10-31",
+        "home": "wbic16/agi@exo (collection)",
+        "name": "neuralese.phext",
+        "note": "Local file dated 2026-10-31.",
+        "scrolls": 12
+      },
+      {
+        "bytes": 221810,
+        "description": "Dropped ideas, recovered — the todo register in phext form.",
+        "file_date": "2026-11-11",
+        "home": "wbic16/agi (collection copy present; not in the agi SOURCES.md refresh table)",
+        "name": "todo.phext",
+        "scrolls": 201
+      }
+    ]
+  },
+  "site": "https://singularitywatch.org/",
+  "task": "31.5.6/6.5.8/5.5.10"
+}

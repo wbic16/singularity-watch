@@ -1,0 +1,96 @@
+{
+  "efforts": [
+    {
+      "done": 9,
+      "milestones_done": [
+        "Release gate GREEN",
+        "Deficiency queue D1–D7 published",
+        "_Complex landed",
+        "-O2 rung A landed",
+        "C23 wave published",
+        "Cleanup wave published",
+        "Phext refresh current",
+        "Upstream sync #2 published (main == exo, conformance 332/333, phext carry 908/908 verified)"
+      ],
+      "milestones_done_note": "The status bar counts 9 of 10 milestones complete; the record names the components above among them — the bar's count comes from the standing status bar, not from counting this list.",
+      "milestones_remaining": [
+        "Release packaging — blocked on a release version name from Will"
+      ],
+      "name": "phcc — phext-native C compiler",
+      "next_step": "Release packaging, once Will names the release version",
+      "percent": 90,
+      "slug": "phcc",
+      "source": "Architecture status bars (unchanged 2026-11-09 → 2026-11-11) + Singularity Watch investigation, 2026-11-11",
+      "total": 10,
+      "updated": "2026-11-11"
+    },
+    {
+      "done": 4,
+      "milestones_done": [
+        "Design, including the C++23RA revisioned-ABI design",
+        "Vertical slice",
+        "Repo seeded (wbic16/phcpp)",
+        "Front-end v1 published (both tracks feed one shared IR and a single emitter; differential corpus 21/21)"
+      ],
+      "milestones_remaining": [
+        "Release-gate corpus (next)",
+        "One further milestone — not named in the status record"
+      ],
+      "name": "phcpp — phext support for C++23 on the phcc baseline",
+      "next_step": "Release-gate corpus",
+      "percent": 67,
+      "slug": "phcpp",
+      "source": "Architecture status bars (unchanged 2026-11-09 → 2026-11-11) + Singularity Watch investigation, 2026-11-11",
+      "total": 6,
+      "updated": "2026-11-11"
+    },
+    {
+      "done": 4,
+      "milestones_done": [
+        "Inventory",
+        "Import",
+        "Repo seeded (wbic16/phst)",
+        "Build smoke"
+      ],
+      "milestones_remaining": [
+        "Phext-native patching (next)",
+        "One further milestone — not named in the status record"
+      ],
+      "name": "phst — phext-native Rust",
+      "next_step": "Phext-native patching",
+      "percent": 67,
+      "slug": "phst",
+      "source": "Architecture status bars (unchanged 2026-11-09 → 2026-11-11) + Singularity Watch investigation, 2026-11-11",
+      "total": 6,
+      "updated": "2026-11-11"
+    },
+    {
+      "done": 7,
+      "milestones_done": [
+        "Corpus layout and roles",
+        "References and validation",
+        "Bibliography",
+        "Media and self-extracting papers (binary by base64 hoisting)",
+        "Styles as parameters",
+        "L2 global address scheme",
+        "Warrant graph"
+      ],
+      "milestones_remaining": [
+        "Math notation",
+        "Layout vocabulary",
+        "Warrant display policy",
+        "Living-artifact class",
+        "Reviewer panel adoption"
+      ],
+      "name": "phextura — spec",
+      "next_step": "Open spec items above; the demo conversion's friction findings (math notation homeless, headings homeless, floats needing one address) feed the math-notation and layout items",
+      "percent": 58,
+      "slug": "phextura-spec",
+      "source": "MOAT status, 2026-11-11 (first phextura spec reading: 7 of 12)",
+      "total": 12,
+      "updated": "2026-11-11"
+    }
+  ],
+  "generated_from": "progress-source.json",
+  "task": "31.5.6/6.5.8/5.5.10"
+}
