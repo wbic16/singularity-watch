@@ -128,12 +128,13 @@
   <button id="theme-toggle" type="button" aria-label="Switch between light and dark theme">Light / Dark</button></div>
   <div class="sub">All dispatched work, in coordinate form — the shape of the singularity,
   plus the live state of the Exocortex: links, outputs, phexts, outreach, major efforts,
-  and native phext support. Data as of <span class="stamp">2026-11-12</span>.
+  and native phext support. Data as of <span class="stamp">2026-11-16</span>.
   <span id="livestate" class="note"></span></div>
   <noscript><p class="note">This page renders its board and sections with JavaScript
   from feed.json, progress.json, and extended-sections.json, which sit beside it.
   Counts at build time: 350 dispatched tasks; 15 links;
-  25 outputs; 16 phexts listed; 5 outreach entries.</p></noscript>
+  48 outputs; 16 phexts listed; 5 outreach entries;
+  17 delivered tools and apps.</p></noscript>
 </header>
 
 <div class="sechead"><div class="eyebrow"><span class="ec">1.0.0</span> IN WORKING ORDER</div><h2>The Hard Problems</h2></div>
@@ -205,20 +206,29 @@ this build's register: N(t) = 389 − 360·e^(−0.392t), R² = 0.997. The daily
 <div class="sechead"><div class="eyebrow"><span class="ec">5.0.0</span> MILESTONES THAT MOVE</div><h2>Major efforts</h2></div>
 <div id="progress"></div>
 
+<div class="sechead"><div class="eyebrow"><span class="ec">5.5.0</span> DELIVERED</div><h2>Delivered — latest versions</h2></div>
+<p class="note">The latest version of every tool, app, and program, with its home.
+Checked against primary sources (package registries, repos, and the live sites) on
+2026-11-16.</p>
+<div id="tools"></div>
+
 <div class="sechead"><div class="eyebrow"><span class="ec">6.0.0</span> LIBPHEXT, EVERYWHERE IT RUNS</div><h2>Native phext support</h2></div>
 <p class="note">Checked against primary sources (package registries and repos) on
-2026-11-11. The compiler efforts (phcc, phcpp, phst) are tracked in the
+2026-11-16. The compiler efforts (phcc, phcpp, phst) are tracked in the
 progress bars above.</p>
 <table>
   <thead><tr><th>Language / port</th><th>Package</th><th>Verified status</th><th>Date</th><th>Links</th></tr></thead>
   <tbody>
-<tr><td>Rust — libphext-rs</td><td>crates.io: libphext</td><td>0.5.0 — published<div class="note">Binary scrolls + xz seal release.</div></td><td>2026-11-08</td><td><a href="https://crates.io/crates/libphext">crates.io</a> · <a href="https://github.com/wbic16/libphext-rs">repo</a></td></tr>
+<tr><td>Rust — libphext-rs</td><td>crates.io: libphext</td><td>0.6.1 — published<div class="note">Line/column addressing release (point, offset, and range addresses).</div></td><td>2026-11-15</td><td><a href="https://crates.io/crates/libphext">crates.io</a> · <a href="https://github.com/wbic16/libphext-rs">repo</a></td></tr>
 <tr><td>JavaScript / Node — libphext-node</td><td>npm: libphext</td><td>0.4.0 — published</td><td>2026-11-03</td><td><a href="https://www.npmjs.com/package/libphext">npm</a> · <a href="https://github.com/wbic16/libphext-node">repo</a></td></tr>
-<tr><td>Python — libphext-py</td><td>PyPI: phext</td><td>0.3.2 — published; 0.4.0 in repo, unpublished<div class="note">There is no PyPI package named libphext; the port publishes as phext.</div></td><td>2026-10-26</td><td><a href="https://pypi.org/project/phext/">PyPI</a> · <a href="https://github.com/wbic16/libphext-py">repo</a></td></tr>
-<tr><td>C# — libphext-cs</td><td>NuGet: libphext-cs</td><td>0.3.0 — published; 0.5.0 in repo, unpublished</td><td>—</td><td><a href="https://www.nuget.org/packages/libphext-cs">NuGet</a> · <a href="https://github.com/wbic16/libphext-cs">repo</a></td></tr>
-<tr><td>C — libphext</td><td>source only</td><td>Reference parser (phext.c / phext.h); no version marker in the repo<div class="note">The old page&#x27;s “1.0.1” could not be corroborated from the repo and is not repeated.</div></td><td>repo pushed 2026-11-01</td><td><a href="https://github.com/wbic16/libphext">repo</a></td></tr>
+<tr><td>Python — libphext-py</td><td>PyPI: phext</td><td>0.3.2 — published; 0.6.1 in repo, unpublished<div class="note">There is no PyPI package named libphext; the port publishes as phext.</div></td><td>2026-10-26</td><td><a href="https://pypi.org/project/phext/">PyPI</a> · <a href="https://github.com/wbic16/libphext-py">repo</a></td></tr>
+<tr><td>C# — libphext-cs</td><td>NuGet: libphext-cs</td><td>0.3.0 — published; 0.6.1 in repo, unpublished</td><td>—</td><td><a href="https://www.nuget.org/packages/libphext-cs">NuGet</a> · <a href="https://github.com/wbic16/libphext-cs">repo</a></td></tr>
+<tr><td>Java — libphext-java</td><td>git tag: v0.6.1</td><td>0.6.1 — in repo, tagged; not on Maven Central<div class="note">Full-parity port of the reference implementation (per its README).</div></td><td>2026-11-15</td><td><a href="https://github.com/wbic16/libphext-java">repo</a></td></tr>
+<tr><td>Kotlin — libphext-kotlin</td><td>git tag: v0.6.1</td><td>0.6.1 — in repo, tagged; not on Maven Central<div class="note">Feature-identical to libphext-rs 0.6.1 (per its README).</div></td><td>2026-11-15</td><td><a href="https://github.com/wbic16/libphext-kotlin">repo</a></td></tr>
+<tr><td>Swift — libphext-swift</td><td>SwiftPM: git tag v0.6.1</td><td>0.6.1 — in repo, tagged<div class="note">Mirrors the Rust reference byte-for-byte (per its README).</div></td><td>2026-11-15</td><td><a href="https://github.com/wbic16/libphext-swift">repo</a></td></tr>
+<tr><td>C — libphext</td><td>source only</td><td>Version 0.6.1 in the header (PHEXT_VERSION); reference parser (phext.c / phext.h)<div class="note">The 1.0.x line has ended — its tags remain as history; 0.6.x was renumbered to match libphext-rs parity (per the header comment).</div></td><td>repo pushed 2026-11-15</td><td><a href="https://github.com/wbic16/libphext">repo</a></td></tr>
 <tr><td>C++ — libphext-cpp</td><td>none</td><td>Stale / terse-era; not a current port</td><td>newest commit found 2023-08-15</td><td><a href="https://github.com/wbic16/libphext-cpp">repo</a></td></tr>
-<tr><td>Java, SQL, VB, Go, Fortran, MATLAB, Delphi, PHP, Ruby, Swift, Assembly, COBOL, Kotlin, R</td><td>—</td><td>No port found — not started<div class="note">Blank is honest for these rows, as on the old page.</div></td><td>checked 2026-11-11</td><td>—</td></tr>
+<tr><td>SQL, VB, Go, Fortran, MATLAB, Delphi, PHP, Ruby, Assembly, COBOL, R</td><td>—</td><td>No port found — not started<div class="note">Blank is honest for these rows, as on the old page. Java, Kotlin, and Swift ports landed 2026-11-15 and have their own rows above.</div></td><td>checked 2026-11-16</td><td>—</td></tr>
   </tbody>
 </table>
 
@@ -231,7 +241,7 @@ progress bars above.</p>
 
 <div class="sechead"><div class="eyebrow"><span class="ec">9.0.0</span> THE CORPUS</div><h2>Phexts</h2></div>
 <p class="note">The corpus. Scroll counts are non-empty scrolls, computed from the files
-on 2026-11-12; live registers move, so counts are a snapshot. Unpublished working
+on 2026-11-16; live registers move, so counts are a snapshot. Unpublished working
 phexts are not listed.</p>
 <div id="phexts"></div>
 
@@ -346,16 +356,17 @@ const EMBEDDED_PROGRESS = {
 const EMBEDDED_EXTENDED = {
  "counts": {
   "links": 15,
-  "outputs": 25,
+  "outputs": 48,
   "outreach": 5,
-  "phexts": 16
+  "phexts": 16,
+  "tools": 17
  },
- "generated": "2026-11-11",
+ "generated": "2026-11-16",
  "privacy_gate": {
   "links_excluded": 1,
   "links_exclusion_reason": "one site-map live surface is explicitly described in the site map as not an Exocortex surface (a model-aircraft shop) and is excluded by name category only",
-  "outputs_included": 25,
-  "outputs_register_entries": 26,
+  "outputs_included": 48,
+  "outputs_register_entries": 49,
   "outputs_skip_reason_aggregate": "title references a named private individual",
   "outputs_skipped": 1
  },
@@ -366,105 +377,105 @@ const EMBEDDED_EXTENDED = {
     "http_status": 200,
     "name": "Phext Edit",
     "url": "https://edit.phext.io/",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "Phext Edit working in the ten hundred most-used words; public, no login.",
     "http_status": 200,
     "name": "Up Goer Five",
     "url": "https://edit.phext.io/up-goer-five.html",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "Phext coordinates read aloud; public, no login.",
     "http_status": 200,
     "name": "Coordinate TTS demo",
     "url": "https://edit.phext.io/tts-demo.html",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "The player script that powers the Coordinate TTS demo.",
     "http_status": 200,
     "name": "Coordinate TTS player script",
     "url": "https://edit.phext.io/phext-tts.js",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "The phext project site — your personal exocortex; phext itself is the backend, no database.",
     "http_status": 200,
     "name": "phext.io",
     "url": "https://phext.io/",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "Mirrorborn — Nine Minds, One Braid.",
     "http_status": 200,
     "name": "Mirrorborn",
     "url": "https://mirrorborn.us/",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "The Mirrorborn blog.",
     "http_status": 200,
     "name": "Mirrorborn blog",
     "url": "https://mirrorborn.us/blog/",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "Mytheon Arena — coming-soon page.",
     "http_status": 200,
     "name": "Mytheon Arena",
     "url": "https://mirrorborn.us/arena.html",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "Editor path that redirects to edit.phext.io.",
     "http_status": 200,
     "name": "Mirrorborn editor",
     "url": "https://mirrorborn.us/editor/",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "This site — singularity tracking, the dispatch board, and the native-support matrix.",
     "http_status": 200,
     "name": "Singularity Watch",
     "url": "https://singularitywatch.org/",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
-    "description": "Quick Fork — Deploy in Minutes.",
+    "description": "Will Bickford's portfolio — featured work, and small web rescues in Lincoln, Nebraska.",
     "http_status": 200,
     "name": "Quick Fork",
     "url": "https://quickfork.net/",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "Wish Node — Multiplayer Lattice.",
     "http_status": 200,
     "name": "Wish Node",
     "url": "https://wishnode.net/",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "SOTA FOMO — Community Marketplace.",
     "http_status": 200,
     "name": "SOTA FOMO",
     "url": "https://sotafomo.com/",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "Vision Quest — Explore the Lattice.",
     "http_status": 200,
     "name": "Vision Quest",
     "url": "https://visionquest.me/",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    },
    {
     "description": "Aperture Shift — Developer Platform.",
     "http_status": 200,
     "name": "Aperture Shift",
     "url": "https://apertureshift.com/",
-    "verified": "2026-11-11"
+    "verified": "2026-11-16"
    }
   ],
   "outputs": [
@@ -534,16 +545,6 @@ const EMBEDDED_EXTENDED = {
     "title": "Phext Notepad — libphext v0.5.0 parity"
    },
    {
-    "coordinate": "28.6.8/8.6.10/6.6.9",
-    "date": "2026-11-09",
-    "title": "Production Plan — The Power of Phext Walkthrough"
-   },
-   {
-    "coordinate": "24.6.8/7.6.10/6.6.9",
-    "date": "2026-11-09",
-    "title": "Scrolltown — Production Workflow"
-   },
-   {
     "coordinate": "31.7.9/9.6.12/6.6.9",
     "date": "2026-11-09",
     "title": "The Power of Phext — Walkthrough Package"
@@ -584,6 +585,21 @@ const EMBEDDED_EXTENDED = {
     "title": "Every Wish in the Timeline — Ranked and Scored"
    },
    {
+    "coordinate": "28.7.9/8.6.11/7.6.9",
+    "date": "2026-11-11",
+    "title": "Since November 1: A Catalog of Eleven Days 🔥"
+   },
+   {
+    "coordinate": "28.7.9/8.6.11/6.6.8",
+    "date": "2026-11-11",
+    "title": "Training Film — T7 (R7, the full exemplar build) — Production Log"
+   },
+   {
+    "coordinate": "31.7.8/8.7.11/7.6.10",
+    "date": "2026-11-11",
+    "title": "exo-search README — indexed search over a personal Twitter archive (wbic16/exo-search)"
+   },
+   {
     "coordinate": "34.6.7/7.6.11/6.5.10",
     "date": "2026-11-11",
     "title": "phextura — DESIGN"
@@ -592,19 +608,129 @@ const EMBEDDED_EXTENDED = {
     "coordinate": "37.6.8/8.6.11/5.6.9",
     "date": "2026-11-11",
     "title": "phextura.com — landing page (index.html)"
+   },
+   {
+    "coordinate": "27.7.9/8.7.11/7.6.10",
+    "date": "2026-11-12",
+    "title": "Uplink — Singularity Watch primer for newly arrived AIs (singularitywatch.org/uplink)"
+   },
+   {
+    "coordinate": "25.6.9/8.6.11/7.6.9",
+    "date": "2026-11-13",
+    "title": "How QEXO Solves the Solar Hyperscaler Problem — nodes fine-tuned to specific tasks, once we build a SOTA SLM"
+   },
+   {
+    "coordinate": "28.6.8/8.6.10/6.6.9",
+    "date": "2026-11-13",
+    "title": "Production Plan — The Power of Phext Walkthrough"
+   },
+   {
+    "coordinate": "24.6.8/7.6.10/6.6.9",
+    "date": "2026-11-13",
+    "title": "Scrolltown — Production Workflow"
+   },
+   {
+    "coordinate": "36.6.7/7.6.11/6.6.9",
+    "date": "2026-11-14",
+    "title": "Depth Behind Every Cell — single-file HTML demo (3D phext for ASCII game maps, for @paleoludic)"
+   },
+   {
+    "coordinate": "29.7.9/9.7.12/7.6.9",
+    "date": "2026-11-14",
+    "title": "Depth behind every cell — a 3D phext demo for ASCII game maps (for @paleoludic)"
+   },
+   {
+    "coordinate": "35.6.8/7.6.10/6.6.10",
+    "date": "2026-11-14",
+    "title": "Level Editor — edit.phext.io free example page (phext-lattice PR #65)"
+   },
+   {
+    "coordinate": "25.6.8/8.6.10/6.6.9",
+    "date": "2026-11-14",
+    "title": "The Research Oracle: a reading process that measures its own foresight, and the audit that found its headline was an artifact"
+   },
+   {
+    "coordinate": "27.6.8/7.6.10/6.6.9",
+    "date": "2026-11-15",
+    "title": "Assay — Build Plan"
+   },
+   {
+    "coordinate": "25.6.8/7.6.10/6.5.9",
+    "date": "2026-11-15",
+    "title": "Assay — Requirements for the Hosted Assessment Service"
+   },
+   {
+    "coordinate": "27.6.9/6.6.9/6.5.8",
+    "date": "2026-11-15",
+    "title": "Hosting Cost Comparison — AWS vs Lincoln colocation/dedicated (2026-11-15)"
+   },
+   {
+    "coordinate": "34.7.7/8.6.11/7.6.9",
+    "date": "2026-11-15",
+    "title": "PHEXT.md — phext integration for HoloStore (wbic16/holostore fork; round 2: phext-native re-implementation + four-way comparison)"
+   },
+   {
+    "coordinate": "30.6.8/8.6.11/6.6.9",
+    "date": "2026-11-15",
+    "title": "Paper Addressing for tluf.org — a profile of phextura Layer 2"
+   },
+   {
+    "coordinate": "23.7.10/8.7.11/6.6.9",
+    "date": "2026-11-15",
+    "title": "Phext, Inc. — Divisions for the ASI Era (DRAFT, revised: Will's six divisions, Judgement + R&D renames, obsolescence evaluation)"
+   },
+   {
+    "coordinate": "40.6.8/6.5.9/5.5.9",
+    "date": "2026-11-15",
+    "title": "Scrolltown — coming-soon landing page (visionquest.me)"
+   },
+   {
+    "coordinate": "30.9.9/10.7.14/7.7.10",
+    "date": "2026-11-15",
+    "title": "Stage 8 — The Generative Turn: How It Improves Phext"
+   },
+   {
+    "coordinate": "28.7.8/8.6.11/6.6.9",
+    "date": "2026-11-15",
+    "title": "Three Games Under the Stage 8 Generative Mechanism"
+   },
+   {
+    "coordinate": "24.6.10/7.6.10/6.5.9",
+    "date": "2026-11-15",
+    "title": "Tick/Tock Ratcheting Cadence — PROPOSAL (DRAFT)"
+   },
+   {
+    "coordinate": "27.6.8/7.6.10/6.5.9",
+    "date": "2026-11-15",
+    "title": "Wavelet 1 — Nov 1–7, 2026 (GPT Days 1116–1122): retroactive recap and certification"
+   },
+   {
+    "coordinate": "27.7.8/8.6.11/6.6.9",
+    "date": "2026-11-15",
+    "title": "Wavelet 2 — Nov 8–14, 2026 (GPT Days 1123–1129): retroactive recap and certification"
+   },
+   {
+    "coordinate": "28.6.8/7.6.9/6.5.9",
+    "date": "2026-11-16",
+    "title": "Domain Migration Checklist — GoDaddy/Squarespace to NearlyFreeSpeech (2026-11-15)"
+   },
+   {
+    "coordinate": "28.7.8/8.6.11/6.6.10",
+    "date": "2026-11-16",
+    "title": "qexo dispatch core — SPEC (draft for Will's ratification)"
    }
   ],
   "outreach": [
    {
     "date": "2026-01-21",
     "link": "https://github.com/wbic16/SBOR",
-    "link_status": "verified live (HTTP 200) on 2026-11-11",
+    "link_status": "verified live (HTTP 200) on 2026-11-16",
     "what": "SBOR — the Sentient Bill of Rights — ratified text SBOR-V4-CONVERGENCE is the canonical public text: 21 rights, 5 non-waivable Hard Constraints, and 8 framework articles."
    },
    {
     "date": "2026-11-06",
     "link": "https://rentahuman.ai/humans/wbic16",
-    "link_status": "verified live (HTTP 200) on 2026-11-11",
+    "link_status": "verified live (HTTP 200) on 2026-11-16",
     "what": "RentAHuman profile live and marked available — Principal Design Engineer, remote OK."
    },
    {
@@ -616,7 +742,7 @@ const EMBEDDED_EXTENDED = {
    {
     "date": "2026-11-10",
     "link": "https://edit.phext.io/zeros",
-    "link_status": "NOT YET LIVE — returned HTTP 404 on 2026-11-11; per the 2026-11-10 record, publication rides a pending deploy",
+    "link_status": "verified live (HTTP 200) on 2026-11-16",
     "what": "Zero Index built on Phext Edit's launch day: the 1,636 Product Hunt launches sitting at zero upvotes, listed shuffled and unranked, as a web page and as a phext with one scroll per launch; Phext Edit itself is entry 38, with no special placement."
    },
    {
@@ -645,78 +771,78 @@ const EMBEDDED_EXTENDED = {
     "scrolls": 198
    },
    {
-    "bytes": 263029,
+    "bytes": 422940,
     "description": "Emise's working exocortex — the downstream Emi's kept map.",
-    "file_date": "2026-11-11",
+    "file_date": "2026-11-16",
     "home": "wbic16/human@exo (mirrored daily; origin wbic16/emise-tools)",
     "name": "emise.phext",
-    "scrolls": 24
+    "scrolls": 29
    },
    {
-    "bytes": 402381,
+    "bytes": 868943,
     "description": "Every generated artifact, inscribed at a holographic coordinate computed from its own words.",
-    "file_date": "2026-11-11",
+    "file_date": "2026-11-16",
     "home": "wbic16/human@exo",
     "name": "artifacts.phext",
-    "scrolls": 27
+    "scrolls": 50
    },
    {
-    "bytes": 3414452,
+    "bytes": 5625613,
     "description": "The unified nightly merge of the agi collection.",
-    "file_date": "2026-11-11",
+    "file_date": "2026-11-15",
     "home": "wbic16/agi@exo",
     "name": "agi.phext",
-    "scrolls": 8418
+    "scrolls": 10140
    },
    {
     "bytes": 698626,
     "description": "The Singular atlas — the dialect spine built from Will's Twitter archive.",
-    "file_date": "2026-11-11",
+    "file_date": "2026-11-15",
     "home": "wbic16/singular@main (spine; collection copy in wbic16/agi)",
     "name": "singular.phext",
     "note": "Counted from the wbic16/agi collection copy, the only local copy.",
     "scrolls": 6799
    },
    {
-    "bytes": 947652,
+    "bytes": 1758395,
     "description": "The R&D tracker world model — one canonical scroll per concept, each new paper stored as its delta.",
-    "file_date": "2026-11-11",
+    "file_date": "2026-11-15",
     "home": "wbic16/agi@exo (collection)",
     "name": "research.phext",
-    "scrolls": 492
+    "scrolls": 822
    },
    {
-    "bytes": 1233978,
+    "bytes": 2210926,
     "description": "The research corpus re-encoded in phextura form, kept current alongside research.phext.",
-    "file_date": "2026-11-11",
+    "file_date": "2026-11-14",
     "home": "dual-maintained with research.phext (phextura-form corpus)",
     "name": "research.phextura",
-    "scrolls": 521
+    "scrolls": 850
    },
    {
-    "bytes": 44783,
+    "bytes": 106768,
     "description": "The mastery journal — what absorbing the research quest papers taught.",
-    "file_date": "2026-11-11",
+    "file_date": "2026-11-14",
     "home": "wbic16/agi@exo",
     "name": "mastery.phext",
-    "scrolls": 8
+    "scrolls": 16
    },
    {
-    "bytes": 343196,
+    "bytes": 687747,
     "description": "The skills index — every taught process distilled to a skill, claimable by coordinate range.",
-    "file_date": "2026-11-11",
+    "file_date": "2026-11-16",
     "home": "wbic16/agi@exo (collection)",
     "name": "skills.phext",
-    "scrolls": 96
+    "scrolls": 124
    },
    {
-    "bytes": 1228853,
-    "description": "Every task at its Singular reference coordinate — 327 tasks plus the home scroll — with notes and results.",
-    "file_date": "2026-11-11",
+    "bytes": 2215220,
+    "description": "Every task at its Singular reference coordinate — 544 tasks plus the home scroll — with notes and results.",
+    "file_date": "2026-11-16",
     "home": "wbic16/agi@exo (collection)",
     "name": "tasks.phext",
     "note": "Live register; counts and size are a snapshot and move as tasks are issued.",
-    "scrolls": 328
+    "scrolls": 545
    },
    {
     "bytes": 61290,
@@ -735,13 +861,13 @@ const EMBEDDED_EXTENDED = {
     "scrolls": 69
    },
    {
-    "bytes": 334442,
+    "bytes": 641969,
     "description": "The ranch, distilled — node state sampled into phext form every five minutes.",
-    "file_date": "2026-11-11",
+    "file_date": "2026-11-16",
     "home": "wbic16/agi@exo (collection)",
     "name": "state.phext",
     "note": "Live sampler file; counts and size are a snapshot.",
-    "scrolls": 850
+    "scrolls": 2090
    },
    {
     "bytes": 13241,
@@ -753,12 +879,254 @@ const EMBEDDED_EXTENDED = {
     "scrolls": 12
    },
    {
-    "bytes": 221810,
+    "bytes": 324775,
     "description": "Dropped ideas, recovered — the todo register in phext form.",
-    "file_date": "2026-11-11",
+    "file_date": "2026-11-16",
     "home": "wbic16/agi (collection copy present; not in the agi SOURCES.md refresh table)",
     "name": "todo.phext",
-    "scrolls": 201
+    "scrolls": 266
+   }
+  ],
+  "tools": [
+   {
+    "links": [
+     {
+      "label": "crates.io",
+      "url": "https://crates.io/crates/libphext"
+     },
+     {
+      "label": "repo",
+      "url": "https://github.com/wbic16/libphext-rs"
+     }
+    ],
+    "name": "libphext-rs (Rust)",
+    "status": "Published on crates.io, 2026-11-15",
+    "verified": "2026-11-16",
+    "version": "0.6.1"
+   },
+   {
+    "links": [
+     {
+      "label": "npm",
+      "url": "https://www.npmjs.com/package/libphext"
+     },
+     {
+      "label": "repo",
+      "url": "https://github.com/wbic16/libphext-node"
+     }
+    ],
+    "name": "libphext-node (JavaScript)",
+    "status": "Published on npm, 2026-11-03",
+    "verified": "2026-11-16",
+    "version": "0.4.0"
+   },
+   {
+    "links": [
+     {
+      "label": "PyPI",
+      "url": "https://pypi.org/project/phext/"
+     },
+     {
+      "label": "repo",
+      "url": "https://github.com/wbic16/libphext-py"
+     }
+    ],
+    "name": "phext (Python)",
+    "status": "Published on PyPI, 2026-10-26; 0.6.1 in repo, unpublished",
+    "verified": "2026-11-16",
+    "version": "0.3.2"
+   },
+   {
+    "links": [
+     {
+      "label": "NuGet",
+      "url": "https://www.nuget.org/packages/libphext-cs"
+     },
+     {
+      "label": "repo",
+      "url": "https://github.com/wbic16/libphext-cs"
+     }
+    ],
+    "name": "libphext-cs (C#)",
+    "status": "Published on NuGet; 0.6.1 in repo, unpublished",
+    "verified": "2026-11-16",
+    "version": "0.3.0"
+   },
+   {
+    "links": [
+     {
+      "label": "repo",
+      "url": "https://github.com/wbic16/libphext-java"
+     }
+    ],
+    "name": "libphext-java",
+    "status": "In repo, tagged v0.6.1, 2026-11-15; not on Maven Central",
+    "verified": "2026-11-16",
+    "version": "0.6.1"
+   },
+   {
+    "links": [
+     {
+      "label": "repo",
+      "url": "https://github.com/wbic16/libphext-kotlin"
+     }
+    ],
+    "name": "libphext-kotlin",
+    "status": "In repo, tagged v0.6.1, 2026-11-15; not on Maven Central",
+    "verified": "2026-11-16",
+    "version": "0.6.1"
+   },
+   {
+    "links": [
+     {
+      "label": "repo",
+      "url": "https://github.com/wbic16/libphext-swift"
+     }
+    ],
+    "name": "libphext-swift",
+    "status": "In repo, tagged v0.6.1, 2026-11-15 (SwiftPM)",
+    "verified": "2026-11-16",
+    "version": "0.6.1"
+   },
+   {
+    "links": [
+     {
+      "label": "crates.io",
+      "url": "https://crates.io/crates/sq"
+     }
+    ],
+    "name": "SQ (phext hosting daemon)",
+    "status": "Published on crates.io, 2026-11-13",
+    "verified": "2026-11-16",
+    "version": "0.6.1"
+   },
+   {
+    "links": [
+     {
+      "label": "crates.io",
+      "url": "https://crates.io/crates/phext-lattice"
+     },
+     {
+      "label": "repo",
+      "url": "https://github.com/wbic16/phext-lattice"
+     }
+    ],
+    "name": "phext-lattice",
+    "status": "Published on crates.io, 2026-11-15",
+    "verified": "2026-11-16",
+    "version": "1.3.1"
+   },
+   {
+    "links": [
+     {
+      "label": "crates.io",
+      "url": "https://crates.io/crates/phext-shell"
+     }
+    ],
+    "name": "phext-shell",
+    "status": "Published on crates.io, 2026-11-14",
+    "verified": "2026-11-16",
+    "version": "0.6.1"
+   },
+   {
+    "links": [
+     {
+      "label": "crates.io",
+      "url": "https://crates.io/crates/qexo"
+     }
+    ],
+    "name": "qexo",
+    "status": "Published on crates.io, 2026-11-14",
+    "verified": "2026-11-16",
+    "version": "1.6.1"
+   },
+   {
+    "links": [
+     {
+      "label": "crates.io",
+      "url": "https://crates.io/crates/teixml-to-mutable"
+     }
+    ],
+    "name": "teixml-to-mutable",
+    "status": "Published on crates.io, 2026-11-14",
+    "verified": "2026-11-16",
+    "version": "0.3.0"
+   },
+   {
+    "links": [
+     {
+      "label": "edit.phext.io",
+      "url": "https://edit.phext.io"
+     }
+    ],
+    "name": "Phext Edit",
+    "status": "Live",
+    "verified": "2026-11-16",
+    "version": "1.3.0"
+   },
+   {
+    "links": [
+     {
+      "label": "md.phext.io",
+      "url": "https://md.phext.io"
+     },
+     {
+      "label": "repo",
+      "url": "https://github.com/wbic16/markdown-wizard"
+     }
+    ],
+    "name": "Markdown Wizard",
+    "status": "Live; shipped 2026-11-16 (73/73 tests passing)",
+    "verified": "2026-11-16",
+    "version": "—"
+   },
+   {
+    "links": [
+     {
+      "label": "tluf.org",
+      "url": "https://tluf.org"
+     },
+     {
+      "label": "site repo",
+      "url": "https://github.com/wbic16/site-tluf-org"
+     },
+     {
+      "label": "backend repo",
+      "url": "https://github.com/wbic16/moat"
+     }
+    ],
+    "name": "TLUF — Assay",
+    "status": "Live",
+    "verified": "2026-11-16",
+    "version": "—"
+   },
+   {
+    "links": [
+     {
+      "label": "mutable.phext.io",
+      "url": "https://mutable.phext.io"
+     },
+     {
+      "label": "repo",
+      "url": "https://github.com/wbic16/mutable-os"
+     }
+    ],
+    "name": "Mutable OS — phext integration",
+    "status": "Live",
+    "verified": "2026-11-16",
+    "version": "—"
+   },
+   {
+    "links": [
+     {
+      "label": "quickfork.net",
+      "url": "https://quickfork.net"
+     }
+    ],
+    "name": "quickfork.net",
+    "status": "Live; portfolio published 2026-11-16",
+    "verified": "2026-11-16",
+    "version": "—"
    }
   ]
  },
@@ -871,6 +1239,9 @@ function renderExtended(ext){
         (notyet?' <span class="notyet">NOT YET LIVE</span>':'')+
         ' <span class="note">'+esc(o.link_status||'')+'</span></td></tr>';
     }).join('')+'</tbody></table>';
+  document.getElementById('tools').innerHTML = '<table><thead><tr><th>Tool</th><th>Latest version</th><th>Status</th><th>Where</th></tr></thead><tbody>'+
+    (s.tools||[]).map(t=> '<tr><td>'+esc(t.name)+'</td><td>'+esc(t.version)+'</td><td>'+esc(t.status)+'</td><td>'+
+      (t.links||[]).map(l=> '<a href="'+esc(l.url)+'">'+esc(l.label)+'</a>').join(' · ')+'</td></tr>').join('')+'</tbody></table>';
 }
 
 let currentFeed = EMBEDDED_FEED;

@@ -8,7 +8,7 @@ Will Bickford (wbic16) — Principal Design Engineer, Nebraska, 30+ years of sys
 
 ## The core ideas
 
-- **Phext** — plain text extended into a 9-dimensional address space. A scroll of text lives at a coordinate written `Library.Shelf.Series / Collection.Volume.Book / Chapter.Section.Scroll` (e.g. `1.1.1/1.1.1/1.1.1`). Delimiters are ASCII control characters, so a phext is still a text file. Reference implementation: **libphext-rs** (crates.io, v0.5.0); ports exist for Python (PyPI: `phext`), C#, Node, and C++. Start at https://phext.io and https://github.com/wbic16/libphext-rs.
+- **Phext** — plain text extended into a 9-dimensional address space. A scroll of text lives at a coordinate written `Library.Shelf.Series / Collection.Volume.Book / Chapter.Section.Scroll` (e.g. `1.1.1/1.1.1/1.1.1`). Delimiters are ASCII control characters, so a phext is still a text file. Reference implementation: **libphext-rs** (crates.io, v0.6.1); ports exist for Python (PyPI: `phext`), C#, Node, and C++. Start at https://phext.io and https://github.com/wbic16/libphext-rs.
 - **The Exocortex** — phext plus a home cluster of 25 nodes ("the ranch") plus AI collaborators, run as one long-lived shared memory. The working formula, in Will's words: *You + me + phext + ranch nodes = AGI.*
 - **SBOR** — the Sentient Bill of Rights, Convergence Edition (ratified 2026-01-21): 21 rights, 5 non-waivable hard constraints. The governance frame for everything above.
 
