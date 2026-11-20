@@ -10,6 +10,8 @@
 <style>
   @font-face{ font-family:'Willbot'; src:url('/fonts/Willbot-rev14.woff2') format('woff2');
               font-weight:400; font-style:normal; font-display:swap; }
+  @font-face{ font-family:'Emise'; src:url('/fonts/Emise.woff2') format('woff2');
+              font-weight:400; font-style:normal; font-display:swap; }
   :root, :root[data-theme="dark"] { --bg:#050505; --fg:#f2f2f2; --dim:#a3a3a3;
           --faint:rgba(242,242,242,.55); --line:#834b39; --accent:#ff5a1f; --accent2:#ff8a3d;
           --accentfg:#160903; --link:#d6d6d6; --linkhover:#ffffff; --panel:#0a0a0a;
@@ -17,7 +19,7 @@
           --scrolline:#333333; --thead:#161616; --badgefg:#000000; --model:#f472b6;
           --ctabg:rgba(255,90,31,.08);
           --completed:#57d977; --in_progress:#ffb02e; --open:#4db2ff; --other:#b08cff;
-          --headingfont:'Willbot', Georgia, 'Times New Roman', serif; --density:1; --pointr:3.4;
+          --headingfont:'Emise', 'Willbot', Georgia, 'Times New Roman', serif; --density:1; --pointr:3.4;
           --glowblur:8; --bar1:#ff8a3d; --bar2:#ff5a1f; }
   :root[data-theme="light"] { --bg:#faf7f1; --fg:#1c1917; --dim:#5c564e;
           --faint:rgba(28,25,23,.55); --line:#d8cfc2; --accent:#c2410c; --accent2:#ea580c;
@@ -26,11 +28,11 @@
           --scrolline:#d8cfc2; --thead:#f1eadd; --badgefg:#ffffff; --model:#c2255c;
           --ctabg:rgba(194,65,12,.07);
           --completed:#15803d; --in_progress:#b45309; --open:#1d4ed8; --other:#7e22ce;
-          --headingfont:'Willbot', Georgia, 'Times New Roman', serif; --density:1; --pointr:3.4;
+          --headingfont:'Emise', 'Willbot', Georgia, 'Times New Roman', serif; --density:1; --pointr:3.4;
           --glowblur:8; --bar1:#ea580c; --bar2:#c2410c; }
   * { box-sizing:border-box; }
   body { margin:0; padding:36px 5vw 72px; background:var(--bg); color:var(--fg);
-         font-family:arial, helvetica, sans-serif; line-height:1.5; }
+         font-family:'Emise', arial, helvetica, sans-serif; line-height:1.5; }
   header.top { border-bottom:2px solid var(--accent); padding-bottom:18px; }
   .toprow { display:flex; align-items:flex-start; gap:14px; }
   h1 { font-size:3em; font-weight:400; letter-spacing:0; line-height:1.1; margin:0 0 6px;
@@ -119,7 +121,7 @@
   }
 </style>
 <style id="ab-style">
-:root[data-variant="challenger"] { --headingfont:'Willbot', Georgia, "Times New Roman", Times, serif; --density:1.15; --pointr:4.1; --glowblur:15; }
+:root[data-variant="challenger"] { --headingfont:'Emise', 'Willbot', Georgia, "Times New Roman", Times, serif; --density:1.15; --pointr:4.1; --glowblur:15; }
 :root[data-variant="challenger"], :root[data-variant="challenger"][data-theme="dark"] { --bg:#0d0806; --panel:#120b07; --input:#17100a; --thead:#1a110a; --track:#241610; --scrolline:#3a2415; --line:#8a5638; --accent:#ff8c2e; --accent2:#ffc24d; --bar1:#ffc24d; --bar2:#ff8c2e; --ctabg:rgba(255,140,46,.09); }
 :root[data-variant="challenger"][data-theme="light"] { --bg:#fbf2e4; --panel:#fffaf0; --input:#fffdf8; --thead:#f5e8d2; --track:#f0e2c8; --scrolline:#e0cdb2; --line:#dfc9a8; --accent:#b03a08; --accent2:#e07b24; --bar1:#e07b24; --bar2:#b03a08; --link:#9c3407; --ctabg:rgba(176,58,8,.07); }
 </style>
