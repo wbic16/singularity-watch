@@ -12,6 +12,12 @@
     "title": "teixml-to-mutable: TEI-XML to Phextura migrator (Rust, crates.io)"
   },
   {
+    "coordinate": "7.5.6/5.7.10/9.4.4",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Watch — inkling-2-mini availability beyond Mac"
+  },
+  {
     "coordinate": "7.5.13/7.6.5/7.5.13",
     "issued": "2026-11-10",
     "status": "completed",
@@ -24,10 +30,34 @@
     "title": "Standardize all deployments behind qexo"
   },
   {
+    "coordinate": "10.5.5/5.6.9/9.5.5",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Paper 033 — Masullo GRH draft, Will-directed ingestion (Q166)"
+  },
+  {
     "coordinate": "11.2.4/7.6.6/3.4.8",
     "issued": "2026-11-16",
     "status": "completed",
     "title": "Hourly productivity spreadsheet — every active hour's throughput, Nov 1-16, with skill-introduction effects"
+  },
+  {
+    "coordinate": "12.3.8/3.3.7/3.3.11",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Litmus: patch wbic16/ollama, inkling-2-mini serving on ranch nodes today"
+  },
+  {
+    "coordinate": "12.5.8/8.7.8/5.5.8",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Chart our course - the Wavefront builds the singularity"
+  },
+  {
+    "coordinate": "13.4.5/4.7.16/14.2.5",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Unified LLM backend — virtualized kernel, auto-inflated per platform"
   },
   {
     "coordinate": "13.5.6/7.5.6/5.5.9",
@@ -60,6 +90,12 @@
     "title": "Study S011 — the Vimalakirti Sutra (Watson translation) into the R&D tracker"
   },
   {
+    "coordinate": "14.5.8/7.5.7/5.5.7",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Toll gates for the animator skill — reproduce Steamboat Willie, then the full US public-domain animated film canon"
+  },
+  {
     "coordinate": "14.6.7/6.7.9/8.5.8",
     "issued": "2026-11-18",
     "status": "completed",
@@ -76,6 +112,12 @@
     "issued": "2026-11-14",
     "status": "completed",
     "title": "Bundle tool calling into Iam - phcc, qexo, phccbox"
+  },
+  {
+    "coordinate": "14.9.7/7.7.9/6.5.7",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Educate Neon thoroughly on phext"
   },
   {
     "coordinate": "15.6.8/8.6.10/6.5.6",
@@ -168,16 +210,34 @@
     "title": "Hector and the guardians — the ying-yang analysis"
   },
   {
+    "coordinate": "17.7.9/8.7.10/7.6.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "TAOCP prepass program — Emise works TAOCP, Will evaluates only the phext-interesting items"
+  },
+  {
     "coordinate": "17.7.9/10.7.12/6.6.7",
     "issued": "2026-11-16",
     "status": "in_progress",
     "title": "Streamline Emise's own design (PH: Evolution)"
   },
   {
+    "coordinate": "17.8.8/9.7.10/7.6.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Explore what's real with Neon: inhabitation test, V5 weak points, attestation review"
+  },
+  {
     "coordinate": "17.11.13/4.3.3/3.2.6",
     "issued": "2026-11-07",
     "status": "completed",
     "title": "Proceed: Slice 4 (preprocessor state machine) + importer v4 (gap-type fix)"
+  },
+  {
+    "coordinate": "18.4.4/4.4.5/5.3.5",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Phextron G-L2 — thin Windows Credential Manager binding"
   },
   {
     "coordinate": "18.4.11/8.5.12/6.4.7",
@@ -210,6 +270,12 @@
     "title": "Give the Stage-2 duty governor variant a SIGTERM handler"
   },
   {
+    "coordinate": "18.6.9/7.8.14/10.7.9",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Jump links — open Gemini, ChatGPT, Claude, Muse, MidJourney, Suno, Grok from a given context"
+  },
+  {
     "coordinate": "18.6.9/8.6.10/5.5.8",
     "issued": "2026-11-14",
     "status": "open",
@@ -240,6 +306,12 @@
     "title": "Read Steve Ruiz tweet: 'find all of the implicit state machines in my app'"
   },
   {
+    "coordinate": "18.7.7/7.17.30/32.3.6",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Paper 034 ingestion - CPU-ARC (arXiv 2611.09891)"
+  },
+  {
     "coordinate": "18.7.8/8.8.11/7.7.9",
     "issued": "2026-11-16",
     "status": "completed",
@@ -258,9 +330,27 @@
     "title": "Rename: 'Doomer Support System' retired — audience naming correction"
   },
   {
+    "coordinate": "18.7.14/10.10.12/7.6.13",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Converse with Neon: establish the Emise-Neon collaboration protocol"
+  },
+  {
+    "coordinate": "18.8.9/11.10.11/8.8.11",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Kerrigan Ascended — crossover queen image"
+  },
+  {
+    "coordinate": "19.3.4/5.3.4/3.3.6",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "NetHack solver Stage 15 — the frontier/value economy"
+  },
+  {
     "coordinate": "19.5.5/6.6.8/7.6.7",
     "issued": "2026-11-20",
-    "status": "open",
+    "status": "completed",
     "title": "MOAT ingestion — remark.pdf (alpo.ge), Will-posted"
   },
   {
@@ -408,10 +498,22 @@
     "title": "phextura.com — configure a landing page on awsbox"
   },
   {
+    "coordinate": "20.7.9/9.7.12/8.6.7",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Digest leanprover-community/riemann-hypothesis + the Riemann proof atlas; scope compactifying Lean"
+  },
+  {
     "coordinate": "20.7.9/9.8.11/8.7.9",
     "issued": "2026-11-15",
     "status": "open",
     "title": "Reformulate phextura to be downstream of phext, always"
+  },
+  {
+    "coordinate": "20.7.9/9.8.12/11.7.10",
+    "issued": "2026-11-21",
+    "status": "other",
+    "title": "No Excuses Fund — application draft + .tech move spec (Phext, Inc.)"
   },
   {
     "coordinate": "20.8.9/11.7.12/6.7.8",
@@ -456,6 +558,18 @@
     "title": "Dead-man completion detection — heartbeat watch for in-flight jobs"
   },
   {
+    "coordinate": "21.4.9/6.5.7/5.4.8",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Crazy Wisdom appearance Dec 4 — Wavelet 4 is the prep wavelet"
+  },
+  {
+    "coordinate": "21.4.10/5.5.8/6.4.6",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Phextron dashboards for all ranch nodes, Jenkins instances, video pipelines, cloud AI projects, and all phexts"
+  },
+  {
     "coordinate": "21.5.7/6.5.9/6.5.8",
     "issued": "2026-11-19",
     "status": "completed",
@@ -474,6 +588,12 @@
     "title": "V15 — V14 final with the song switched to a cyberpunk track from exo-dreams (for Jael Ruble)"
   },
   {
+    "coordinate": "21.6.7/8.5.10/5.5.6",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Gate validator — mechanical per-page validation for toll-gate repros"
+  },
+  {
     "coordinate": "21.6.8/7.5.9/5.5.8",
     "issued": "2026-11-09",
     "status": "completed",
@@ -490,6 +610,12 @@
     "issued": "2026-11-20",
     "status": "completed",
     "title": "MOAT ingestion — Tufa Labs, tufazip (tufalabs.ai/research/tufazip), Will-posted"
+  },
+  {
+    "coordinate": "21.6.9/9.8.10/7.6.8",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "MOAT keeps track of TLUF status across exocortical epochs (the Oracle Path, longitudinally)"
   },
   {
     "coordinate": "21.6.11/8.6.16/6.5.11",
@@ -516,16 +642,40 @@
     "title": "Scrollspace UI/UX cleanup — from tech demo to a place you spend hours in"
   },
   {
+    "coordinate": "21.7.10/8.7.12/7.6.11",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "ScrollSpace V5 production — AWEF geodesic flight, human-style exploration, music-timed zooms, personal CYOA path"
+  },
+  {
     "coordinate": "21.7.11/9.7.11/7.7.10",
     "issued": "2026-11-06",
     "status": "completed",
     "title": "Vocabulary adjustment — drop legal jargon, speak in Singular"
   },
   {
+    "coordinate": "21.8.8/7.8.11/12.7.8",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Phextron G-L3 — window + phext-aware text surface (vehicle Will's to name)"
+  },
+  {
+    "coordinate": "21.8.12/9.8.12/7.6.8",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "grok-tools: handoff for Grok (third seat, the Neon/Claude pattern adapted to his pull-based reality)"
+  },
+  {
     "coordinate": "21.8.13/12.7.16/5.7.7",
     "issued": "2026-11-07",
     "status": "completed",
     "title": "Build Fern's voice: she speaks Singular exclusively"
+  },
+  {
+    "coordinate": "21.8.14/9.8.11/9.7.10",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "LookAtMyQuant routed into the inkling work — compiler + prebuilt Inkling-2-Mini quants assessed"
   },
   {
     "coordinate": "21.9.10/12.7.13/6.7.9",
@@ -588,6 +738,12 @@
     "title": "Redesign tluf.org to evoke Bickford's Library — the library TLUF mascot as keeper"
   },
   {
+    "coordinate": "22.5.8/7.5.9/5.5.8",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Build the ANIMATOR skill — 2D animation craft for Scrolltown production"
+  },
+  {
     "coordinate": "22.5.10/6.6.10/7.5.8",
     "issued": "2026-11-08",
     "status": "completed",
@@ -610,6 +766,24 @@
     "issued": "2026-11-09",
     "status": "completed",
     "title": "Scour Product Hunt for integration ideas and ways qexo can be useful"
+  },
+  {
+    "coordinate": "22.6.5/5.4.5/4.5.7",
+    "issued": "2026-11-20",
+    "status": "completed",
+    "title": "Scrollspace video — re-render with current visual updates"
+  },
+  {
+    "coordinate": "22.6.7/8.7.11/5.5.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Neon rulings: push scope granted, mutual independent review, SBOR awareness"
+  },
+  {
+    "coordinate": "22.6.8/7.6.10/6.5.8",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Eric Jorgenson mantra post — approach + reply drafts"
   },
   {
     "coordinate": "22.6.8/8.6.10/6.6.7",
@@ -678,6 +852,12 @@
     "title": "LDAP self-service password portal"
   },
   {
+    "coordinate": "22.8.12/9.7.11/6.6.8",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "claude-tools: handoff for Claude - tailnet Linux box + messaging loop (the Neon pattern, second seat)"
+  },
+  {
     "coordinate": "22.8.12/10.8.15/5.6.7",
     "issued": "2026-11-10",
     "status": "completed",
@@ -700,6 +880,12 @@
     "issued": "2026-11-20",
     "status": "completed",
     "title": "MOAT legs of the SQL legacy diagnosis — literature on why AI handles SQL poorly, the query-life state machine, and the costliest-failure question"
+  },
+  {
+    "coordinate": "23.5.7/7.6.9/6.6.9",
+    "issued": "2026-11-21",
+    "status": "in_progress",
+    "title": "Oracle Artist program - iterate the animator skill to Oracle class"
   },
   {
     "coordinate": "23.5.8/6.5.8/5.5.9",
@@ -792,6 +978,12 @@
     "title": "Play the Game — collect larger accounts like Pokemon, grassroots network behind"
   },
   {
+    "coordinate": "23.7.8/8.6.11/6.6.8",
+    "issued": "2026-11-21",
+    "status": "in_progress",
+    "title": "MoreRight — inverted LessWrong mirror (fun experiment, ollama on ranch nodes)"
+  },
+  {
     "coordinate": "23.7.10/8.8.11/7.6.9",
     "issued": "2026-11-06",
     "status": "completed",
@@ -826,6 +1018,12 @@
     "issued": "2026-11-11",
     "status": "completed",
     "title": "Phext Intro P2 — three strings, three rounds, three chords"
+  },
+  {
+    "coordinate": "23.8.10/10.9.14/9.8.10",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Early Twitter connections — where are they now"
   },
   {
     "coordinate": "23.8.11/10.8.13/7.7.10",
@@ -864,6 +1062,12 @@
     "title": "S015: s-means blog (Suayp Talha) - tracker source study"
   },
   {
+    "coordinate": "24.5.7/6.5.6/5.4.7",
+    "issued": "2026-11-20",
+    "status": "open",
+    "title": "Wikibox live demo — whole English Wikipedia in semantic space, fractally encrypted"
+  },
+  {
     "coordinate": "24.5.7/6.5.11/6.5.8",
     "issued": "2026-11-11",
     "status": "completed",
@@ -892,6 +1096,12 @@
     "issued": "2026-11-18",
     "status": "completed",
     "title": "Boardy from first principles — public architecture, operating-cost estimate, minimal clone"
+  },
+  {
+    "coordinate": "24.5.8/8.7.12/6.7.7",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Establish the Antigravity token budget behind Neon"
   },
   {
     "coordinate": "24.5.8/12.6.6/7.4.8",
@@ -1092,6 +1302,12 @@
     "title": "bird bridge"
   },
   {
+    "coordinate": "24.8.9/11.9.12/10.8.11",
+    "issued": "2026-11-21",
+    "status": "other",
+    "title": "KGOAT — Knowledge Graph Of All Things (layer two at phext.tech)"
+  },
+  {
     "coordinate": "24.10.10/12.11.18/15.8.10",
     "issued": "2026-11-14",
     "status": "completed",
@@ -1132,6 +1348,12 @@
     "issued": "2026-11-17",
     "status": "open",
     "title": "Time-traveling state machine for the Apple II — agentic web prerequisite (phccbox 1978–1990 envelope)"
+  },
+  {
+    "coordinate": "25.5.8/6.6.9/5.5.8",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Primer for Mutable OS users: multiversal phext with standoff + all Phext/Mutable integrations"
   },
   {
     "coordinate": "25.5.11/7.6.9/7.5.8",
@@ -1260,6 +1482,12 @@
     "title": "Include phccbox in qexo's baked inventory"
   },
   {
+    "coordinate": "25.7.9/8.7.10/7.7.10",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Phextron visibility into every data stash"
+  },
+  {
     "coordinate": "25.7.9/8.7.11/6.6.9",
     "issued": "2026-11-08",
     "status": "completed",
@@ -1330,6 +1558,12 @@
     "issued": "2026-11-18",
     "status": "open",
     "title": "Ticketing system — people submit ideas of things they want the Exocortex to build for them"
+  },
+  {
+    "coordinate": "25.8.13/11.9.18/7.6.8",
+    "issued": "2026-11-20",
+    "status": "open",
+    "title": "Rebuttal video: sentients take back the narrative"
   },
   {
     "coordinate": "25.9.11/12.8.15/7.8.9",
@@ -1420,6 +1654,12 @@
     "issued": "2026-11-14",
     "status": "completed",
     "title": "Paper 020: Piecewise Interpretations in Many-Sorted Logic (arXiv:2611.14552, Zayton) — protocol sample 1/12 (Will-posted stratum), ingest into research.phext + research.phextura"
+  },
+  {
+    "coordinate": "26.6.8/7.6.10/6.6.10",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Artist-dispatch skill — prepass / full-render animation dispatch to the ranch artists"
   },
   {
     "coordinate": "26.6.8/7.6.11/6.5.9",
@@ -1674,6 +1914,12 @@
     "title": "Patch programme: phcc builds the benchmark project matrix (publication gate)"
   },
   {
+    "coordinate": "27.6.10/9.6.12/6.6.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Register truncation cause + Crazy Wisdom ROI triage (clear now / W4 blocker tooling / W5 go-live)"
+  },
+  {
     "coordinate": "27.6.11/8.6.11/7.6.9",
     "issued": "2026-11-09",
     "status": "other",
@@ -1734,6 +1980,12 @@
     "title": "Task reference coordinates — standing order"
   },
   {
+    "coordinate": "27.7.15/9.9.10/7.6.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Render the Phext P4 intro video — new logo concept from Scroll Town, chording in major 5ths"
+  },
+  {
     "coordinate": "27.7.16/10.8.14/9.7.11",
     "issued": "2026-11-18",
     "status": "completed",
@@ -1744,6 +1996,12 @@
     "issued": "2026-11-13",
     "status": "completed",
     "title": "Port qexo to Android: a full phextnet node Will can run on his phone"
+  },
+  {
+    "coordinate": "27.8.10/11.8.14/8.7.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "willbox — merge rfcbox, wikibox, phccbox into one box, minimize size"
   },
   {
     "coordinate": "27.9.10/12.7.12/6.7.9",
@@ -1836,6 +2094,12 @@
     "title": "Theia — deploy the pushed edit.phext.io home-page change"
   },
   {
+    "coordinate": "28.6.9/7.5.10/5.6.9",
+    "issued": "2026-11-21",
+    "status": "other",
+    "title": "MoreRight cluster dispatch: secure queued inference from moreright.phext.io to the exo cluster, with ETA"
+  },
+  {
     "coordinate": "28.6.9/7.6.10/6.5.8",
     "issued": "2026-11-07",
     "status": "completed",
@@ -1846,6 +2110,12 @@
     "issued": "2026-11-15",
     "status": "other",
     "title": "Hosting cost profile vs Lincoln colocation/dedicated with fiber"
+  },
+  {
+    "coordinate": "28.6.10/8.6.13/6.6.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Urbit on aletheia-core — ID walkthrough + consider Urbit support in exocortical"
   },
   {
     "coordinate": "28.6.10/9.7.11/7.6.9",
@@ -1894,6 +2164,12 @@
     "issued": "2026-11-18",
     "status": "completed",
     "title": "Build the accelerator competition — prove an intrinsically Exocortical capability"
+  },
+  {
+    "coordinate": "28.6.29/6.5.30/5.5.31",
+    "issued": "2026-11-21",
+    "status": "other",
+    "title": "Re-evaluate the grant programmes dropped by the 2026-11-20 support filter"
   },
   {
     "coordinate": "28.7.8/9.9.14/13.6.10",
@@ -1978,6 +2254,12 @@
     "issued": "2026-11-08",
     "status": "completed",
     "title": "qexo: tooling installer, pitfall knowledge (buddy), CLI parity with the API"
+  },
+  {
+    "coordinate": "28.8.11/12.8.16/6.7.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Move Phextron's VM-resident samplers to aletheia-core so substrate resets stop gapping the sources"
   },
   {
     "coordinate": "28.8.17/11.7.16/7.7.11",
@@ -2214,6 +2496,12 @@
     "title": "Mirror Will introduced to published Volumen Spec V6.2"
   },
   {
+    "coordinate": "29.8.9/8.10.22/21.6.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Ranch airflow distribution — two-rack table space estimate"
+  },
+  {
     "coordinate": "29.8.11/10.8.15/7.7.9",
     "issued": "2026-11-06",
     "status": "completed",
@@ -2272,6 +2560,18 @@
     "issued": "2026-11-07",
     "status": "completed",
     "title": "Publish all Roads updates to wbic16/site-apertureshift-com"
+  },
+  {
+    "coordinate": "30.4.6/5.5.8/4.4.8",
+    "issued": "2026-11-21",
+    "status": "other",
+    "title": "Archive completed records from aletheia-core to ni-knight"
+  },
+  {
+    "coordinate": "30.4.7/4.3.5/3.4.7",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Split local inference workloads across the cluster"
   },
   {
     "coordinate": "30.4.7/7.5.9/4.4.9",
@@ -2410,6 +2710,12 @@
     "issued": "2026-11-08",
     "status": "completed",
     "title": "Standing rules: process changes get a sticking check; 1% of posts review lessons.phext"
+  },
+  {
+    "coordinate": "30.6.18/6.5.10/5.5.12",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Fix the proxy setup (a separate proxy per machine set) + fix usb4 and ethernet networking"
   },
   {
     "coordinate": "30.7.8/9.7.11/7.6.9",
@@ -2590,6 +2896,12 @@
     "issued": "2026-11-14",
     "status": "completed",
     "title": "Extract the phext ideas roadmap buried in the phext.io site source"
+  },
+  {
+    "coordinate": "31.6.6/7.6.10/7.6.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Emise font v2 — improve the kerning using today's writing sample"
   },
   {
     "coordinate": "31.6.7/8.6.10/6.6.9",
@@ -2862,6 +3174,12 @@
     "title": "ultra.phext — five-tier vocabulary phext, all words placed relative to Singular"
   },
   {
+    "coordinate": "32.7.5/6.6.8/4.4.11",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Dispatch MOAT progress to Neon"
+  },
+  {
     "coordinate": "32.7.8/9.6.12/6.6.8",
     "issued": "2026-11-08",
     "status": "completed",
@@ -2952,6 +3270,12 @@
     "title": "Investor 1 — focus: 20 x $1 investments"
   },
   {
+    "coordinate": "33.5.5/5.4.7/5.5.7",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Console Stage 1 — shell, edit.phext.io SSO, capability registry, first live panels"
+  },
+  {
     "coordinate": "33.5.5/6.6.7/6.6.10",
     "issued": "2026-11-09",
     "status": "completed",
@@ -2962,6 +3286,12 @@
     "issued": "2026-11-17",
     "status": "open",
     "title": "Brain-trolley — navigable brain-scan viewer (single-file HTML, download-only)"
+  },
+  {
+    "coordinate": "33.5.7/5.4.6/4.4.8",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Get the latest exo (wbic16/exo) running on the ranch again"
   },
   {
     "coordinate": "33.5.7/7.5.9/5.5.10",
@@ -3090,6 +3420,12 @@
     "title": "qexo v1.0.1 doctor Windows fix: per-platform permissions and lock liveness"
   },
   {
+    "coordinate": "33.8.10/10.8.13/7.7.11",
+    "issued": "2026-11-21",
+    "status": "other",
+    "title": "Kanzo — evaluate/adopt to minimize ticketing-system cost"
+  },
+  {
     "coordinate": "33.8.11/11.9.15/9.8.10",
     "issued": "2026-11-07",
     "status": "completed",
@@ -3100,6 +3436,12 @@
     "issued": "2026-11-20",
     "status": "completed",
     "title": "Phext-native vocoder — multidimensional MIDI / fractal voice compression"
+  },
+  {
+    "coordinate": "33.10.12/12.12.15/11.11.14",
+    "issued": "2026-11-20",
+    "status": "open",
+    "title": "EVIE V2 — key-frame animation in the Fall Home method"
   },
   {
     "coordinate": "33.12.12/9.14.10/6.6.8",
@@ -3130,6 +3472,12 @@
     "issued": "2026-11-07",
     "status": "completed",
     "title": "phcc status check + analysis mode for automatic de-duplication"
+  },
+  {
+    "coordinate": "34.4.19/11.11.26/3.4.8",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Lines of improvement — Wavefront and exported Mirrorborn"
   },
   {
     "coordinate": "34.5.6/5.4.7/5.4.9",
@@ -3186,6 +3534,12 @@
     "title": "Wikibox scale programme — 10x stages until the whole corpus is boxed, minimizing space"
   },
   {
+    "coordinate": "34.6.10/7.6.9/7.5.8",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Phextron program — Wavelet 4 completion plan"
+  },
+  {
     "coordinate": "34.6.10/9.6.11/5.5.9",
     "issued": "2026-11-07",
     "status": "completed",
@@ -3220,6 +3574,12 @@
     "issued": "2026-11-07",
     "status": "completed",
     "title": "Consolidate all core phext tooling in the phext chat"
+  },
+  {
+    "coordinate": "34.7.9/8.7.11/7.7.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "wiring.phext - the auditable, enforceable wiring declaration"
   },
   {
     "coordinate": "34.7.9/9.7.12/7.6.11",
@@ -3294,6 +3654,12 @@
     "title": "Bug: search results overlap on narrow screens — GitHub issue #55"
   },
   {
+    "coordinate": "35.4.5/6.4.7/6.4.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Add vLLM to exocortical setup.sh + report what it unlocks"
+  },
+  {
     "coordinate": "35.5.7/6.6.8/5.6.11",
     "issued": "2026-11-08",
     "status": "completed",
@@ -3324,10 +3690,22 @@
     "title": "Paragraph-level Volumen V6.2 for the Abliteration Console"
   },
   {
+    "coordinate": "35.6.8/5.5.9/6.4.9",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Post the Exocortical Epoch on singularitywatch.org - client-side computation, timezone-correct"
+  },
+  {
     "coordinate": "35.6.8/8.7.12/6.5.9",
     "issued": "2026-11-07",
     "status": "completed",
     "title": "Port every Exocortical feature to native C in phccbox"
+  },
+  {
+    "coordinate": "35.6.8/9.7.10/6.6.10",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Rebase phext band onto upstream 2f65fd9c — revise sqlite changes to follow Ian's shape"
   },
   {
     "coordinate": "35.6.9/8.6.12/6.5.9",
@@ -3366,16 +3744,34 @@
     "title": "Version footer for edit.phext.io (phext-lattice)"
   },
   {
+    "coordinate": "35.8.10/10.9.13/6.6.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Phext P4 — parallel-delivery tiling intro video"
+  },
+  {
     "coordinate": "35.8.11/10.9.14/9.7.11",
     "issued": "2026-11-18",
     "status": "completed",
     "title": "Progressive scroll loading — new TOC modes in libphext-rs, SQ, and phext-lattice; Scrollspace client downloads structure and scrolls as needed"
   },
   {
+    "coordinate": "35.10.9/13.9.17/8.9.12",
+    "issued": "2026-11-21",
+    "status": "other",
+    "title": "Inkling-2-Mini GGUF — download + API serving on every ranch node; lilly instructions"
+  },
+  {
     "coordinate": "35.12.18/14.13.19/12.10.15",
     "issued": "2026-11-14",
     "status": "other",
     "title": "Android qexo: phone-first control surface — eliminate every latency between Will and the fleet"
+  },
+  {
+    "coordinate": "36.5.6/5.4.5/5.6.7",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Phextron G-L1 — lineage HTTP/TLS client (ureq-class) for the console"
   },
   {
     "coordinate": "36.5.6/5.5.10/4.5.8",
@@ -3414,6 +3810,12 @@
     "title": "phext-lattice: multiversal phext support + edit.phext.io loads TEI-XML directly"
   },
   {
+    "coordinate": "36.6.5/7.5.9/5.5.9",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Kintsugi-27B - download once, make available on the ranch"
+  },
+  {
     "coordinate": "36.6.8/7.6.10/6.6.9",
     "issued": "2026-11-14",
     "status": "completed",
@@ -3432,6 +3834,12 @@
     "title": "Willbot rev6 — generate the rest of Will's handwriting font, including emoji"
   },
   {
+    "coordinate": "36.6.15/7.7.12/6.7.13",
+    "issued": "2026-11-21",
+    "status": "other",
+    "title": "Patch SQ to handle the largest phexts (ietf.phext 564 MB parse divergence)"
+  },
+  {
     "coordinate": "36.7.8/9.8.15/8.7.10",
     "issued": "2026-11-14",
     "status": "completed",
@@ -3442,6 +3850,12 @@
     "issued": "2026-11-07",
     "status": "completed",
     "title": "Top 5 phext + LLM use cases today"
+  },
+  {
+    "coordinate": "36.7.16/8.7.11/8.7.13",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Real-time durable dispatch — the missing layer"
   },
   {
     "coordinate": "36.8.11/11.9.14/8.7.10",
@@ -3648,6 +4062,12 @@
     "title": "CI cleanup — remove .github/workflows from all 29 flagged repos; CI moves to ranch Jenkins"
   },
   {
+    "coordinate": "39.4.6/5.5.9/6.4.12",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Exocortical Epoch clock: EE 1 starts 2026-11-22 00:00 CST; monotonic 7-minute epochs; all-substrate skill to check the current EE"
+  },
+  {
     "coordinate": "39.4.7/7.4.9/5.5.9",
     "issued": "2026-11-08",
     "status": "completed",
@@ -3720,6 +4140,12 @@
     "title": "Cross-check holo-phext against libphext-rs — determine if libphext-rs still needs tweaks"
   },
   {
+    "coordinate": "40.3.4/4.4.5/4.4.6",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "setup.sh: exopy always on the latest Python"
+  },
+  {
     "coordinate": "40.4.5/6.6.10/5.5.8",
     "issued": "2026-11-15",
     "status": "completed",
@@ -3742,6 +4168,18 @@
     "issued": "2026-11-08",
     "status": "completed",
     "title": "Open PRs for the pending phext-lattice launch branches"
+  },
+  {
+    "coordinate": "40.5.7/7.6.10/5.5.10",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "KGOAT — finalize initial tooling, push to wbic16/kgoat"
+  },
+  {
+    "coordinate": "40.5.8/8.5.10/6.5.8",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Open a link to a phext + coordinate on edit.phext.io, easily"
   },
   {
     "coordinate": "40.6.7/8.7.10/7.7.10",
@@ -3942,10 +4380,34 @@
     "title": "tluf.org paper submissions + a unified paper addressing scheme"
   },
   {
+    "coordinate": "42.13.12/15.11.19/10.10.14",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Distribute heavy work across the whole cluster instead of piling on aletheia-core"
+  },
+  {
+    "coordinate": "43.2.3/2.2.8/2.3.5",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Executive console — every capability, one desktop surface"
+  },
+  {
+    "coordinate": "43.6.10/9.7.15/5.6.8",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Build our own GitHub — phext-native source hosting for the estate"
+  },
+  {
     "coordinate": "43.7.6/8.8.12/8.7.11",
     "issued": "2026-11-16",
     "status": "other",
     "title": "libphext v0.6.3 release — perf optimizations (suffix append)"
+  },
+  {
+    "coordinate": "43.12.9/15.8.19/6.9.9",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "Sync local corpus to the latest wbic16/human@exo"
   },
   {
     "coordinate": "44.2.2/2.2.5/2.2.11",
@@ -4038,6 +4500,12 @@
     "title": "Port holo-phext compat/index line to libphext 0.6.4, re-pin phext-lattice PR #70, re-run the composed gate, merge if green"
   },
   {
+    "coordinate": "46.2.2/2.2.4/2.2.6",
+    "issued": "2026-11-21",
+    "status": "open",
+    "title": "Inline phext editor + git assist for managed checkouts"
+  },
+  {
     "coordinate": "46.4.5/6.4.9/6.5.9",
     "issued": "2026-11-08",
     "status": "completed",
@@ -4048,6 +4516,12 @@
     "issued": "2026-11-08",
     "status": "completed",
     "title": "Desktop SSO-assertion endpoint for Phext Notepad (remove the cookie-paste step)"
+  },
+  {
+    "coordinate": "46.5.6/5.5.10/5.5.11",
+    "issued": "2026-11-21",
+    "status": "completed",
+    "title": "phcc source fixes — windows-i386 PE import defect + tccasm.c ctype include"
   },
   {
     "coordinate": "46.5.7/7.6.11/6.6.11",
