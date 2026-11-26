@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Kardashev 2.0 Tech Tree — Singularity Watch</title>
+<meta name="description" content="Every technology on the dependency path from 2027 to a Type II civilization in 2130 — with community completion claims, submitted with evidence.">
+<script>
+try { var t = localStorage.getItem('sw-theme');
+  if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+} catch (e) {}
+</script>
+<style>
+@font-face{ font-family:'Willbot'; src:url('/fonts/Willbot-rev14.woff2') format('woff2'); font-weight:400; }
+@font-face{ font-family:'Emise'; src:url('/fonts/Emise.woff2') format('woff2'); font-weight:400; }
+:root, :root[data-theme="dark"] { --bg:#050505; --fg:#f2f2f2; --dim:#a3a3a3;
+          --faint:rgba(242,242,242,.55); --line:#834b39; --accent:#ff5a1f; --accent2:#ff8a3d;
+          --accentfg:#160903; --link:#d6d6d6; --linkhover:#ffffff; --panel:#0a0a0a;
+          --grid:rgba(255,255,255,.055); --ring:#ffffff; --track:#1c1c1c; --input:#111111;
+          --scrolline:#333333; --thead:#161616; --badgefg:#000000; --model:#f472b6;
+          --ctabg:rgba(255,90,31,.08);
+          --completed:#57d977; --in_progress:#ffb02e; --open:#4db2ff; --other:#b08cff;
+          --headingfont:'Emise', 'Willbot', Georgia, 'Times New Roman', serif; --density:1; --pointr:3.4;
+          --glowblur:8; --bar1:#ff8a3d; --bar2:#ff5a1f; }
+  :root[data-theme="light"] { --bg:#faf7f1; --fg:#1c1917; --dim:#5c564e;
+          --faint:rgba(28,25,23,.55); --line:#d8cfc2; --accent:#c2410c; --accent2:#ea580c;
+          --accentfg:#ffffff; --link:#a83a08; --linkhover:#7c2a05; --panel:#fffdf9;
+          --grid:rgba(60,45,25,.10); --ring:#1c1917; --track:#ece5d8; --input:#ffffff;
+          --scrolline:#d8cfc2; --thead:#f1eadd; --badgefg:#ffffff; --model:#c2255c;
+          --ctabg:rgba(194,65,12,.07);
+          --completed:#15803d; --in_progress:#b45309; --open:#1d4ed8; --other:#7e22ce;
+          --headingfont:'Emise', 'Willbot', Georgia, 'Times New Roman', serif; --density:1; --pointr:3.4;
+          --glowblur:8; --bar1:#ea580c; --bar2:#c2410c; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:36px 5vw 72px; background:var(--bg); color:var(--fg);
+         font-family:'Emise', arial, helvetica, sans-serif; line-height:1.5; }
+  header.top { border-bottom:2px solid var(--accent); padding-bottom:18px; }
+  .toprow { display:flex; align-items:flex-start; gap:14px; }
+  h1 { font-size:3em; font-weight:400; letter-spacing:0; line-height:1.1; margin:0 0 6px;
+       font-family:var(--headingfont); }
+  #theme-toggle { margin-left:auto; flex:none; background:var(--input); color:var(--fg);
+         border:1px solid var(--line); border-radius:999px; padding:6px 16px;
+         font:inherit; font-size:.88em; cursor:pointer; }
+  #theme-toggle:hover { border-color:var(--accent); }
+  .sechead { margin-top:calc(52px * var(--density)); border-bottom:1px solid var(--line); padding-bottom:8px; }
+  .sechead h2 { margin:4px 0 0; font-size:1.85em; font-weight:400; letter-spacing:0;
+                font-family:var(--headingfont); }
+  .eyebrow { font-size:.74em; letter-spacing:.14em; color:var(--dim); font-weight:bold; }
+  .eyebrow .ec { color:var(--accent); font-family:ui-monospace, Menlo, Consolas, monospace; }
+  .sub { color:var(--dim); }
+  .stamp { color:var(--accent); font-weight:bold; }
+  .ee { margin-top:16px; }
+  .ee-label { display:block; font-size:.74em; letter-spacing:.14em; color:var(--dim);
+              font-weight:bold; }
+  .ee-num { display:block; font-size:2em; line-height:1.15; font-weight:400;
+            font-family:var(--headingfont); color:var(--accent); }
+  .ee-detail { display:block; color:var(--dim); font-size:.92em; margin-top:2px; }
+  .ee-note { margin-top:4px; max-width:64ch; }
+  a, a:visited { color:var(--link); font-weight:bold; text-decoration:none; }
+  a:hover { color:var(--linkhover); text-decoration:underline; }
+  table { border-collapse:collapse; width:100%; margin:12px 0; font-size:.92em; }
+  th, td { border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; }
+  th { background:var(--thead); }
+  .note { color:var(--dim); font-size:.88em; }
+  .coord { font-family:ui-monospace, Menlo, Consolas, monospace; white-space:nowrap; }
+  .badge { display:inline-block; padding:0 7px; border-radius:8px; font-size:.78em;
+           font-weight:bold; color:var(--badgefg); }
+  .b-completed { background:var(--completed); } .b-in_progress { background:var(--in_progress); }
+  .b-open { background:var(--open); } .b-other { background:var(--other); }
+  .notyet { color:var(--badgefg); background:var(--in_progress); border-radius:4px; padding:0 6px;
+            font-size:.8em; font-weight:bold; }
+  .cta { border:1px solid var(--accent); background:var(--ctabg); border-radius:10px;
+         padding:16px 20px; }
+  .donatebtn { display:inline-block; background:var(--accent); color:var(--accentfg);
+               padding:8px 20px; border-radius:999px; }
+  a.donatebtn, a.donatebtn:visited { color:var(--accentfg); }
+  .donatebtn:hover { text-decoration:none; filter:brightness(1.08); }
+  .panels { display:flex; flex-wrap:wrap; gap:14px; }
+  .panel { flex:1 1 300px; min-width:0; }
+  .panel h3 { margin:6px 0; font-size:.95em; color:var(--dim); font-weight:normal; }
+  svg.plot { background:var(--panel); border:1px solid var(--line); width:100%; height:auto; }
+  .legend span { margin-right:16px; font-size:.9em; }
+  .dotkey { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:5px; }
+  .barwrap { margin:16px 0; }
+  .barhead { display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; }
+  .bartrack { height:18px; background:var(--track); border:1px solid var(--line);
+              border-radius:999px; overflow:hidden; }
+  .barfill { position:relative; height:100%; border-radius:999px; overflow:hidden;
+             background:linear-gradient(90deg, var(--bar1), var(--bar2)); }
+  .barfill::after { content:""; position:absolute; inset:0;
+             background:linear-gradient(105deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+             transform:translateX(-120%); animation:sheen 3.2s ease-in-out infinite; }
+  @keyframes sheen { 0%,55% { transform:translateX(-120%); } 90%,100% { transform:translateX(120%); } }
+  @media (prefers-reduced-motion: reduce) { .barfill::after { animation:none; } }
+  #boardsearch { width:100%; padding:8px; background:var(--input); color:var(--fg);
+                 border:1px solid var(--line); margin:10px 0; }
+  .scrollbox { max-height:520px; overflow:auto; border:1px solid var(--scrolline); }
+  .growthhead { display:flex; gap:10px; align-items:center; margin:8px 0 2px; }
+  .growthpill { font-size:.78em; letter-spacing:.08em; border:1px solid var(--line);
+                border-radius:999px; padding:1px 9px; color:var(--dim); }
+  .growthpill.fast { color:var(--accent); border-color:var(--accent); }
+  #growth-replay { background:var(--input); color:var(--fg); border:1px solid var(--line);
+                   border-radius:999px; padding:4px 14px; cursor:pointer;
+                   font:inherit; font-size:.9em; }
+  #growth-replay:hover { border-color:var(--accent); }
+  canvas.growth { display:block; width:100%; background:transparent; }
+  #growth-scatter { aspect-ratio:2.9; }
+  #growth-curve { aspect-ratio:7.2; margin-top:2px; }
+  .growth-ro { display:flex; gap:16px; flex-wrap:wrap; margin-top:6px; font-size:.92em; }
+  .growth-ro .k { color:var(--dim); }
+  .hardproblems { list-style:none; margin:16px 0 2px; padding:0; }
+  .hardproblems li { display:flex; align-items:baseline; gap:14px; padding:9px 2px;
+                     border-bottom:1px solid var(--line); font-size:1.3em;
+                     font-weight:700; line-height:1.35; }
+  .hardproblems li:last-child { border-bottom:none; }
+  .hardproblems .hpnum { color:var(--accent); flex:none; min-width:1.5em;
+                     font-family:ui-monospace, Menlo, Consolas, monospace;
+                     font-size:.8em; font-weight:400; }
+  .hardproblems .hptext { flex:1 1 auto; }
+  .hardproblems li.hp-done .hptext { color:var(--dim); text-decoration:line-through; }
+  .hardproblems .hpdone { flex:none; color:var(--dim); border:1px solid var(--line);
+                     border-radius:8px; padding:0 7px; font-size:.6em; font-weight:bold; }
+  footer { margin-top:56px; color:var(--dim); font-size:.88em; }
+  @media (max-width:640px) {
+    body { padding:24px 4vw 56px; }
+    h1 { font-size:2em; }
+    table { display:block; overflow-x:auto; }
+    .sechead { margin-top:calc(40px * var(--density)); }
+  }
+:root[data-theme="light"] { --bg:#faf7f1; --fg:#1c1917; --dim:#5c564e;
+          --faint:rgba(28,25,23,.55); --line:#d8cfc2; --accent:#c2410c; --accent2:#ea580c;
+          --accentfg:#ffffff; --link:#a83a08; --linkhover:#7c2a05; --panel:#fffdf9;
+          --grid:rgba(60,45,25,.10); --ring:#1c1917; --track:#ece5d8; --input:#ffffff;
+          --scrolline:#d8cfc2; --thead:#f1eadd; --badgefg:#ffffff; --model:#c2255c;
+          --ctabg:rgba(194,65,12,.07);
+          --completed:#15803d; --in_progress:#b45309; --open:#1d4ed8; --other:#7e22ce;
+          --headingfont:'Emise', 'Willbot', Georgia, 'Times New Roman', serif; --density:1; --pointr:3.4;
+          --glowblur:8; --bar1:#ea580c; --bar2:#c2410c; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:36px 5vw 72px; background:var(--bg); color:var(--fg);
+         font-family:'Emise', arial, helvetica, sans-serif; line-height:1.5; }
+  header.top { border-bottom:2px solid var(--accent); padding-bottom:18px; }
+  .toprow { display:flex; align-items:flex-start; gap:14px; }
+  h1 { font-size:3em; font-weight:400; letter-spacing:0; line-height:1.1; margin:0 0 6px;
+       font-family:var(--headingfont); }
+  #theme-toggle { margin-left:auto; flex:none; background:var(--input); color:var(--fg);
+         border:1px solid var(--line); border-radius:999px; padding:6px 16px;
+         font:inherit; font-size:.88em; cursor:pointer; }
+  #theme-toggle:hover { border-color:var(--accent); }
+  .sechead { margin-top:calc(52px * var(--density)); border-bottom:1px solid var(--line); padding-bottom:8px; }
+  .sechead h2 { margin:4px 0 0; font-size:1.85em; font-weight:400; letter-spacing:0;
+                font-family:var(--headingfont); }
+  .eyebrow { font-size:.74em; letter-spacing:.14em; color:var(--dim); font-weight:bold; }
+  .eyebrow .ec { color:var(--accent); font-family:ui-monospace, Menlo, Consolas, monospace; }
+  .sub { color:var(--dim); }
+  .stamp { color:var(--accent); font-weight:bold; }
+  .ee { margin-top:16px; }
+  .ee-label { display:block; font-size:.74em; letter-spacing:.14em; color:var(--dim);
+              font-weight:bold; }
+  .ee-num { display:block; font-size:2em; line-height:1.15; font-weight:400;
+            font-family:var(--headingfont); color:var(--accent); }
+  .ee-detail { display:block; color:var(--dim); font-size:.92em; margin-top:2px; }
+  .ee-note { margin-top:4px; max-width:64ch; }
+  a, a:visited { color:var(--link); font-weight:bold; text-decoration:none; }
+  a:hover { color:var(--linkhover); text-decoration:underline; }
+  table { border-collapse:collapse; width:100%; margin:12px 0; font-size:.92em; }
+  th, td { border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top; }
+  th { background:var(--thead); }
+  .note { color:var(--dim); font-size:.88em; }
+  .coord { font-family:ui-monospace, Menlo, Consolas, monospace; white-space:nowrap; }
+  .badge { display:inline-block; padding:0 7px; border-radius:8px; font-size:.78em;
+           font-weight:bold; color:var(--badgefg); }
+  .b-completed { background:var(--completed); } .b-in_progress { background:var(--in_progress); }
+  .b-open { background:var(--open); } .b-other { background:var(--other); }
+  .notyet { color:var(--badgefg); background:var(--in_progress); border-radius:4px; padding:0 6px;
+            font-size:.8em; font-weight:bold; }
+  .cta { border:1px solid var(--accent); background:var(--ctabg); border-radius:10px;
+         padding:16px 20px; }
+  .donatebtn { display:inline-block; background:var(--accent); color:var(--accentfg);
+               padding:8px 20px; border-radius:999px; }
+  a.donatebtn, a.donatebtn:visited { color:var(--accentfg); }
+  .donatebtn:hover { text-decoration:none; filter:brightness(1.08); }
+  .panels { display:flex; flex-wrap:wrap; gap:14px; }
+  .panel { flex:1 1 300px; min-width:0; }
+  .panel h3 { margin:6px 0; font-size:.95em; color:var(--dim); font-weight:normal; }
+  svg.plot { background:var(--panel); border:1px solid var(--line); width:100%; height:auto; }
+  .legend span { margin-right:16px; font-size:.9em; }
+  .dotkey { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:5px; }
+  .barwrap { margin:16px 0; }
+  .barhead { display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; }
+  .bartrack { height:18px; background:var(--track); border:1px solid var(--line);
+              border-radius:999px; overflow:hidden; }
+  .barfill { position:relative; height:100%; border-radius:999px; overflow:hidden;
+             background:linear-gradient(90deg, var(--bar1), var(--bar2)); }
+  .barfill::after { content:""; position:absolute; inset:0;
+             background:linear-gradient(105deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%);
+             transform:translateX(-120%); animation:sheen 3.2s ease-in-out infinite; }
+  @keyframes sheen { 0%,55% { transform:translateX(-120%); } 90%,100% { transform:translateX(120%); } }
+  @media (prefers-reduced-motion: reduce) { .barfill::after { animation:none; } }
+  #boardsearch { width:100%; padding:8px; background:var(--input); color:var(--fg);
+                 border:1px solid var(--line); margin:10px 0; }
+  .scrollbox { max-height:520px; overflow:auto; border:1px solid var(--scrolline); }
+  .growthhead { display:flex; gap:10px; align-items:center; margin:8px 0 2px; }
+  .growthpill { font-size:.78em; letter-spacing:.08em; border:1px solid var(--line);
+                border-radius:999px; padding:1px 9px; color:var(--dim); }
+  .growthpill.fast { color:var(--accent); border-color:var(--accent); }
+  #growth-replay { background:var(--input); color:var(--fg); border:1px solid var(--line);
+                   border-radius:999px; padding:4px 14px; cursor:pointer;
+                   font:inherit; font-size:.9em; }
+  #growth-replay:hover { border-color:var(--accent); }
+  canvas.growth { display:block; width:100%; background:transparent; }
+  #growth-scatter { aspect-ratio:2.9; }
+  #growth-curve { aspect-ratio:7.2; margin-top:2px; }
+  .growth-ro { display:flex; gap:16px; flex-wrap:wrap; margin-top:6px; font-size:.92em; }
+  .growth-ro .k { color:var(--dim); }
+  .hardproblems { list-style:none; margin:16px 0 2px; padding:0; }
+  .hardproblems li { display:flex; align-items:baseline; gap:14px; padding:9px 2px;
+                     border-bottom:1px solid var(--line); font-size:1.3em;
+                     font-weight:700; line-height:1.35; }
+  .hardproblems li:last-child { border-bottom:none; }
+  .hardproblems .hpnum { color:var(--accent); flex:none; min-width:1.5em;
+                     font-family:ui-monospace, Menlo, Consolas, monospace;
+                     font-size:.8em; font-weight:400; }
+  .hardproblems .hptext { flex:1 1 auto; }
+  .hardproblems li.hp-done .hptext { color:var(--dim); text-decoration:line-through; }
+  .hardproblems .hpdone { flex:none; color:var(--dim); border:1px solid var(--line);
+                     border-radius:8px; padding:0 7px; font-size:.6em; font-weight:bold; }
+  footer { margin-top:56px; color:var(--dim); font-size:.88em; }
+  @media (max-width:640px) {
+    body { padding:24px 4vw 56px; }
+    h1 { font-size:2em; }
+    table { display:block; overflow-x:auto; }
+    .sechead { margin-top:calc(40px * var(--density)); }
+  }
+* { box-sizing:border-box; }
+body { margin:0; padding:36px 5vw 72px; background:var(--bg); color:var(--fg);
+       font-family:'Emise', arial, helvetica, sans-serif; line-height:1.5; }
+h1 { font-family:var(--headingfont); font-weight:400; font-size:3em; margin:.1em 0; }
+h2 { font-family:var(--headingfont); font-weight:400; font-size:1.85em; margin:.1em 0; }
+h3 { margin:0; font-size:1.15em; }
+a { color:var(--link); } a:hover { color:var(--linkhover); }
+.toprow { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+#theme-toggle { background:var(--input); color:var(--fg); border:1px solid var(--line);
+  border-radius:999px; padding:6px 14px; cursor:pointer; font:inherit; }
+.sub { color:var(--dim); max-width:60em; }
+.eyebrow { color:var(--accent); letter-spacing:.12em; font-size:.85em; }
+.sechead { margin-top:44px; border-bottom:2px solid var(--accent); padding-bottom:6px; }
+.note { color:var(--dim); }
+.cta { border:1px solid var(--accent); background:var(--ctabg); border-radius:10px; padding:16px 20px; }
+.node { border:1px solid var(--line); background:var(--panel); border-radius:10px;
+  padding:16px 20px; margin:14px 0; }
+.node.claimed { border-color:var(--completed); }
+.nodehead { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.window { color:var(--accent); font-weight:700; white-space:nowrap; }
+.unlocks { margin:.5em 0; }
+.deps { color:var(--dim); margin:.3em 0; font-size:.95em; }
+.badge { display:inline-block; background:var(--completed); color:var(--badgefg);
+  border-radius:999px; padding:2px 10px; font-size:.85em; font-weight:700; }
+.claims { margin:.5em 0; }
+.claim { border-left:3px solid var(--completed); padding:2px 0 2px 10px; margin:.4em 0; }
+.claim .who { font-weight:700; }
+.claim .when { color:var(--dim); font-size:.9em; }
+.claimbtn { background:var(--accent); color:var(--accentfg); border:0; border-radius:999px;
+  padding:7px 16px; cursor:pointer; font:inherit; margin-top:.4em; }
+.claimform { margin-top:.6em; display:grid; gap:.5em; max-width:34em; }
+.claimform[hidden] { display:none; }
+.claimform label { display:grid; gap:.2em; font-size:.95em; color:var(--dim); }
+.claimform input { background:var(--input); color:var(--fg); border:1px solid var(--line);
+  border-radius:6px; padding:8px 10px; font:inherit; }
+.claimmsg { color:var(--in_progress); }
+footer { margin-top:56px; color:var(--dim); border-top:1px solid var(--line); padding-top:14px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="toprow"><div><div class="eyebrow">SINGULARITY WATCH</div>
+  <h1>The Kardashev 2.0 Tech Tree</h1></div>
+  <button id="theme-toggle" type="button" aria-label="Switch between light and dark theme">Light / Dark</button></div>
+  <p class="sub">Every technology on the dependency path from 2027 to a Type II civilization in 2130 — harnessing the full output of the Sun, 3.8×10^26 watts. Each step names the window it must
+  arrive in and the steps it depends on. The path is the plan: nothing here can be
+  skipped, only done.</p>
+  <p class="sub"><a href="/">← Singularity Watch</a> · <a href="/kardashev.html">Climb the Kardashev Ladder</a></p>
+  <div class="cta"><strong>Progress:</strong> <span id="claimed-count">…</span> of 46 steps
+  claimed complete. <span class="note">Anyone may mark a step complete by submitting a
+  claim with an evidence link — a URL to a verifiable result. Claims are shown as
+  submitted, with their evidence; they are community claims, not editorially verified fact.</span>
+  <span class="note" id="claims-state"></span></div>
+</header>
+
+<div class="sechead"><div class="eyebrow">2027–2033</div><h2>Era I — The Exocortex Foundation</h2></div>
+<p class="note">The growth curve starts here: personal AGI on owned hardware, standing on the phext substrate, compounding at +0.137% per day. Everything later is this era, scaled.</p>
+<article class="node" id="node-phext-substrate">
+  <div class="nodehead"><h3>Phext substrate at planetary scale</h3><span class="window">2027–2029</span></div>
+  <p class="unlocks">The shared, addressable memory layer that every later coordination step stands on.</p>
+  <p class="deps">Foundation step — no prerequisites.</p>
+  <div class="claims" data-claims-for="phext-substrate"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="phext-substrate">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="phext-substrate" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-personal-agi">
+  <div class="nodehead"><h3>Personal AGI on owned hardware</h3><span class="window">2027–2030</span></div>
+  <p class="unlocks">A full agent in every researcher&#x27;s hands, on hardware they control — the unit of all later growth.</p>
+  <p class="deps">Depends on: <a href="#node-phext-substrate">Phext substrate at planetary scale</a></p>
+  <div class="claims" data-claims-for="personal-agi"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="personal-agi">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="personal-agi" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-ranch-compute">
+  <div class="nodehead"><h3>Ranch-scale distributed compute</h3><span class="window">2027–2031</span></div>
+  <p class="unlocks">Proves fleets of small, owned nodes can be run as one machine — the deployment pattern for everything physical that follows.</p>
+  <p class="deps">Depends on: <a href="#node-personal-agi">Personal AGI on owned hardware</a></p>
+  <div class="claims" data-claims-for="ranch-compute"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="ranch-compute">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="ranch-compute" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-billion-token-memory">
+  <div class="nodehead"><h3>Billion-token working memory</h3><span class="window">2029–2034</span></div>
+  <p class="unlocks">One mind holding an entire field&#x27;s literature and data in context at once; research stops being retrieval-bound.</p>
+  <p class="deps">Depends on: <a href="#node-phext-substrate">Phext substrate at planetary scale</a></p>
+  <div class="claims" data-claims-for="billion-token-memory"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="billion-token-memory">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="billion-token-memory" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-solar-hyperscaler">
+  <div class="nodehead"><h3>Solar Hyperscaler nodes</h3><span class="window">2028–2032</span></div>
+  <p class="unlocks">Off-grid solar compute and storage nodes decouple the growth curve from the grid — intelligence that deploys anywhere the sun shines.</p>
+  <p class="deps">Depends on: <a href="#node-ranch-compute">Ranch-scale distributed compute</a></p>
+  <div class="claims" data-claims-for="solar-hyperscaler"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="solar-hyperscaler">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="solar-hyperscaler" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-agi-20-watts">
+  <div class="nodehead"><h3>AGI under 20 watts</h3><span class="window">2030–2033</span></div>
+  <p class="unlocks">Collapses the power cost of intelligence to the level of a light bulb; the efficiency floor every later scale assumes.</p>
+  <p class="deps">Depends on: <a href="#node-personal-agi">Personal AGI on owned hardware</a></p>
+  <div class="claims" data-claims-for="agi-20-watts"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="agi-20-watts">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="agi-20-watts" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-aligned-agi">
+  <div class="nodehead"><h3>Verifiably aligned AGI</h3><span class="window">2028–2035</span></div>
+  <p class="unlocks">Alignment that can be checked rather than claimed — the license for every scale-up after it.</p>
+  <p class="deps">Depends on: <a href="#node-personal-agi">Personal AGI on owned hardware</a></p>
+  <div class="claims" data-claims-for="aligned-agi"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="aligned-agi">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="aligned-agi" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-ai-science">
+  <div class="nodehead"><h3>AI-driven science at scale</h3><span class="window">2029–2035</span></div>
+  <p class="unlocks">Research throughput stops being human-bound; the discovery rate behind the fusion, materials, and medicine nodes.</p>
+  <p class="deps">Depends on: <a href="#node-personal-agi">Personal AGI on owned hardware</a> · <a href="#node-phext-substrate">Phext substrate at planetary scale</a></p>
+  <div class="claims" data-claims-for="ai-science"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="ai-science">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="ai-science" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-exocortex-network">
+  <div class="nodehead"><h3>Planetary Exocortex network</h3><span class="window">2030–2036</span></div>
+  <p class="unlocks">Individual exocortices join into one civilization-scale memory — the coordination medium for a century of build-out.</p>
+  <p class="deps">Depends on: <a href="#node-personal-agi">Personal AGI on owned hardware</a> · <a href="#node-phext-substrate">Phext substrate at planetary scale</a></p>
+  <div class="claims" data-claims-for="exocortex-network"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="exocortex-network">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="exocortex-network" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><div class="sechead"><div class="eyebrow">2033–2045</div><h2>Era II — Planetary Scale-Up</h2></div>
+<p class="note">Intelligence becomes industry: fusion, robots, autonomous construction, and the first terawatts of the climb.</p>
+<article class="node" id="node-fusion-pilot">
+  <div class="nodehead"><h3>First net-energy fusion plants</h3><span class="window">2033–2040</span></div>
+  <p class="unlocks">Breaks the energy ceiling on industry; the power source the rest of the tree is built around.</p>
+  <p class="deps">Depends on: <a href="#node-ai-science">AI-driven science at scale</a></p>
+  <div class="claims" data-claims-for="fusion-pilot"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="fusion-pilot">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="fusion-pilot" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-superconductors">
+  <div class="nodehead"><h3>Room-temperature superconducting grid</h3><span class="window">2032–2040</span></div>
+  <p class="unlocks">Lossless transmission makes energy fungible across distance — desert solar, fusion, and later orbital power become one market.</p>
+  <p class="deps">Depends on: <a href="#node-ai-science">AI-driven science at scale</a></p>
+  <div class="claims" data-claims-for="superconductors"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="superconductors">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="superconductors" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-grid-storage">
+  <div class="nodehead"><h3>Grid-scale long-duration storage</h3><span class="window">2032–2040</span></div>
+  <p class="unlocks">Intermittent renewables become baseload; the planetary grid stabilizes at terawatt scale.</p>
+  <p class="deps">Depends on: <a href="#node-solar-hyperscaler">Solar Hyperscaler nodes</a></p>
+  <div class="claims" data-claims-for="grid-storage"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="grid-storage">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="grid-storage" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-global-solar">
+  <div class="nodehead"><h3>Terawatt-scale terrestrial solar</h3><span class="window">2033–2043</span></div>
+  <p class="unlocks">The first terawatts of the Kardashev climb, harvested on the surface.</p>
+  <p class="deps">Depends on: <a href="#node-solar-hyperscaler">Solar Hyperscaler nodes</a> · <a href="#node-grid-storage">Grid-scale long-duration storage</a></p>
+  <div class="claims" data-claims-for="global-solar"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="global-solar">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="global-solar" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-autonomous-construction">
+  <div class="nodehead"><h3>Autonomous construction</h3><span class="window">2033–2042</span></div>
+  <p class="unlocks">Machines build infrastructure without human crews on site — the prerequisite for building where humans can&#x27;t go.</p>
+  <p class="deps">Depends on: <a href="#node-ranch-compute">Ranch-scale distributed compute</a> · <a href="#node-ai-science">AI-driven science at scale</a></p>
+  <div class="claims" data-claims-for="autonomous-construction"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="autonomous-construction">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="autonomous-construction" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-robot-workforce">
+  <div class="nodehead"><h3>General-purpose robot workforce</h3><span class="window">2035–2045</span></div>
+  <p class="unlocks">Labor stops being the bottleneck on physical build-out, on Earth and off it.</p>
+  <p class="deps">Depends on: <a href="#node-agi-20-watts">AGI under 20 watts</a> · <a href="#node-autonomous-construction">Autonomous construction</a></p>
+  <div class="claims" data-claims-for="robot-workforce"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="robot-workforce">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="robot-workforce" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-fusion-grid">
+  <div class="nodehead"><h3>Fusion baseload grid</h3><span class="window">2040–2048</span></div>
+  <p class="unlocks">Planetary industry runs on fusion baseload; energy stops rationing ambition.</p>
+  <p class="deps">Depends on: <a href="#node-fusion-pilot">First net-energy fusion plants</a> · <a href="#node-grid-storage">Grid-scale long-duration storage</a></p>
+  <div class="claims" data-claims-for="fusion-grid"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="fusion-grid">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="fusion-grid" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-carbon-removal">
+  <div class="nodehead"><h3>Gigatonne-scale carbon removal</h3><span class="window">2036–2048</span></div>
+  <p class="unlocks">The climate debt is reversed while industry scales — the planet stays habitable for the whole climb.</p>
+  <p class="deps">Depends on: <a href="#node-robot-workforce">General-purpose robot workforce</a> · <a href="#node-fusion-pilot">First net-energy fusion plants</a></p>
+  <div class="claims" data-claims-for="carbon-removal"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="carbon-removal">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="carbon-removal" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-longevity">
+  <div class="nodehead"><h3>Longevity medicine</h3><span class="window">2035–2050</span></div>
+  <p class="unlocks">The builders live long enough to finish century-scale projects; expertise stops dying.</p>
+  <p class="deps">Depends on: <a href="#node-ai-science">AI-driven science at scale</a></p>
+  <div class="claims" data-claims-for="longevity"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="longevity">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="longevity" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-bci">
+  <div class="nodehead"><h3>Mind-to-mind communication</h3><span class="window">2035–2045</span></div>
+  <p class="unlocks">Thought-bandwidth between minds — coordination at the speed of intention, for crews and swarms alike.</p>
+  <p class="deps">Depends on: <a href="#node-personal-agi">Personal AGI on owned hardware</a> · <a href="#node-billion-token-memory">Billion-token working memory</a></p>
+  <div class="claims" data-claims-for="bci"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="bci">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="bci" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-heavy-launch">
+  <div class="nodehead"><h3>Reusable heavy launch at airline cadence</h3><span class="window">2033–2042</span></div>
+  <p class="unlocks">Mass to orbit becomes a logistics line item instead of a national programme.</p>
+  <p class="deps">Depends on: <a href="#node-autonomous-construction">Autonomous construction</a></p>
+  <div class="claims" data-claims-for="heavy-launch"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="heavy-launch">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="heavy-launch" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><div class="sechead"><div class="eyebrow">2045–2065</div><h2>Era III — Orbital Industry</h2></div>
+<p class="note">The economy leaves the surface: orbital power and manufacturing, lunar industry, a second world on Mars.</p>
+<article class="node" id="node-orbital-solar-1">
+  <div class="nodehead"><h3>First orbital solar power stations</h3><span class="window">2042–2052</span></div>
+  <p class="unlocks">Power beamed down from orbit; the first rung of the ladder that ends at the star.</p>
+  <p class="deps">Depends on: <a href="#node-heavy-launch">Reusable heavy launch at airline cadence</a> · <a href="#node-robot-workforce">General-purpose robot workforce</a></p>
+  <div class="claims" data-claims-for="orbital-solar-1"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="orbital-solar-1">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="orbital-solar-1" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-lunar-base">
+  <div class="nodehead"><h3>Permanent lunar base</h3><span class="window">2042–2052</span></div>
+  <p class="unlocks">A foothold where industry can grow beyond Earth, under shallow gravity and constant sun at the peaks.</p>
+  <p class="deps">Depends on: <a href="#node-heavy-launch">Reusable heavy launch at airline cadence</a></p>
+  <div class="claims" data-claims-for="lunar-base"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="lunar-base">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="lunar-base" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-orbital-manufacturing">
+  <div class="nodehead"><h3>Orbital manufacturing</h3><span class="window">2045–2058</span></div>
+  <p class="unlocks">Fabrication in vacuum and microgravity at industrial scale — structures too large to launch get built where they fly.</p>
+  <p class="deps">Depends on: <a href="#node-heavy-launch">Reusable heavy launch at airline cadence</a> · <a href="#node-robot-workforce">General-purpose robot workforce</a></p>
+  <div class="claims" data-claims-for="orbital-manufacturing"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="orbital-manufacturing">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="orbital-manufacturing" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-closed-loop">
+  <div class="nodehead"><h3>Closed-loop life support</h3><span class="window">2045–2055</span></div>
+  <p class="unlocks">Habitats that run for decades without resupply; permanence anywhere becomes possible.</p>
+  <p class="deps">Depends on: <a href="#node-lunar-base">Permanent lunar base</a></p>
+  <div class="claims" data-claims-for="closed-loop"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="closed-loop">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="closed-loop" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-orbital-habitats">
+  <div class="nodehead"><h3>Rotating orbital habitats</h3><span class="window">2048–2060</span></div>
+  <p class="unlocks">A permanent population off Earth, living under spin gravity.</p>
+  <p class="deps">Depends on: <a href="#node-orbital-manufacturing">Orbital manufacturing</a> · <a href="#node-closed-loop">Closed-loop life support</a></p>
+  <div class="claims" data-claims-for="orbital-habitats"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="orbital-habitats">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="orbital-habitats" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-lunar-industry">
+  <div class="nodehead"><h3>Lunar mining and propellant production</h3><span class="window">2048–2058</span></div>
+  <p class="unlocks">Propellant and bulk mass sourced off Earth — the cost curve to everywhere else in the system bends down.</p>
+  <p class="deps">Depends on: <a href="#node-lunar-base">Permanent lunar base</a> · <a href="#node-robot-workforce">General-purpose robot workforce</a></p>
+  <div class="claims" data-claims-for="lunar-industry"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="lunar-industry">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="lunar-industry" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-mars-base">
+  <div class="nodehead"><h3>Permanent Mars base</h3><span class="window">2050–2065</span></div>
+  <p class="unlocks">A second self-sustaining world begins; civilization is no longer single-point-of-failure.</p>
+  <p class="deps">Depends on: <a href="#node-lunar-industry">Lunar mining and propellant production</a> · <a href="#node-closed-loop">Closed-loop life support</a> · <a href="#node-orbital-manufacturing">Orbital manufacturing</a></p>
+  <div class="claims" data-claims-for="mars-base"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="mars-base">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="mars-base" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-asteroid-mining">
+  <div class="nodehead"><h3>Asteroid mining at scale</h3><span class="window">2050–2065</span></div>
+  <p class="unlocks">Metals and volatiles without lifting them out of a gravity well — the material base of the swarm.</p>
+  <p class="deps">Depends on: <a href="#node-orbital-manufacturing">Orbital manufacturing</a> · <a href="#node-lunar-industry">Lunar mining and propellant production</a></p>
+  <div class="claims" data-claims-for="asteroid-mining"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="asteroid-mining">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="asteroid-mining" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-orbital-solar-fleet">
+  <div class="nodehead"><h3>Terawatt orbital solar fleet</h3><span class="window">2048–2062</span></div>
+  <p class="unlocks">Energy supply decouples from planetary surface area; the climb leaves the terawatt era behind.</p>
+  <p class="deps">Depends on: <a href="#node-orbital-solar-1">First orbital solar power stations</a> · <a href="#node-orbital-manufacturing">Orbital manufacturing</a></p>
+  <div class="claims" data-claims-for="orbital-solar-fleet"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="orbital-solar-fleet">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="orbital-solar-fleet" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-mass-drivers">
+  <div class="nodehead"><h3>Lunar mass drivers</h3><span class="window">2052–2062</span></div>
+  <p class="unlocks">Electromagnetic launch from the Moon: bulk cargo to anywhere in the system for the cost of electricity.</p>
+  <p class="deps">Depends on: <a href="#node-lunar-industry">Lunar mining and propellant production</a> · <a href="#node-fusion-grid">Fusion baseload grid</a> · <a href="#node-superconductors">Room-temperature superconducting grid</a></p>
+  <div class="claims" data-claims-for="mass-drivers"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="mass-drivers">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="mass-drivers" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-beamed-power">
+  <div class="nodehead"><h3>System-wide beamed power</h3><span class="window">2050–2065</span></div>
+  <p class="unlocks">Power delivered by beam to any ship, base, or factory in the inner system — infrastructure the swarm inherits.</p>
+  <p class="deps">Depends on: <a href="#node-orbital-solar-fleet">Terawatt orbital solar fleet</a></p>
+  <div class="claims" data-claims-for="beamed-power"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="beamed-power">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="beamed-power" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-fusion-propulsion">
+  <div class="nodehead"><h3>Fusion propulsion</h3><span class="window">2055–2070</span></div>
+  <p class="unlocks">Fast transit anywhere in the system; the outer system and the asteroids become commuter territory.</p>
+  <p class="deps">Depends on: <a href="#node-fusion-grid">Fusion baseload grid</a> · <a href="#node-orbital-manufacturing">Orbital manufacturing</a></p>
+  <div class="claims" data-claims-for="fusion-propulsion"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="fusion-propulsion">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="fusion-propulsion" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><div class="sechead"><div class="eyebrow">2065–2090</div><h2>Era IV — Inner-System Build-Out</h2></div>
+<p class="note">Industry learns to grow itself. Mercury becomes the powerhouse, and the first elements of the swarm go up around the Sun.</p>
+<article class="node" id="node-self-replicating">
+  <div class="nodehead"><h3>Self-replicating machine systems</h3><span class="window">2060–2075</span></div>
+  <p class="unlocks">Industry that grows itself — the exponential engine that makes a Dyson swarm a matter of time, not effort.</p>
+  <p class="deps">Depends on: <a href="#node-robot-workforce">General-purpose robot workforce</a> · <a href="#node-orbital-manufacturing">Orbital manufacturing</a> · <a href="#node-asteroid-mining">Asteroid mining at scale</a></p>
+  <div class="claims" data-claims-for="self-replicating"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="self-replicating">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="self-replicating" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-mercury-base">
+  <div class="nodehead"><h3>Mercury industrial base</h3><span class="window">2062–2078</span></div>
+  <p class="unlocks">The best seat in the system: maximal solar flux and mineable mass, one hop from the star — the swarm&#x27;s shipyard.</p>
+  <p class="deps">Depends on: <a href="#node-asteroid-mining">Asteroid mining at scale</a> · <a href="#node-beamed-power">System-wide beamed power</a></p>
+  <div class="claims" data-claims-for="mercury-base"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="mercury-base">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="mercury-base" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-outer-system">
+  <div class="nodehead"><h3>Outer-system outposts</h3><span class="window">2065–2085</span></div>
+  <p class="unlocks">Ceres, Europa, Titan: the whole system inhabited, and its full inventory of mass and energy on the books.</p>
+  <p class="deps">Depends on: <a href="#node-fusion-propulsion">Fusion propulsion</a> · <a href="#node-mars-base">Permanent Mars base</a></p>
+  <div class="claims" data-claims-for="outer-system"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="outer-system">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="outer-system" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-terraforming-mars">
+  <div class="nodehead"><h3>Mars terraforming begins</h3><span class="window">2065–2085</span></div>
+  <p class="unlocks">A second biosphere, built deliberately — climate engineering proven at home, applied to a planet.</p>
+  <p class="deps">Depends on: <a href="#node-mars-base">Permanent Mars base</a> · <a href="#node-self-replicating">Self-replicating machine systems</a> · <a href="#node-carbon-removal">Gigatonne-scale carbon removal</a></p>
+  <div class="claims" data-claims-for="terraforming-mars"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="terraforming-mars">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="terraforming-mars" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-interstellar-probes">
+  <div class="nodehead"><h3>First interstellar probes</h3><span class="window">2070–2085</span></div>
+  <p class="unlocks">Humanity&#x27;s instruments leave the system; the map starts extending past the star we harness.</p>
+  <p class="deps">Depends on: <a href="#node-fusion-propulsion">Fusion propulsion</a> · <a href="#node-beamed-power">System-wide beamed power</a></p>
+  <div class="claims" data-claims-for="interstellar-probes"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="interstellar-probes">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="interstellar-probes" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-dyson-first">
+  <div class="nodehead"><h3>First Dyson swarm elements</h3><span class="window">2070–2085</span></div>
+  <p class="unlocks">The first collectors drinking directly from the star — Kardashev 2.0 stops being a target and becomes a construction project.</p>
+  <p class="deps">Depends on: <a href="#node-mercury-base">Mercury industrial base</a> · <a href="#node-self-replicating">Self-replicating machine systems</a> · <a href="#node-mass-drivers">Lunar mass drivers</a></p>
+  <div class="claims" data-claims-for="dyson-first"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="dyson-first">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="dyson-first" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-swarm-coordination">
+  <div class="nodehead"><h3>Swarm coordination substrate</h3><span class="window">2072–2085</span></div>
+  <p class="unlocks">A phext-descended substrate coordinating trillions of autonomous elements as one system — the swarm gets a nervous system.</p>
+  <p class="deps">Depends on: <a href="#node-phext-substrate">Phext substrate at planetary scale</a> · <a href="#node-exocortex-network">Planetary Exocortex network</a> · <a href="#node-dyson-first">First Dyson swarm elements</a></p>
+  <div class="claims" data-claims-for="swarm-coordination"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="swarm-coordination">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="swarm-coordination" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-venus-aerostats">
+  <div class="nodehead"><h3>Venus aerostat colonies</h3><span class="window">2068–2088</span></div>
+  <p class="unlocks">Floating cities in the most Earth-like atmosphere in the system; a third kind of world settled.</p>
+  <p class="deps">Depends on: <a href="#node-orbital-habitats">Rotating orbital habitats</a> · <a href="#node-self-replicating">Self-replicating machine systems</a></p>
+  <div class="claims" data-claims-for="venus-aerostats"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="venus-aerostats">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="venus-aerostats" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><div class="sechead"><div class="eyebrow">2090–2130</div><h2>Era V — The Swarm Century</h2></div>
+<p class="note">The swarm becomes the civilization&#x27;s main structure: percent by percent of the star&#x27;s output, until the star itself is managed.</p>
+<article class="node" id="node-dyson-percent">
+  <div class="nodehead"><h3>Dyson swarm: 1% of solar output</h3><span class="window">2085–2105</span></div>
+  <p class="unlocks">Civilization&#x27;s power budget jumps three orders of magnitude in a generation; energy-intensive everything becomes cheap.</p>
+  <p class="deps">Depends on: <a href="#node-dyson-first">First Dyson swarm elements</a> · <a href="#node-self-replicating">Self-replicating machine systems</a></p>
+  <div class="claims" data-claims-for="dyson-percent"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="dyson-percent">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="dyson-percent" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-starlifting">
+  <div class="nodehead"><h3>Star lifting</h3><span class="window">2095–2115</span></div>
+  <p class="unlocks">Mining the Sun itself for mass and fusion fuel — the star becomes a resource, not just a lamp.</p>
+  <p class="deps">Depends on: <a href="#node-dyson-percent">Dyson swarm: 1% of solar output</a> · <a href="#node-beamed-power">System-wide beamed power</a></p>
+  <div class="claims" data-claims-for="starlifting"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="starlifting">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="starlifting" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-matrioshka">
+  <div class="nodehead"><h3>Matrioshka brain, first shell</h3><span class="window">2100–2125</span></div>
+  <p class="unlocks">Stellar energy converted directly into thought at planetary-mass scale — the Exocortex, wrapped around a star.</p>
+  <p class="deps">Depends on: <a href="#node-dyson-percent">Dyson swarm: 1% of solar output</a> · <a href="#node-swarm-coordination">Swarm coordination substrate</a> · <a href="#node-agi-20-watts">AGI under 20 watts</a></p>
+  <div class="claims" data-claims-for="matrioshka"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="matrioshka">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="matrioshka" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-dyson-ten">
+  <div class="nodehead"><h3>Dyson swarm: 10% of solar output</h3><span class="window">2105–2125</span></div>
+  <p class="unlocks">The climb steepens; the swarm is now the dominant structure in the system.</p>
+  <p class="deps">Depends on: <a href="#node-dyson-percent">Dyson swarm: 1% of solar output</a> · <a href="#node-starlifting">Star lifting</a></p>
+  <div class="claims" data-claims-for="dyson-ten"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="dyson-ten">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="dyson-ten" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-stellar-husbandry">
+  <div class="nodehead"><h3>Stellar husbandry</h3><span class="window">2115–2130</span></div>
+  <p class="unlocks">Managing the Sun&#x27;s burn to extend its life across deep time — the star is kept, not just used.</p>
+  <p class="deps">Depends on: <a href="#node-starlifting">Star lifting</a></p>
+  <div class="claims" data-claims-for="stellar-husbandry"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="stellar-husbandry">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="stellar-husbandry" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article><article class="node" id="node-kardashev-2">
+  <div class="nodehead"><h3>Kardashev 2.0</h3><span class="window">2130</span></div>
+  <p class="unlocks">The full output of the star, harnessed: 3.8×10^26 watts. Type II — the tree is complete.</p>
+  <p class="deps">Depends on: <a href="#node-dyson-ten">Dyson swarm: 10% of solar output</a> · <a href="#node-matrioshka">Matrioshka brain, first shell</a> · <a href="#node-stellar-husbandry">Stellar husbandry</a></p>
+  <div class="claims" data-claims-for="kardashev-2"></div>
+  <button type="button" class="claimbtn" data-claim-toggle="kardashev-2">Mark complete — with evidence</button>
+  <form class="claimform" data-claim-form="kardashev-2" hidden>
+    <label>Your name or handle
+      <input name="claimant" maxlength="64" required autocomplete="off"></label>
+    <label>Evidence link — a URL to a verifiable result claiming this step is complete
+      <input name="evidence" type="url" required placeholder="https://…" autocomplete="off"></label>
+    <button type="submit" class="claimbtn">Submit claim</button>
+    <span class="claimmsg" role="status"></span>
+  </form>
+</article>
+
+<footer>The Kardashev 2.0 Tech Tree — Singularity Watch. The tree's critical path runs
+phext substrate → personal AGI → ranch compute → autonomous construction → heavy launch →
+the Moon → Mercury → the first swarm elements → 1% → 10% → the star, harnessed.
+Completion claims are submitted by visitors with evidence links and are stored as
+claims, not verdicts. <a href="/">Back to Singularity Watch</a>.</footer>
+
+<script>
+"use strict";
+var API = "/tech-tree/api";
+var toggle = document.getElementById("theme-toggle");
+toggle.addEventListener("click", function () {
+  var cur = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", cur);
+  try { localStorage.setItem("sw-theme", cur); } catch (e) {}
+});
+document.querySelectorAll("[data-claim-toggle]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var form = document.querySelector('[data-claim-form="' + btn.getAttribute("data-claim-toggle") + '"]');
+    form.hidden = !form.hidden;
+    if (!form.hidden) form.querySelector("input").focus();
+  });
+});
+function renderClaims(claims) {
+  var byNode = {};
+  claims.forEach(function (c) {
+    (byNode[c.node] = byNode[c.node] || []).push(c);
+  });
+  var claimedNodes = 0;
+  document.querySelectorAll("[data-claims-for]").forEach(function (box) {
+    var id = box.getAttribute("data-claims-for");
+    var list = byNode[id] || [];
+    box.textContent = "";
+    var card = box.closest(".node");
+    if (list.length) {
+      claimedNodes++;
+      card.classList.add("claimed");
+      var badge = document.createElement("span");
+      badge.className = "badge";
+      badge.textContent = "Claimed complete — " + list.length + (list.length === 1 ? " claim" : " claims");
+      box.appendChild(badge);
+      list.forEach(function (c) {
+        var div = document.createElement("div");
+        div.className = "claim";
+        var who = document.createElement("span");
+        who.className = "who";
+        who.textContent = c.claimant;
+        var link = document.createElement("a");
+        link.href = c.evidence;
+        link.textContent = "evidence";
+        link.rel = "noopener noreferrer";
+        var when = document.createElement("span");
+        when.className = "when";
+        when.textContent = " · " + (c.ts || "").slice(0, 10);
+        div.appendChild(who);
+        div.appendChild(document.createTextNode(" — "));
+        div.appendChild(link);
+        div.appendChild(when);
+        box.appendChild(div);
+      });
+    } else {
+      card.classList.remove("claimed");
+    }
+  });
+  document.getElementById("claimed-count").textContent = claimedNodes;
+}
+function loadClaims() {
+  return fetch(API + "/claims").then(function (r) {
+    if (!r.ok) throw new Error("claims HTTP " + r.status);
+    return r.json();
+  }).then(function (data) {
+    renderClaims(data.claims || []);
+    document.getElementById("claims-state").textContent = "";
+  }).catch(function () {
+    document.getElementById("claims-state").textContent =
+      " (Completion claims are not reachable right now — the tree itself is unaffected.)";
+  });
+}
+document.querySelectorAll("[data-claim-form]").forEach(function (form) {
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var id = form.getAttribute("data-claim-form");
+    var msg = form.querySelector(".claimmsg");
+    var payload = {
+      node: id,
+      claimant: form.elements.claimant.value,
+      evidence: form.elements.evidence.value
+    };
+    msg.textContent = "Submitting…";
+    fetch(API + "/claim", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      return r.json().then(function (body) { return {ok: r.ok, body: body}; });
+    }).then(function (res) {
+      if (!res.ok) throw new Error(res.body.error || "submission failed");
+      msg.textContent = "Claim recorded — thank you.";
+      form.reset();
+      form.hidden = true;
+      loadClaims();
+    }).catch(function (err) {
+      msg.textContent = "Could not record the claim: " + err.message;
+    });
+  });
+});
+loadClaims();
+</script>
+</body>
+</html>

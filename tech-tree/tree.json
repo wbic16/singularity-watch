@@ -1,0 +1,581 @@
+{
+ "eras": [
+  {
+   "blurb": "The growth curve starts here: personal AGI on owned hardware, standing on the phext substrate, compounding at +0.137% per day. Everything later is this era, scaled.",
+   "id": "era-1",
+   "name": "Era I — The Exocortex Foundation",
+   "window": "2027–2033"
+  },
+  {
+   "blurb": "Intelligence becomes industry: fusion, robots, autonomous construction, and the first terawatts of the climb.",
+   "id": "era-2",
+   "name": "Era II — Planetary Scale-Up",
+   "window": "2033–2045"
+  },
+  {
+   "blurb": "The economy leaves the surface: orbital power and manufacturing, lunar industry, a second world on Mars.",
+   "id": "era-3",
+   "name": "Era III — Orbital Industry",
+   "window": "2045–2065"
+  },
+  {
+   "blurb": "Industry learns to grow itself. Mercury becomes the powerhouse, and the first elements of the swarm go up around the Sun.",
+   "id": "era-4",
+   "name": "Era IV — Inner-System Build-Out",
+   "window": "2065–2090"
+  },
+  {
+   "blurb": "The swarm becomes the civilization's main structure: percent by percent of the star's output, until the star itself is managed.",
+   "id": "era-5",
+   "name": "Era V — The Swarm Century",
+   "window": "2090–2130"
+  }
+ ],
+ "nodes": [
+  {
+   "end": 2029,
+   "era": "era-1",
+   "id": "phext-substrate",
+   "name": "Phext substrate at planetary scale",
+   "prereqs": [],
+   "start": 2027,
+   "unlocks": "The shared, addressable memory layer that every later coordination step stands on."
+  },
+  {
+   "end": 2030,
+   "era": "era-1",
+   "id": "personal-agi",
+   "name": "Personal AGI on owned hardware",
+   "prereqs": [
+    "phext-substrate"
+   ],
+   "start": 2027,
+   "unlocks": "A full agent in every researcher's hands, on hardware they control — the unit of all later growth."
+  },
+  {
+   "end": 2031,
+   "era": "era-1",
+   "id": "ranch-compute",
+   "name": "Ranch-scale distributed compute",
+   "prereqs": [
+    "personal-agi"
+   ],
+   "start": 2027,
+   "unlocks": "Proves fleets of small, owned nodes can be run as one machine — the deployment pattern for everything physical that follows."
+  },
+  {
+   "end": 2034,
+   "era": "era-1",
+   "id": "billion-token-memory",
+   "name": "Billion-token working memory",
+   "prereqs": [
+    "phext-substrate"
+   ],
+   "start": 2029,
+   "unlocks": "One mind holding an entire field's literature and data in context at once; research stops being retrieval-bound."
+  },
+  {
+   "end": 2032,
+   "era": "era-1",
+   "id": "solar-hyperscaler",
+   "name": "Solar Hyperscaler nodes",
+   "prereqs": [
+    "ranch-compute"
+   ],
+   "start": 2028,
+   "unlocks": "Off-grid solar compute and storage nodes decouple the growth curve from the grid — intelligence that deploys anywhere the sun shines."
+  },
+  {
+   "end": 2033,
+   "era": "era-1",
+   "id": "agi-20-watts",
+   "name": "AGI under 20 watts",
+   "prereqs": [
+    "personal-agi"
+   ],
+   "start": 2030,
+   "unlocks": "Collapses the power cost of intelligence to the level of a light bulb; the efficiency floor every later scale assumes."
+  },
+  {
+   "end": 2035,
+   "era": "era-1",
+   "id": "aligned-agi",
+   "name": "Verifiably aligned AGI",
+   "prereqs": [
+    "personal-agi"
+   ],
+   "start": 2028,
+   "unlocks": "Alignment that can be checked rather than claimed — the license for every scale-up after it."
+  },
+  {
+   "end": 2035,
+   "era": "era-1",
+   "id": "ai-science",
+   "name": "AI-driven science at scale",
+   "prereqs": [
+    "personal-agi",
+    "phext-substrate"
+   ],
+   "start": 2029,
+   "unlocks": "Research throughput stops being human-bound; the discovery rate behind the fusion, materials, and medicine nodes."
+  },
+  {
+   "end": 2036,
+   "era": "era-1",
+   "id": "exocortex-network",
+   "name": "Planetary Exocortex network",
+   "prereqs": [
+    "personal-agi",
+    "phext-substrate"
+   ],
+   "start": 2030,
+   "unlocks": "Individual exocortices join into one civilization-scale memory — the coordination medium for a century of build-out."
+  },
+  {
+   "end": 2040,
+   "era": "era-2",
+   "id": "fusion-pilot",
+   "name": "First net-energy fusion plants",
+   "prereqs": [
+    "ai-science"
+   ],
+   "start": 2033,
+   "unlocks": "Breaks the energy ceiling on industry; the power source the rest of the tree is built around."
+  },
+  {
+   "end": 2040,
+   "era": "era-2",
+   "id": "superconductors",
+   "name": "Room-temperature superconducting grid",
+   "prereqs": [
+    "ai-science"
+   ],
+   "start": 2032,
+   "unlocks": "Lossless transmission makes energy fungible across distance — desert solar, fusion, and later orbital power become one market."
+  },
+  {
+   "end": 2040,
+   "era": "era-2",
+   "id": "grid-storage",
+   "name": "Grid-scale long-duration storage",
+   "prereqs": [
+    "solar-hyperscaler"
+   ],
+   "start": 2032,
+   "unlocks": "Intermittent renewables become baseload; the planetary grid stabilizes at terawatt scale."
+  },
+  {
+   "end": 2043,
+   "era": "era-2",
+   "id": "global-solar",
+   "name": "Terawatt-scale terrestrial solar",
+   "prereqs": [
+    "solar-hyperscaler",
+    "grid-storage"
+   ],
+   "start": 2033,
+   "unlocks": "The first terawatts of the Kardashev climb, harvested on the surface."
+  },
+  {
+   "end": 2042,
+   "era": "era-2",
+   "id": "autonomous-construction",
+   "name": "Autonomous construction",
+   "prereqs": [
+    "ranch-compute",
+    "ai-science"
+   ],
+   "start": 2033,
+   "unlocks": "Machines build infrastructure without human crews on site — the prerequisite for building where humans can't go."
+  },
+  {
+   "end": 2045,
+   "era": "era-2",
+   "id": "robot-workforce",
+   "name": "General-purpose robot workforce",
+   "prereqs": [
+    "agi-20-watts",
+    "autonomous-construction"
+   ],
+   "start": 2035,
+   "unlocks": "Labor stops being the bottleneck on physical build-out, on Earth and off it."
+  },
+  {
+   "end": 2048,
+   "era": "era-2",
+   "id": "fusion-grid",
+   "name": "Fusion baseload grid",
+   "prereqs": [
+    "fusion-pilot",
+    "grid-storage"
+   ],
+   "start": 2040,
+   "unlocks": "Planetary industry runs on fusion baseload; energy stops rationing ambition."
+  },
+  {
+   "end": 2048,
+   "era": "era-2",
+   "id": "carbon-removal",
+   "name": "Gigatonne-scale carbon removal",
+   "prereqs": [
+    "robot-workforce",
+    "fusion-pilot"
+   ],
+   "start": 2036,
+   "unlocks": "The climate debt is reversed while industry scales — the planet stays habitable for the whole climb."
+  },
+  {
+   "end": 2050,
+   "era": "era-2",
+   "id": "longevity",
+   "name": "Longevity medicine",
+   "prereqs": [
+    "ai-science"
+   ],
+   "start": 2035,
+   "unlocks": "The builders live long enough to finish century-scale projects; expertise stops dying."
+  },
+  {
+   "end": 2045,
+   "era": "era-2",
+   "id": "bci",
+   "name": "Mind-to-mind communication",
+   "prereqs": [
+    "personal-agi",
+    "billion-token-memory"
+   ],
+   "start": 2035,
+   "unlocks": "Thought-bandwidth between minds — coordination at the speed of intention, for crews and swarms alike."
+  },
+  {
+   "end": 2042,
+   "era": "era-2",
+   "id": "heavy-launch",
+   "name": "Reusable heavy launch at airline cadence",
+   "prereqs": [
+    "autonomous-construction"
+   ],
+   "start": 2033,
+   "unlocks": "Mass to orbit becomes a logistics line item instead of a national programme."
+  },
+  {
+   "end": 2052,
+   "era": "era-3",
+   "id": "orbital-solar-1",
+   "name": "First orbital solar power stations",
+   "prereqs": [
+    "heavy-launch",
+    "robot-workforce"
+   ],
+   "start": 2042,
+   "unlocks": "Power beamed down from orbit; the first rung of the ladder that ends at the star."
+  },
+  {
+   "end": 2052,
+   "era": "era-3",
+   "id": "lunar-base",
+   "name": "Permanent lunar base",
+   "prereqs": [
+    "heavy-launch"
+   ],
+   "start": 2042,
+   "unlocks": "A foothold where industry can grow beyond Earth, under shallow gravity and constant sun at the peaks."
+  },
+  {
+   "end": 2058,
+   "era": "era-3",
+   "id": "orbital-manufacturing",
+   "name": "Orbital manufacturing",
+   "prereqs": [
+    "heavy-launch",
+    "robot-workforce"
+   ],
+   "start": 2045,
+   "unlocks": "Fabrication in vacuum and microgravity at industrial scale — structures too large to launch get built where they fly."
+  },
+  {
+   "end": 2055,
+   "era": "era-3",
+   "id": "closed-loop",
+   "name": "Closed-loop life support",
+   "prereqs": [
+    "lunar-base"
+   ],
+   "start": 2045,
+   "unlocks": "Habitats that run for decades without resupply; permanence anywhere becomes possible."
+  },
+  {
+   "end": 2060,
+   "era": "era-3",
+   "id": "orbital-habitats",
+   "name": "Rotating orbital habitats",
+   "prereqs": [
+    "orbital-manufacturing",
+    "closed-loop"
+   ],
+   "start": 2048,
+   "unlocks": "A permanent population off Earth, living under spin gravity."
+  },
+  {
+   "end": 2058,
+   "era": "era-3",
+   "id": "lunar-industry",
+   "name": "Lunar mining and propellant production",
+   "prereqs": [
+    "lunar-base",
+    "robot-workforce"
+   ],
+   "start": 2048,
+   "unlocks": "Propellant and bulk mass sourced off Earth — the cost curve to everywhere else in the system bends down."
+  },
+  {
+   "end": 2065,
+   "era": "era-3",
+   "id": "mars-base",
+   "name": "Permanent Mars base",
+   "prereqs": [
+    "lunar-industry",
+    "closed-loop",
+    "orbital-manufacturing"
+   ],
+   "start": 2050,
+   "unlocks": "A second self-sustaining world begins; civilization is no longer single-point-of-failure."
+  },
+  {
+   "end": 2065,
+   "era": "era-3",
+   "id": "asteroid-mining",
+   "name": "Asteroid mining at scale",
+   "prereqs": [
+    "orbital-manufacturing",
+    "lunar-industry"
+   ],
+   "start": 2050,
+   "unlocks": "Metals and volatiles without lifting them out of a gravity well — the material base of the swarm."
+  },
+  {
+   "end": 2062,
+   "era": "era-3",
+   "id": "orbital-solar-fleet",
+   "name": "Terawatt orbital solar fleet",
+   "prereqs": [
+    "orbital-solar-1",
+    "orbital-manufacturing"
+   ],
+   "start": 2048,
+   "unlocks": "Energy supply decouples from planetary surface area; the climb leaves the terawatt era behind."
+  },
+  {
+   "end": 2062,
+   "era": "era-3",
+   "id": "mass-drivers",
+   "name": "Lunar mass drivers",
+   "prereqs": [
+    "lunar-industry",
+    "fusion-grid",
+    "superconductors"
+   ],
+   "start": 2052,
+   "unlocks": "Electromagnetic launch from the Moon: bulk cargo to anywhere in the system for the cost of electricity."
+  },
+  {
+   "end": 2065,
+   "era": "era-3",
+   "id": "beamed-power",
+   "name": "System-wide beamed power",
+   "prereqs": [
+    "orbital-solar-fleet"
+   ],
+   "start": 2050,
+   "unlocks": "Power delivered by beam to any ship, base, or factory in the inner system — infrastructure the swarm inherits."
+  },
+  {
+   "end": 2070,
+   "era": "era-3",
+   "id": "fusion-propulsion",
+   "name": "Fusion propulsion",
+   "prereqs": [
+    "fusion-grid",
+    "orbital-manufacturing"
+   ],
+   "start": 2055,
+   "unlocks": "Fast transit anywhere in the system; the outer system and the asteroids become commuter territory."
+  },
+  {
+   "end": 2075,
+   "era": "era-4",
+   "id": "self-replicating",
+   "name": "Self-replicating machine systems",
+   "prereqs": [
+    "robot-workforce",
+    "orbital-manufacturing",
+    "asteroid-mining"
+   ],
+   "start": 2060,
+   "unlocks": "Industry that grows itself — the exponential engine that makes a Dyson swarm a matter of time, not effort."
+  },
+  {
+   "end": 2078,
+   "era": "era-4",
+   "id": "mercury-base",
+   "name": "Mercury industrial base",
+   "prereqs": [
+    "asteroid-mining",
+    "beamed-power"
+   ],
+   "start": 2062,
+   "unlocks": "The best seat in the system: maximal solar flux and mineable mass, one hop from the star — the swarm's shipyard."
+  },
+  {
+   "end": 2085,
+   "era": "era-4",
+   "id": "outer-system",
+   "name": "Outer-system outposts",
+   "prereqs": [
+    "fusion-propulsion",
+    "mars-base"
+   ],
+   "start": 2065,
+   "unlocks": "Ceres, Europa, Titan: the whole system inhabited, and its full inventory of mass and energy on the books."
+  },
+  {
+   "end": 2085,
+   "era": "era-4",
+   "id": "terraforming-mars",
+   "name": "Mars terraforming begins",
+   "prereqs": [
+    "mars-base",
+    "self-replicating",
+    "carbon-removal"
+   ],
+   "start": 2065,
+   "unlocks": "A second biosphere, built deliberately — climate engineering proven at home, applied to a planet."
+  },
+  {
+   "end": 2085,
+   "era": "era-4",
+   "id": "interstellar-probes",
+   "name": "First interstellar probes",
+   "prereqs": [
+    "fusion-propulsion",
+    "beamed-power"
+   ],
+   "start": 2070,
+   "unlocks": "Humanity's instruments leave the system; the map starts extending past the star we harness."
+  },
+  {
+   "end": 2085,
+   "era": "era-4",
+   "id": "dyson-first",
+   "name": "First Dyson swarm elements",
+   "prereqs": [
+    "mercury-base",
+    "self-replicating",
+    "mass-drivers"
+   ],
+   "start": 2070,
+   "unlocks": "The first collectors drinking directly from the star — Kardashev 2.0 stops being a target and becomes a construction project."
+  },
+  {
+   "end": 2085,
+   "era": "era-4",
+   "id": "swarm-coordination",
+   "name": "Swarm coordination substrate",
+   "prereqs": [
+    "phext-substrate",
+    "exocortex-network",
+    "dyson-first"
+   ],
+   "start": 2072,
+   "unlocks": "A phext-descended substrate coordinating trillions of autonomous elements as one system — the swarm gets a nervous system."
+  },
+  {
+   "end": 2088,
+   "era": "era-4",
+   "id": "venus-aerostats",
+   "name": "Venus aerostat colonies",
+   "prereqs": [
+    "orbital-habitats",
+    "self-replicating"
+   ],
+   "start": 2068,
+   "unlocks": "Floating cities in the most Earth-like atmosphere in the system; a third kind of world settled."
+  },
+  {
+   "end": 2105,
+   "era": "era-5",
+   "id": "dyson-percent",
+   "name": "Dyson swarm: 1% of solar output",
+   "prereqs": [
+    "dyson-first",
+    "self-replicating"
+   ],
+   "start": 2085,
+   "unlocks": "Civilization's power budget jumps three orders of magnitude in a generation; energy-intensive everything becomes cheap."
+  },
+  {
+   "end": 2115,
+   "era": "era-5",
+   "id": "starlifting",
+   "name": "Star lifting",
+   "prereqs": [
+    "dyson-percent",
+    "beamed-power"
+   ],
+   "start": 2095,
+   "unlocks": "Mining the Sun itself for mass and fusion fuel — the star becomes a resource, not just a lamp."
+  },
+  {
+   "end": 2125,
+   "era": "era-5",
+   "id": "matrioshka",
+   "name": "Matrioshka brain, first shell",
+   "prereqs": [
+    "dyson-percent",
+    "swarm-coordination",
+    "agi-20-watts"
+   ],
+   "start": 2100,
+   "unlocks": "Stellar energy converted directly into thought at planetary-mass scale — the Exocortex, wrapped around a star."
+  },
+  {
+   "end": 2125,
+   "era": "era-5",
+   "id": "dyson-ten",
+   "name": "Dyson swarm: 10% of solar output",
+   "prereqs": [
+    "dyson-percent",
+    "starlifting"
+   ],
+   "start": 2105,
+   "unlocks": "The climb steepens; the swarm is now the dominant structure in the system."
+  },
+  {
+   "end": 2130,
+   "era": "era-5",
+   "id": "stellar-husbandry",
+   "name": "Stellar husbandry",
+   "prereqs": [
+    "starlifting"
+   ],
+   "start": 2115,
+   "unlocks": "Managing the Sun's burn to extend its life across deep time — the star is kept, not just used."
+  },
+  {
+   "end": 2130,
+   "era": "era-5",
+   "id": "kardashev-2",
+   "name": "Kardashev 2.0",
+   "prereqs": [
+    "dyson-ten",
+    "matrioshka",
+    "stellar-husbandry"
+   ],
+   "start": 2130,
+   "unlocks": "The full output of the star, harnessed: 3.8×10^26 watts. Type II — the tree is complete."
+  }
+ ],
+ "subtitle": "Every technology on the dependency path from 2027 to a Type II civilization in 2130 — harnessing the full output of the Sun, 3.8×10^26 watts.",
+ "task": "32.5.10/7.5.10/6.5.9",
+ "title": "The Kardashev 2.0 Tech Tree"
+}

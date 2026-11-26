@@ -1,0 +1,12 @@
+[Unit]
+Description=Kardashev 2.0 Tech Tree completion-claims service (singularitywatch.org/tech-tree)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /source/singularity-watch/tech-tree/claims-server.py --port 8919 --data %h/tech-tree-data/claims.json --tree /source/singularity-watch/tech-tree/tree.json
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
