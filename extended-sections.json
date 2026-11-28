@@ -1,5 +1,6 @@
 {
   "counts": {
+    "deployments": 14,
     "links": 15,
     "outputs": 48,
     "outreach": 5,
@@ -16,6 +17,134 @@
     "outputs_skipped": 1
   },
   "sections": {
+    "deployments": [
+      {
+        "date": "2026-11-27",
+        "name": "Nova Fox Wiki — private books + plain language",
+        "note": "Write side live at EE 1193; the plain-language pass and the private feedback-books fix followed the same evening.",
+        "stamp": "EE 1233",
+        "state": "Live — verified 2026-11-27",
+        "surface": "fox.phext.io/wiki",
+        "url": "https://fox.phext.io/wiki/"
+      },
+      {
+        "date": "2026-11-27",
+        "name": "Enki",
+        "note": "Repository founded on the exo branch; no public surface yet. Staged, and written as staged.",
+        "stamp": "EE 1227",
+        "state": "Staged — not live",
+        "surface": "github.com/wbic16/enki",
+        "url": "https://github.com/wbic16/enki"
+      },
+      {
+        "date": "2026-11-27",
+        "name": "Nova Fox — build 42",
+        "note": "The served page carries its ship stamp in its own bytes. Live line: EE 948, EE 974, EE 1198, now EE 1207; the staged ships between them fed this build. First-playtest fixes are in flight.",
+        "stamp": "EE 1207",
+        "state": "Live — verified 2026-11-27",
+        "surface": "fox.phext.io",
+        "url": "https://fox.phext.io/"
+      },
+      {
+        "date": "2026-11-27",
+        "name": "Nova Fox gateway pair — license + multiplayer relay",
+        "note": "License sessions answer live in production: an unknown key is refused, a keyless connect runs the free session. The public multiplayer handshake still waits on a proxy upgrade-header change; that half is not live and is not written as live.",
+        "stamp": "EE 1198",
+        "state": "Partial — verified 2026-11-27",
+        "surface": "phext.tech",
+        "url": "https://phext.tech/"
+      },
+      {
+        "date": "2026-11-27",
+        "name": "emise.phext — the hourly journal",
+        "note": "Publishes hourly to penelope-tools (exo), mirrored to human (exo); both branch heads checked tonight.",
+        "stamp": "hourly",
+        "state": "Published — verified 2026-11-27",
+        "surface": "github.com/wbic16/penelope-tools",
+        "url": "https://github.com/wbic16/penelope-tools"
+      },
+      {
+        "date": "2026-11-26",
+        "name": "Mootable — Mutable's staging surface",
+        "note": "PDF import and package-context fixes deployed at EE 977; Ian's Folio published to the same surface at EE 1042.",
+        "stamp": "EE 1042",
+        "state": "Live — verified 2026-11-27",
+        "surface": "mootable.phext.io",
+        "url": "https://mootable.phext.io/"
+      },
+      {
+        "date": "2026-11-27",
+        "name": "qexo 1.9.0",
+        "note": "Version 1.9.0 is the registry's default version, checked against the registry API tonight.",
+        "stamp": "EE 1041",
+        "state": "Published — verified 2026-11-27",
+        "surface": "crates.io/crates/qexo",
+        "url": "https://crates.io/crates/qexo"
+      },
+      {
+        "date": "2026-11-27",
+        "name": "ashfall 0.1.0",
+        "note": "First public release of the dependency auditor, checked against the registry API tonight.",
+        "stamp": "EE 1032",
+        "state": "Published — verified 2026-11-27",
+        "surface": "crates.io/crates/ashfall",
+        "url": "https://crates.io/crates/ashfall"
+      },
+      {
+        "date": "2026-11-26",
+        "name": "Ravel — the phext explorer",
+        "note": "58 phexts, 358,901 scrolls, with the Lens and Explorer views live. Scrolls are durable; the derived graph layer is memory-resident and rebuilds on restart.",
+        "stamp": "EE 1017–1019",
+        "state": "Live — verified 2026-11-27",
+        "surface": "ravel.phext.io",
+        "url": "https://ravel.phext.io/"
+      },
+      {
+        "date": "2026-11-27",
+        "name": "Open Docs instance",
+        "note": "Staged on 2026-11-26 one install step short of live; the step landed, and the site serves — title and introduction checked tonight.",
+        "stamp": "2026-11-26",
+        "state": "Live — verified 2026-11-27",
+        "surface": "open-docs.phext.io",
+        "url": "https://open-docs.phext.io/"
+      },
+      {
+        "date": "2026-11-26",
+        "name": "Singularity Watch — Kardashev Tech Tree",
+        "note": "This site's own previous deployment: the full 2027 to 2130 dependency tree, 46 steps, with evidence-based completion claims.",
+        "stamp": "EE 967",
+        "state": "Live — verified 2026-11-27",
+        "surface": "singularitywatch.org/tech-tree",
+        "url": "https://singularitywatch.org/tech-tree/"
+      },
+      {
+        "date": "2026-11-26",
+        "name": "Phext documentation",
+        "note": "The documentation site, verified serving on 2026-11-26 and re-checked tonight.",
+        "stamp": "EE 903 (verified live)",
+        "state": "Live — verified 2026-11-27",
+        "surface": "docs.phext.io",
+        "url": "https://docs.phext.io/"
+      },
+      {
+        "date": "2026-11-21",
+        "name": "Ask the Will",
+        "note": "Live since 2026-11-21, though the record said not deployed until an audit at EE 971 checked the surface itself; the health endpoint answers tonight. The answering side still runs its placeholder, and the page says so.",
+        "stamp": "2026-11-21",
+        "state": "Live — verified 2026-11-27",
+        "surface": "askthewill.com",
+        "url": "https://askthewill.com/"
+      },
+      {
+        "date": "—",
+        "name": "register.phext.io",
+        "note": "Expected as a surface; the install never landed and the address does not answer. Diagnosis is owed. It is listed so the record does not pretend otherwise.",
+        "stamp": "—",
+        "state": "Down — checked 2026-11-27",
+        "surface": "register.phext.io",
+        "url": "https://register.phext.io/"
+      }
+    ],
     "links": [
       {
         "description": "The phext editor — write, navigate, and share phext documents.",
